@@ -56,6 +56,7 @@ flutter:
   assets:
     - assets/
     - assets/Icons/
+    - assets/Icons/Like/
     - assets/Images/Allergic/
     - assets/Images/Categories/
     - assets/Images/ChefProfiles/

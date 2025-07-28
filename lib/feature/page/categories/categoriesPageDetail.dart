@@ -12,18 +12,18 @@ import 'package:foodapp/feature/page/categories/categories_page_vegan..dart';
 import 'package:foodapp/feature/AppDetails/recipe_app_bar.dart';
 import 'package:foodapp/utils/colors.dart';
 
-void main() {
-  runApp(CategoriesPageDetail());
-}
 
 class CategoriesPageDetail extends StatefulWidget {
-  CategoriesPageDetail({super.key});
+  CategoriesPageDetail({super.key, required this.activIndex});
+
+  int activIndex;
 
   @override
   State<CategoriesPageDetail> createState() => _CategoriesPageDetailState();
 }
 
 class _CategoriesPageDetailState extends State<CategoriesPageDetail> {
+
   List<Widget> Pages = [
     CategoriesPageBreakfastState(
       items: [
@@ -295,7 +295,6 @@ class _CategoriesPageDetailState extends State<CategoriesPageDetail> {
     "Drinks",
   ];
 
-  int isActivTabBar = 0;
 
   List<String> tabBar = [
     "Breakfast",
@@ -306,13 +305,15 @@ class _CategoriesPageDetailState extends State<CategoriesPageDetail> {
     "Drinks",
   ];
 
+
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: Size(430, 932),
       child: Scaffold(
         extendBody: true,
-        backgroundColor: colors().FonColor,
+        backgroundColor: colors().fonColor,
         appBar: AppBar(
           backgroundColor: Color(0xFF1C0F0D),
           elevation: 0,
@@ -324,7 +325,7 @@ class _CategoriesPageDetailState extends State<CategoriesPageDetail> {
             icon: SvgPicture.asset("assets/Icons/back-arrow.svg"),
           ),
           centerTitle: true,
-          title: Text( titleAppBar[isActivTabBar],
+          title: Text( titleAppBar[widget.activIndex],
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 20.sp,
@@ -368,13 +369,13 @@ class _CategoriesPageDetailState extends State<CategoriesPageDetail> {
                       ...List.generate(tabBar.length, (index) {
                         return TextButton(
                           onPressed: () {
-                            isActivTabBar = index;
+                            widget.activIndex = index;
                             setState(() {});
                           },
                           style: TextButton.styleFrom(
                             minimumSize: Size(0, 35),
-                            backgroundColor: isActivTabBar == index
-                                ? colors().TabBar
+                            backgroundColor: widget.activIndex == index
+                                ? colors().tabBar
                                 : Colors.transparent,
                           ),
                           child: SizedBox(
@@ -386,9 +387,9 @@ class _CategoriesPageDetailState extends State<CategoriesPageDetail> {
                                 style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 16,
-                                  color: isActivTabBar == index
+                                  color: widget.activIndex == index
                                       ? colors().colorsWhite
-                                      : colors().TabBar,
+                                      : colors().tabBar,
                                 ),
                               ),
                             ),
@@ -401,7 +402,7 @@ class _CategoriesPageDetailState extends State<CategoriesPageDetail> {
               ),
             ),
             SizedBox(height: 16),
-            Pages[isActivTabBar],
+            Pages[widget.activIndex],
           ],
         ),
       ),

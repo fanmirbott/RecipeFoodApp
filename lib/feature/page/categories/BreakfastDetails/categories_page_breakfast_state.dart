@@ -26,6 +26,17 @@ class CategoriesPageBreakfastState extends StatefulWidget {
 
 class _CategoriesPageBreakfastStateState
     extends State<CategoriesPageBreakfastState> {
+
+  late List<int> likeStatus;
+
+  @override
+  void initState() {
+    super.initState();
+    likeStatus = List.filled(widget.items.length, 0);
+  }
+
+  Widget likeImg = Image.asset("assets/Icons/Like/like.png", width: 28, height: 28,);
+  Widget deslikeImg = Image.asset("assets/Icons/Like/deslike.png", width: 28, height: 28,);
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -72,7 +83,7 @@ class _CategoriesPageBreakfastStateState
                         height: 226,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadiusGeometry.circular(14),
-                          color: colors().CategoriesContainerColor,
+                          color: colors().categoriesContainerColor,
                         ),
                       ),
                       Align(
@@ -95,7 +106,7 @@ class _CategoriesPageBreakfastStateState
                                   style: TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w400,
-                                    color: colors().TextStyleColor,
+                                    color: colors().textStyleColor,
                                   ),
                                 ),
                                 Text(
@@ -103,7 +114,7 @@ class _CategoriesPageBreakfastStateState
                                   style: TextStyle(
                                     fontSize: 13,
                                     fontWeight: FontWeight.w300,
-                                    color: colors().TextStyleColor,
+                                    color: colors().textStyleColor,
                                   ),
                                 ),
                                 SizedBox(
@@ -122,7 +133,7 @@ class _CategoriesPageBreakfastStateState
                                               style: TextStyle(
                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 12,
-                                                color: colors().CategoriesNum,
+                                                color: colors().categoriesNum,
                                               ),
                                             ),
                                             SvgPicture.asset(
@@ -145,7 +156,7 @@ class _CategoriesPageBreakfastStateState
                                               style: TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.w400,
-                                                color: colors().CategoriesNum,
+                                                color: colors().categoriesNum,
                                               ),
                                             ),
                                             SvgPicture.asset(
@@ -183,6 +194,24 @@ class _CategoriesPageBreakfastStateState
                           child: Image.asset(
                             widget.items[index],
                             fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 8,
+                        right: 8,
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              likeStatus[index] = likeStatus[index] == 0 ? 1 : 0;
+                            });
+                          },
+                          child: Image.asset(
+                            likeStatus[index] == 1
+                                ? "assets/Icons/Like/like.png"
+                                : "assets/Icons/Like/deslike.png",
+                            width: 28,
+                            height: 28,
                           ),
                         ),
                       ),

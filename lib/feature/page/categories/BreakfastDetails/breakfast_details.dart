@@ -31,7 +31,7 @@ class BreakfastDetails extends StatelessWidget {
     return Scaffold(
       appBar: RecipeAppBar(),
       bottomNavigationBar: RecipeNavigationBar(),
-      backgroundColor: colors().FonColor,
+      backgroundColor: colors().fonColor,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 36.5),
         child: Column(
@@ -43,7 +43,7 @@ class BreakfastDetails extends StatelessWidget {
                   width: 357,
                   height: 337,
                   decoration: BoxDecoration(
-                    color: colors().TabBar,
+                    color: colors().tabBar,
                     borderRadius: BorderRadiusGeometry.circular(10),
                   ),
                 ),
@@ -66,7 +66,7 @@ class BreakfastDetails extends StatelessWidget {
                               child: IconButton(
                                 onPressed: () {},
                                 style: IconButton.styleFrom(
-                                  backgroundColor: colors().TabBar,
+                                  backgroundColor: colors().tabBar,
                                   fixedSize: Size(74, 71),
                                 ),
                                 icon: SvgPicture.asset(
@@ -92,7 +92,7 @@ class BreakfastDetails extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w500,
-                                color: colors().CategoriesContainerColor,
+                                color: colors().categoriesContainerColor,
                               ),
                             ),
                             Spacer(),
@@ -107,7 +107,7 @@ class BreakfastDetails extends StatelessWidget {
                                   style: TextStyle(
                                     fontWeight: FontWeight.w400,
                                     fontSize: 12,
-                                    color: colors().CategoriesContainerColor,
+                                    color: colors().categoriesContainerColor,
                                   ),
                                 ),
                               ],
@@ -122,7 +122,7 @@ class BreakfastDetails extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w400,
-                                    color: colors().CategoriesContainerColor,
+                                    color: colors().categoriesContainerColor,
                                   ),
                                 ),
                               ],
@@ -191,7 +191,7 @@ class BreakfastDetails extends StatelessWidget {
                           style: IconButton.styleFrom(
                             fixedSize: Size(109, 21),
                             minimumSize: Size(109, double.infinity),
-                            backgroundColor: colors().TabBar,
+                            backgroundColor: colors().tabBar,
                           ),
                           icon: SizedBox(
                             height: 21,
