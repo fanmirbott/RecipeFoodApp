@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:foodapp/feature/AppDetails/recipe_app_bar.dart';
 import 'package:foodapp/feature/AppDetails/recipe_navigation_bar.dart';
 import 'package:foodapp/feature/page/categories/categoriesPageLunch.dart';
-import 'package:foodapp/feature/page/categories/categories_page_breakfast_state.dart';
+import 'package:foodapp/feature/page/categories/BreakfastDetails/categories_page_breakfast_state.dart';
 import 'package:foodapp/feature/page/categories/categories_page_dessert.dart';
 import 'package:foodapp/feature/page/categories/categories_page_dinner.dart';
 import 'package:foodapp/feature/page/categories/categories_page_drinks.dart';
