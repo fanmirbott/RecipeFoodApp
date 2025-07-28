@@ -1,9 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-class RecipeAppBar extends StatelessWidget implements PreferredSizeWidget{
+import 'package:foodapp/feature/page/categories/categories_page.dart';
+class RecipeAppBar extends StatefulWidget implements PreferredSizeWidget{
   const RecipeAppBar({super.key});
+
+  @override
+  State<RecipeAppBar> createState() => _RecipeAppBarState();
+
+  @override
+  Size get preferredSize => Size(double.infinity, 56);
+}
+
+class _RecipeAppBarState extends State<RecipeAppBar> {
+  List<String> titleAppBar = [
+    "Breakfast",
+    "Lunch",
+    "Dinnar",
+    "Vegan",
+    "Dessert",
+    "Drinks",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +35,12 @@ class RecipeAppBar extends StatelessWidget implements PreferredSizeWidget{
         icon: SvgPicture.asset("assets/Icons/back-arrow.svg"),
       ),
       centerTitle: true,
-      title: Text(
-        "Categories",
-        style: TextStyle(
-          fontWeight: FontWeight.w600,
-          fontSize: 20.sp,
-          color: Color(0xFFFD5D69),
-        ),
+      title: Text("Categories",
+            style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 20.sp,
+            color: Color(0xFFFD5D69),
+            ),
       ),
       actions: [
         IconButton(

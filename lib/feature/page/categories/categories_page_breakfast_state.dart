@@ -1,0 +1,199 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:foodapp/feature/page/categories/BreakfastDetails/breakfast_details.dart';
+import 'package:foodapp/utils/colors.dart';
+
+class CategoriesPageBreakfastState extends StatefulWidget {
+  const CategoriesPageBreakfastState({
+    super.key,
+    required this.items,
+    required this.text,
+    required this.text1,
+    required this.CategoriesPageNum,
+    required this.CategoriesPageMinut,
+  });
+
+  final List<String> items;
+  final List<String> text;
+  final List<String> text1;
+  final List<String> CategoriesPageNum;
+  final List<String> CategoriesPageMinut;
+
+  @override
+  State<CategoriesPageBreakfastState> createState() =>
+      _CategoriesPageBreakfastStateState();
+}
+
+class _CategoriesPageBreakfastStateState
+    extends State<CategoriesPageBreakfastState> {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 37),
+        child: GridView.builder(
+          itemCount: widget.items.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            mainAxisSpacing: 30,
+            crossAxisSpacing: 18.5,
+            crossAxisCount: 2,
+            mainAxisExtent: 226,
+          ),
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BreakfastDetails(
+                      Breakfastmage:
+                        "assets/Images/Recipes/Breakfast/eggs_benedict.png",
+                      ImgText: "Pancake & Cream",
+                      StarsNum: "4",
+                      ReviewsNum: "2.273",
+                      CheffImg: "assets/Images/ChefProfiles/ryan.png",
+                      CheffUser: "@josh-ryan",
+                      CheffName: "Josh Ryan-Chef",
+                      DetailsText: "Fluffy pancakes served with silky whipped cream, a classic breakfast indulgence perfect for a leisurely morning treat.",
+                    ),
+                  ),
+                );
+                setState(() {});
+              },
+              child: Center(
+                child: SizedBox(
+                  width: 168,
+                  height: 226,
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      Container(
+                        width: 158,
+                        height: 226,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadiusGeometry.circular(14),
+                          color: colors().CategoriesContainerColor,
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: SizedBox(
+                          width: 158,
+                          height: 76,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              top: 3,
+                              left: 15,
+                              right: 15,
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  widget.text[index],
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: colors().TextStyleColor,
+                                  ),
+                                ),
+                                Text(
+                                  widget.text1[index],
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w300,
+                                    color: colors().TextStyleColor,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 125.5,
+                                  height: 18,
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 23,
+                                        height: 18,
+                                        child: Row(
+                                          spacing: 5,
+                                          children: [
+                                            Text(
+                                              widget.CategoriesPageNum[index],
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 12,
+                                                color: colors().CategoriesNum,
+                                              ),
+                                            ),
+                                            SvgPicture.asset(
+                                              "assets/Icons/star.svg",
+                                              width: 10,
+                                              height: 10,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Spacer(),
+                                      SizedBox(
+                                        width: 50,
+                                        height: 18,
+                                        child: Row(
+                                          spacing: 5,
+                                          children: [
+                                            Text(
+                                              widget.CategoriesPageMinut[index],
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400,
+                                                color: colors().CategoriesNum,
+                                              ),
+                                            ),
+                                            SvgPicture.asset(
+                                              "assets/Icons/clock.svg",
+                                              width: 10,
+                                              height: 10,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      ClipRRect(
+                        borderRadius: BorderRadiusGeometry.circular(14),
+                        child: Container(
+                          width: 169,
+                          height: 153,
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                spreadRadius: 0,
+                                blurRadius: 8,
+                                offset: Offset(0, 4),
+                              ),
+                            ],
+                            borderRadius: BorderRadiusGeometry.circular(14),
+                          ),
+                          child: Image.asset(
+                            widget.items[index],
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}

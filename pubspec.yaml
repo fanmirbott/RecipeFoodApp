@@ -60,7 +60,16 @@ flutter:
     - assets/Images/Categories/
     - assets/Images/ChefProfiles/
     - assets/Images/Prefer/
-    - assets/Images/Recipes/
+    - assets/Images/Recipes/Breakfast/
+    - assets/Images/Recipes/Cookies/
+    - assets/Images/Recipes/Dessert/
+    - assets/Images/Recipes/Dinner/
+    - assets/Images/Recipes/Drinks/
+    - assets/Images/Recipes/Lunch/
+    - assets/Images/Recipes/Meat/
+    - assets/Images/Recipes/Salads/
+    - assets/Images/Recipes/Seafood/
+    - assets/Images/Recipes/Vegan/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

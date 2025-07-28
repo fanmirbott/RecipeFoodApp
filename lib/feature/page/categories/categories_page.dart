@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodapp/feature/AppDetails/recipe_app_bar.dart';
-import 'package:foodapp/feature/page/categories/categoriesPageDetails.dart';
+import 'package:foodapp/feature/page/categories/categoriesPageDetail.dart';
 import 'package:foodapp/feature/AppDetails/recipe_navigation_bar.dart';
+import 'package:foodapp/utils/colors.dart';
 
 class CategoriesPage extends StatefulWidget {
   const CategoriesPage({super.key});
@@ -25,8 +26,8 @@ class _CategoriesPageState extends State<CategoriesPage> {
     "assets/Images/Categories/drinks.png",
   ];
   final List<String> text = [
-    "Lunch",
     "Breakfast",
+    "Lunch",
     "Dinner",
     "Vegan",
     "Dessert",
@@ -41,7 +42,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      backgroundColor: Color(0xFF1C0F0D),
+      backgroundColor: colors().FonColor,
       appBar: RecipeAppBar(),
       bottomNavigationBar: RecipeNavigationBar(),
       body: Padding(
@@ -64,7 +65,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => CategoriesPageDetails(),
+                          builder: (context) => CategoriesPageDetail(),
                         ),
                       );
                     },
