@@ -10,4 +10,6 @@ class colors {
   Color breakfastText = Color(0xFFFD5D69);
   Color desLikeColor = Color(0xFFEC888D);
   Color likeColor = Color(0xFFFD5D69);
+
+  Color unfollow = Colors.blueAccent;
 }

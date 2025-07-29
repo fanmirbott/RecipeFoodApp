@@ -5,7 +5,7 @@ import 'package:foodapp/feature/page/categories/categoriesPageDetail.dart';
 import 'package:foodapp/feature/AppDetails/recipe_navigation_bar.dart';
 import 'package:foodapp/utils/colors.dart';
 import 'BreakfastDetails/categories_page_breakfast_state.dart';
-import 'categoriesPageLunch.dart';
+import 'LunchDetails/categoriesPageLunch.dart';
 import 'categories_page_dessert.dart';
 import 'categories_page_dinner.dart';
 import 'categories_page_drinks.dart';

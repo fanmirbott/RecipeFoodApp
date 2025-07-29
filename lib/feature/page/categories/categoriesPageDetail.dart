@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:foodapp/feature/AppDetails/recipe_app_bar.dart';
 import 'package:foodapp/feature/AppDetails/recipe_navigation_bar.dart';
-import 'package:foodapp/feature/page/categories/categoriesPageLunch.dart';
+import 'package:foodapp/feature/page/categories/LunchDetails/categoriesPageLunch.dart';
 import 'package:foodapp/feature/page/categories/BreakfastDetails/categories_page_breakfast_state.dart';
 import 'package:foodapp/feature/page/categories/categories_page_dessert.dart';
 import 'package:foodapp/feature/page/categories/categories_page_dinner.dart';
@@ -24,6 +24,7 @@ class CategoriesPageDetail extends StatefulWidget {
 
 class _CategoriesPageDetailState extends State<CategoriesPageDetail> {
 
+
   List<Widget> Pages = [
     CategoriesPageBreakfastState(
       items: [
@@ -35,7 +36,6 @@ class _CategoriesPageDetailState extends State<CategoriesPageDetail> {
         "assets/Images/Recipes/Breakfast/still_life_potato.png",
         "assets/Images/Recipes/Breakfast/sunny_bruschetta.png",
         "assets/Images/Recipes/Breakfast/tofu_sandwich.png",
-
       ],
       text: [
         "Eggs Benedict",
@@ -68,6 +68,8 @@ class _CategoriesPageDetailState extends State<CategoriesPageDetail> {
         "25min",
         "20min",
       ],
+
+
     ),
     CategoriesPageLunch(
       items: [

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foodapp/feature/page/categories/BreakfastDetails/breakfast_details.dart';
+import 'package:foodapp/feature/page/categories/LunchDetails/lunchDetails.dart';
 import 'package:foodapp/utils/colors.dart';
+import 'package:foodapp/feature/page/categories/categoriesPageDetail.dart';
 
-class CategoriesPageBreakfastState extends StatefulWidget {
-  const CategoriesPageBreakfastState({
+class CategoriesPageLunch extends StatefulWidget {
+  const CategoriesPageLunch({
     super.key,
     required this.items,
     required this.text,
@@ -20,12 +21,10 @@ class CategoriesPageBreakfastState extends StatefulWidget {
   final List<String> CategoriesPageMinut;
 
   @override
-  State<CategoriesPageBreakfastState> createState() =>
-      _CategoriesPageBreakfastStateState();
+  State<CategoriesPageLunch> createState() => _CategoriesPageLunchState();
 }
 
-class _CategoriesPageBreakfastStateState
-    extends State<CategoriesPageBreakfastState> {
+class _CategoriesPageLunchState extends State<CategoriesPageLunch> {
   late List<int> likeStatus;
 
   @override
@@ -33,17 +32,6 @@ class _CategoriesPageBreakfastStateState
     super.initState();
     likeStatus = List.filled(widget.items.length, 0);
   }
-
-  Widget likeImg = Image.asset(
-    "assets/Icons/Like/like.png",
-    width: 28,
-    height: 28,
-  );
-  Widget deslikeImg = Image.asset(
-    "assets/Icons/Like/deslike.png",
-    width: 28,
-    height: 28,
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -64,43 +52,39 @@ class _CategoriesPageBreakfastStateState
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => BreakfastDetails(
-                      Breakfastmage:
-                          "assets/Images/Recipes/Breakfast/eggs_benedict.png",
-                      ImgText: "Pancake & Cream",
-                      StarsNum: "4",
+                    builder: (context) => LunchDetails(
+                      foodImage: "assets/Images/Recipes/Breakfast/eggs_benedict.png",
+                      ImgText: "Pad Thai Chicken",
+                      StarsNum: "4.2",
                       ReviewsNum: "2.273",
                       CheffImg: "assets/Images/ChefProfiles/ryan.png",
                       CheffUser: "@josh-ryan",
                       CheffName: "Josh Ryan-Chef",
-                      DetailsText:
-                          "Fluffy pancakes served with silky whipped cream, a classic breakfast indulgence perfect for a leisurely morning treat.",
-                      ingredientsText: [
-                        "cup all-purpose flour",
-                        "tablespoons granulated sugar",
-                        "teaspoon baking powder",
-                        "teaspoon baking soda",
-                        "teaspoon salt",
-                        "nimadur",
-                        "yana nimadur",
-                        "fghfdgh",
-                        "fghrh",
-                      ],
+                      DetailsText: "A savory Thai dish featuring tender chicken, rice noodles, and a flavorful sauce made from soy sauce, fish sauce, tamarind paste, and brown sugar, topped with bean sprouts, peanuts, and fresh cilantro for a delightful balance of flavors and textures.",
                       ingredientsNum: [
+                        "8",
+                        "2",
+                        "8",
+                        "8",
+                        "4",
+                        "2",
                         "1",
-                            "2",
-                            "1",
-                            "1/2",
-                            "1/4",
-                            "2",
-                            "1",
-                            "1",
-                            "2",
+                        "7",
+                        "2",],
+                      ingredientsText: [
+                        "oz (about 225g) rice noodles",
+                        "nma gap",
+                        "tinch",
+                        "mayli tinch bolsa agar",
+                        "ha uzingda nma gap",
+                        "nma ishing bor",
+                        "norm gapir",
+                        "nma qilasan",
+                        "axaxaxaxaxaxa",
                       ],
                     ),
                   ),
                 );
-                setState(() {});
               },
               child: Center(
                 child: SizedBox(
@@ -148,6 +132,7 @@ class _CategoriesPageBreakfastStateState
                                     color: colors().textStyleColor,
                                   ),
                                 ),
+                                Spacer(),
                                 SizedBox(
                                   width: 125.5,
                                   height: 18,

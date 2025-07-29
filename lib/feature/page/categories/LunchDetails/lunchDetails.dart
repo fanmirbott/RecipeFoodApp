@@ -4,10 +4,10 @@ import 'package:foodapp/utils/colors.dart';
 import 'package:foodapp/feature/AppDetails/recipe_app_bar.dart';
 import 'package:foodapp/feature/AppDetails/recipe_navigation_bar.dart';
 
-class BreakfastDetails extends StatefulWidget {
-  const BreakfastDetails({
+class LunchDetails extends StatefulWidget {
+  const LunchDetails({
     super.key,
-    required this.Breakfastmage,
+    required this.foodImage,
     required this.ImgText,
     required this.StarsNum,
     required this.ReviewsNum,
@@ -19,7 +19,7 @@ class BreakfastDetails extends StatefulWidget {
     required this.ingredientsText,
   });
 
-  final String Breakfastmage;
+  final String foodImage;
   final String ImgText;
   final String StarsNum;
   final String ReviewsNum;
@@ -32,12 +32,11 @@ class BreakfastDetails extends StatefulWidget {
   final List<String> ingredientsText;
 
   @override
-  State<BreakfastDetails> createState() => _BreakfastDetailsState();
+  State<LunchDetails> createState() => _LunchDetailsState();
 }
 
-class _BreakfastDetailsState extends State<BreakfastDetails> {
+class _LunchDetailsState extends State<LunchDetails> {
   bool follow = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +69,7 @@ class _BreakfastDetailsState extends State<BreakfastDetails> {
                         child: Stack(
                           children: [
                             Image.asset(
-                              widget.Breakfastmage,
+                              widget.foodImage,
                               width: 357,
                               height: 281,
                               fit: BoxFit.cover,
@@ -273,17 +272,19 @@ class _BreakfastDetailsState extends State<BreakfastDetails> {
             SizedBox(height: 5),
             SizedBox(
               width: 357,
-              height: 36,
-              child: Text(
-                widget.DetailsText,
-                style: TextStyle(
-                  color: colors().colorsWhite,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12,
+              height: 56,
+              child: SingleChildScrollView(
+                child: Text(
+                  widget.DetailsText,
+                  style: TextStyle(
+                    color: colors().colorsWhite,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 12,
+                  ),
                 ),
               ),
             ),
-            SizedBox(height: 31),
+            SizedBox(height: 10),
             SizedBox(
               width: 358,
               height: 28,
@@ -296,50 +297,50 @@ class _BreakfastDetailsState extends State<BreakfastDetails> {
                 ),
               ),
             ),
-             SizedBox(height: 24,),
-             SizedBox(
-                width: 358,
-                height: 162,
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 80),
-                    child: Column(
-                      children: [
-                        ...List.generate(widget.ingredientsText.length, (index){
-                          return Row(
-                              spacing: 2,
-                              children: [
-                                Container(
-                                  width: 3,
-                                  height: 3,
-                                  decoration: BoxDecoration(
-                                    color: colors().breakfastText,
-                                    shape: BoxShape.circle,
-                                  ),),
-                                Text(
-                                  widget.ingredientsNum[index],
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 12,
-                                    color: colors().breakfastText,
-                                  ),
+            SizedBox(height: 24,),
+            SizedBox(
+              width: 358,
+              height: 162,
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 80),
+                  child: Column(
+                    children: [
+                      ...List.generate(widget.ingredientsText.length, (index){
+                        return Row(
+                            spacing: 2,
+                            children: [
+                              Container(
+                                width: 3,
+                                height: 3,
+                                decoration: BoxDecoration(
+                                  color: colors().breakfastText,
+                                  shape: BoxShape.circle,
+                                ),),
+                              Text(
+                                widget.ingredientsNum[index],
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                  color: colors().breakfastText,
                                 ),
-                                Text(
-                                  widget.ingredientsText[index],
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 12,
-                                    color: colors().categoriesContainerColor,
-                                  ),
+                              ),
+                              Text(
+                                widget.ingredientsText[index],
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                  color: colors().categoriesContainerColor,
                                 ),
-                              ]
-                          );
-                        })
-                      ],
-                    ),
+                              ),
+                            ]
+                        );
+                      })
+                    ],
                   ),
                 ),
               ),
+            ),
           ],
         ),
       ),
