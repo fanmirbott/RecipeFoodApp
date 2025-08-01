@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodapp/feature/page/categories/categories_page.dart';
+
+import '../../utils/colors.dart';
 class RecipeAppBar extends StatefulWidget implements PreferredSizeWidget{
   const RecipeAppBar({super.key});
 
@@ -13,7 +15,19 @@ class RecipeAppBar extends StatefulWidget implements PreferredSizeWidget{
 }
 
 class _RecipeAppBarState extends State<RecipeAppBar> {
+  
+  int activIndex = 0;
+
   List<String> titleAppBar = [
+    "Breakfast",
+    "Lunch",
+    "Dinnar",
+    "Vegan",
+    "Dessert",
+    "Drinks",
+  ];
+
+  List<String> tabBar = [
     "Breakfast",
     "Lunch",
     "Dinnar",
@@ -61,6 +75,49 @@ class _RecipeAppBarState extends State<RecipeAppBar> {
         ),
         SizedBox(width: 27),
       ],
+      bottom: PreferredSize(preferredSize: Size(double.infinity, 39), child:
+      SizedBox(
+        width: 405.w,
+        height: 35.h,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            spacing: 19.w,
+            children: [
+              ...List.generate(tabBar.length, (index) {
+                return TextButton(
+                  onPressed: () {
+                    activIndex = index;
+                    setState(() {});
+                  },
+                  style: TextButton.styleFrom(
+                    minimumSize: Size(0, 35),
+                    backgroundColor: activIndex == index
+                        ? colors().tabBar
+                        : Colors.transparent,
+                  ),
+                  child: SizedBox(
+                    height: 35,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        tabBar[index],
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16,
+                          color: activIndex == index
+                              ? colors().colorsWhite
+                              : colors().tabBar,
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              }),
+            ],
+          ),
+        ),
+      )),
     );
   }
 

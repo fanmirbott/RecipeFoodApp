@@ -4,7 +4,9 @@ import 'package:foodapp/utils/colors.dart';
 import 'package:foodapp/feature/AppDetails/recipe_app_bar.dart';
 import 'package:foodapp/feature/AppDetails/recipe_navigation_bar.dart';
 
+
 class BreakfastDetails extends StatefulWidget {
+
   const BreakfastDetails({
     super.key,
     required this.Breakfastmage,

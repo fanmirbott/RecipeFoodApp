@@ -33,7 +33,6 @@ class _CategoriesPageBreakfastStateState
     super.initState();
     likeStatus = List.filled(widget.items.length, 0);
   }
-
   Widget likeImg = Image.asset(
     "assets/Icons/Like/like.png",
     width: 28,

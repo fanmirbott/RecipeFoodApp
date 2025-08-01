@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodapp/feature/AppDetails/recipe_app_bar.dart';
@@ -10,6 +11,21 @@ import 'categories_page_dessert.dart';
 import 'categories_page_dinner.dart';
 import 'categories_page_drinks.dart';
 import 'categories_page_vegan..dart';
+
+final dio = Dio(
+  BaseOptions(
+    baseUrl: "http://192.168.10.161/",
+    validateStatus: (status) => true,
+  ),
+);
+
+Future<List> fetchCategories() async {
+  var response = await dio.get("api/v1/categories/list");
+  if (response.statusCode != 200) {
+    throw Exception(response.data);
+  }
+  return response.data;
+}
 
 class CategoriesPage extends StatefulWidget {
   const CategoriesPage({super.key});
@@ -120,17 +136,17 @@ class _CategoriesPageState extends State<CategoriesPage> {
     ),
     CategoriesPageDinner(
       items: [
-        "assets/Images/Categories/dinner.png",
-        "assets/Images/Categories/meat.png",
-        "assets/Images/Categories/cookies.png",
-        "assets/Images/Categories/salads.png",
-        "assets/Images/Categories/seafood.png",
-        "assets/Images/Categories/italiano.png",
-        "assets/Images/Allergic/milk.png",
-        "assets/Images/Allergic/mustard.png",
+        "assets/Images/Recipes/Dinner/chicken_salad.png",
+        "assets/Images/Recipes/Dinner/chicken_wrap.png",
+        "assets/Images/Recipes/Dinner/frittata_spinach.png",
+        "assets/Images/Recipes/Dinner/lemonade.png",
+        "assets/Images/Recipes/Dinner/mexican_appetizer.png",
+        "assets/Images/Recipes/Dinner/mexican_hot_chili.png",
+        "assets/Images/Recipes/Dinner/smoked_salmon.png",
+        "assets/Images/Recipes/Dinner/spring_rolls.png",
       ],
       text: [
-        "Baked Chicken",
+        "chicken salad",
         "BBQ Tacos",
         "Chicken Burger",
         "Chicken Curry",
@@ -308,59 +324,79 @@ class _CategoriesPageState extends State<CategoriesPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      backgroundColor: colors().fonColor,
-      appBar: RecipeAppBar(),
-      bottomNavigationBar: RecipeNavigationBar(),
-      body: Padding(
-        padding: EdgeInsets.only(right: 16.w, left: 16.w),
-        child: GridView.builder(
-          itemCount: items.length,
-          padding: EdgeInsets.only(bottom: 80.h),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 8.h,
-            crossAxisSpacing: 8.w,
-          ),
-          itemBuilder: (context, index) {
-            return Column(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12.61.r),
-                  child: InkWell(
-                    onTap: () {
-                      activCategore = index;
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CategoriesPageDetail(activIndex: index,),
+    return FutureBuilder(
+      future: fetchCategories(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Scaffold(body: Center(child: CircularProgressIndicator()));
+        } else if (snapshot.hasError) {
+          return Scaffold(
+            body: Center(
+              child: Text("Something went wrong: ${snapshot.error}"),
+            ),
+          );
+        } else if (snapshot.hasData) {
+          return Scaffold(
+            extendBody: true,
+            backgroundColor: colors().fonColor,
+            appBar: RecipeAppBar(),
+            bottomNavigationBar: RecipeNavigationBar(),
+            body: Padding(
+              padding: EdgeInsets.only(right: 16.w, left: 16.w),
+              child: GridView.builder(
+                itemCount: items.length,
+                padding: EdgeInsets.only(bottom: 100.h),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 8.h,
+                  crossAxisSpacing: 8.w,
+                ),
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(12.61.r),
+                        child: InkWell(
+                          onTap: () {
+                            activCategore = index;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    CategoriesPageDetail(activIndex: index),
+                              ),
+                            );
+                            setState(() {});
+                          },
+                          child: Image.network(
+                            snapshot.data![index]["image"],
+                            width: 158.w,
+                            height: 144.h,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      );
-                      setState(() {});
-                    },
-                    child: Image.asset(
-                      items[index],
-                      width: 158.w,
-                      height: 144.h,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 6.h),
-                Text(
-                  text[index],
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14.61.sp,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            );
-          },
-        ),
-      ),
+                      ),
+                      SizedBox(height: 6.h),
+                      Text(
+                        snapshot.data![index]["title"],
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14.61.sp,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
+          );
+        } else {
+          return Scaffold(
+            body: Center(child: Text("Something went wrong... Again...")),
+          );
+        }
+      },
     );
   }
 }
