@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/appDetails/bottom_nav_bar.dart';
-import 'package:recipefoodapp/features/recipes/pages/RecipePage.dart';
 import 'package:recipefoodapp/utils/Appcolors.dart';
 import '../../onBoarding/managers/Categories_provider.dart';
 
@@ -61,18 +61,16 @@ class CategoriesPage extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => RecipesPage(
-                              categoryId: vm.products[index].id,
-                              title: vm.products[index].title,
-                            ),
-                          ),
+                        context.push(
+                          '/recipePage',
+                          extra: {
+                            'id': vm.products[index].id,
+                            'title': vm.products[index].title,
+                          },
                         );
                       },
                       child: ClipRRect(
-                        borderRadius: BorderRadiusGeometry.circular(12.r),
+                        borderRadius: BorderRadius.circular(12.r),
                         child: Image.network(
                           vm.products[index].image,
                           width: 158.w,
@@ -81,6 +79,7 @@ class CategoriesPage extends StatelessWidget {
                         ),
                       ),
                     ),
+
                     Text(
                       vm.products[index].title,
                       style: TextStyle(

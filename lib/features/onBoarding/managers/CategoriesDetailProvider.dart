@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:recipefoodapp/data/models/Cuisene_model_recipe.dart';
 
 import '../../../core/cleint.dart';
 
@@ -10,14 +11,17 @@ class Categories_provider_Detail extends ChangeNotifier {
   }
 
   bool isLoading = false;
-  List productsDetail = [];
+  List<CuisineModelRecipe> productsDetail = [];
   List categories = [];
   int categoryId;
+
+
   Future<void> getCategoriesDetail() async {
+
     isLoading = true;
     notifyListeners();
     Response response = await dio.get("/recipes/list?Category=$categoryId");
-    productsDetail = response.data;
+    productsDetail = (response.data as List).map((x)=> CuisineModelRecipe.fromJson(x)).toList();
     isLoading = false;
     notifyListeners();
   }

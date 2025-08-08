@@ -9,7 +9,6 @@ class Categories_provider extends ChangeNotifier {
 
   bool isLoading = false;
   List<CuisineModel> products = [];
-  List productsDetail = [];
   Future<void> getCategories() async {
     isLoading = true;
     notifyListeners();

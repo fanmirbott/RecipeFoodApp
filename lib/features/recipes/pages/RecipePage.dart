@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:recipefoodapp/core/appDetails/bottom_nav_bar.dart';
 import 'package:recipefoodapp/features/recipes/pages/RecipeDetail.dart';
 import '../../../core/appDetails/recipeBottomCategoryBar.dart';
 import '../../../utils/Appcolors.dart';
@@ -9,7 +11,6 @@ import '../../onBoarding/managers/CategoriesDetailProvider.dart';
 
 class RecipesPage extends StatefulWidget {
   const RecipesPage({super.key, required this.title, required this.categoryId});
-
   final String title;
   final int categoryId;
 
@@ -24,14 +25,16 @@ class _RecipesPageState extends State<RecipesPage> {
       create: (context) =>
           Categories_provider_Detail(categoryId: widget.categoryId),
       builder: (context, child) => Scaffold(
+        extendBody: true,
         appBar: AppBar(
           backgroundColor: Appcolors().backgroundBegie,
           leading: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              context.pop();
             },
             icon: SvgPicture.asset("assets/Icons/back-arrow.svg"),
           ),
+
           centerTitle: true,
           title: Text(
             widget.title,
@@ -55,6 +58,7 @@ class _RecipesPageState extends State<RecipesPage> {
           ],
           bottom: RecipeAppBarBottom(),
         ),
+        bottomNavigationBar: BottomNavBar(),
         body: Consumer<Categories_provider_Detail>(
           builder: (context, vm, child) {
             if (vm.isLoading) {
@@ -64,7 +68,7 @@ class _RecipesPageState extends State<RecipesPage> {
               return Center(child: Text("Bu kategoriyada ovqatlar topilmadi."));
             }
             return GridView.builder(
-              padding: EdgeInsets.symmetric(horizontal: 37.w),
+              padding: EdgeInsets.only(left: 37.w, right: 37.w, bottom: 100.h, top: 20.h),
               itemCount: vm.productsDetail.length,
               itemBuilder: (context, index) {
                 return SizedBox(
@@ -74,7 +78,11 @@ class _RecipesPageState extends State<RecipesPage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => RecipeDetail()),
+                        MaterialPageRoute(
+                          builder: (context) => RecipeDetail(
+                            id: vm.productsDetail[index].id,
+                          ),
+                        ),
                       );
                     },
                     child: Stack(
@@ -99,7 +107,7 @@ class _RecipesPageState extends State<RecipesPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    vm.productsDetail[index]['title'],
+                                    vm.productsDetail[index].title,
                                     style: TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w400,
@@ -107,7 +115,7 @@ class _RecipesPageState extends State<RecipesPage> {
                                     ),
                                   ),
                                   Text(
-                                    vm.productsDetail[index]['description'],
+                                    vm.productsDetail[index].description,
                                     maxLines: 2,
                                     style: TextStyle(
                                       fontSize: 13.w,
@@ -122,7 +130,7 @@ class _RecipesPageState extends State<RecipesPage> {
                                       Row(
                                         children: [
                                           Text(
-                                            vm.productsDetail[index]['rating']
+                                            vm.productsDetail[index].rating
                                                 .toString(),
                                             style: TextStyle(
                                               color: Appcolors().pinkSub,
@@ -147,7 +155,7 @@ class _RecipesPageState extends State<RecipesPage> {
                                           ),
                                           SizedBox(width: 4.w),
                                           Text(
-                                            vm.productsDetail[index]['timeRequired']
+                                            vm.productsDetail[index].timeRequired
                                                 .toString(),
                                             style: TextStyle(
                                               color: Appcolors().pinkSub,
@@ -175,7 +183,7 @@ class _RecipesPageState extends State<RecipesPage> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(14.r),
                           child: Image.network(
-                            vm.productsDetail[index]['photo'],
+                            vm.productsDetail[index].photo,
                             width: 169.w,
                             height: 153.h,
                             fit: BoxFit.cover,
