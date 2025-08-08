@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recipefoodapp/utils/Appcolors.dart';
 import 'features/goRouter/router.dart';
-import 'features/recipes/pages/CategoriesPage.dart';
 
 void main() {
   runApp(MyApp());

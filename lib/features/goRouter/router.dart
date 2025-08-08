@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recipefoodapp/features/recipes/pages/CategoriesPage.dart';
-import 'package:recipefoodapp/features/recipes/pages/RecipePage.dart';
+
+import '../home/recipes/pages/CategoriesPage.dart';
+import '../home/recipes/pages/RecipePage.dart';
+import '../home/recipes/pages/obBoarding/onBoardingPage.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: '/categories',
+  initialLocation: '/onBoarding',
   routes: [
+    GoRoute(path: '/onBoarding', builder: (context, state) => PageViewOnBoarding(),),
     GoRoute(
       path: '/categories',
       builder: (context, state) => CategoriesPage(),

@@ -4,10 +4,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/appDetails/bottom_nav_bar.dart';
-import 'package:recipefoodapp/features/recipes/pages/RecipeDetail.dart';
-import '../../../core/appDetails/recipeBottomCategoryBar.dart';
-import '../../../utils/Appcolors.dart';
-import '../../onBoarding/managers/CategoriesDetailProvider.dart';
+
+import '../../../../core/appDetails/recipeBottomCategoryBar.dart';
+import '../../../../utils/Appcolors.dart';
+import '../../../managers/CategoriesDetailProvider.dart';
+import 'RecipeDetail.dart';
 
 class RecipesPage extends StatefulWidget {
   const RecipesPage({super.key, required this.title, required this.categoryId});

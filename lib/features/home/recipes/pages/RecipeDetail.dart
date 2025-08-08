@@ -4,8 +4,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/appDetails/bottom_nav_bar.dart';
-import 'package:recipefoodapp/features/onBoarding/managers/RecipeDetailProvider.dart';
 import 'package:recipefoodapp/utils/Appcolors.dart';
+
+import '../../../managers/RecipeDetailProvider.dart';
 
 class RecipeDetail extends StatelessWidget {
   RecipeDetail({super.key, required this.id});

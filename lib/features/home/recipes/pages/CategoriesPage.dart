@@ -5,7 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/appDetails/bottom_nav_bar.dart';
 import 'package:recipefoodapp/utils/Appcolors.dart';
-import '../../onBoarding/managers/Categories_provider.dart';
+
+import '../../../managers/Categories_provider.dart';
 
 class CategoriesPage extends StatelessWidget {
   CategoriesPage({super.key});
