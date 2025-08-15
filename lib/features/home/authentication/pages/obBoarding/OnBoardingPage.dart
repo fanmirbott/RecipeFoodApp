@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/features/home/recipes/pages/obBoarding/widgets/onboardingpage_text_button.dart';
+import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/data/repositories/onBoardingReposrtory.dart';
+import 'package:recipefoodapp/features/home/authentication/pages/obBoarding/widgets/onboardingpage_text_button.dart';
 import 'package:recipefoodapp/features/managers/OnBoardingProvider.dart';
-import 'package:recipefoodapp/utils/Appcolors.dart';
+import 'package:recipefoodapp/core/utils/Appcolors.dart';
 
 class Onboardingpage extends StatefulWidget {
   const Onboardingpage({super.key});
@@ -19,7 +21,7 @@ class _OnboardingpageState extends State<Onboardingpage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => OnBoardingProvider(),
+      create: (context) => OnBoardingProvider(OnBoardingRepository(ApiClient())),
       builder: (context, child) => Consumer<OnBoardingProvider>(
         builder: (context, vm, child) => Scaffold(
           appBar: AppBar(

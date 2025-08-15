@@ -1,18 +1,36 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recipefoodapp/features/home/recipes/pages/obBoarding/OnBoardingPage.dart';
-import 'package:recipefoodapp/features/home/recipes/pages/obBoarding/onBoardingRecipe.dart';
-
+import 'package:recipefoodapp/features/home/authentication/pages/loginPage/pages/send_otp_page.dart';
+import 'package:recipefoodapp/features/home/authentication/pages/loginPage/pages/otp_digit_field.dart';
+import 'package:recipefoodapp/features/home/authentication/pages/loginPage/pages/LoginPage.dart';
+import 'package:recipefoodapp/features/home/authentication/pages/loginPage/pages/SignUpPage.dart';
+import '../home/authentication/pages/obBoarding/OnBoardingPage.dart';
+import '../home/authentication/pages/obBoarding/onBoardingPage.dart';
+import '../home/authentication/pages/obBoarding/onBoardingRecipe.dart';
 import '../home/recipes/pages/CategoriesPage.dart';
 import '../home/recipes/pages/RecipePage.dart';
-import '../home/recipes/pages/obBoarding/onBoardingPage.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: '/onBoardingPage',
+  initialLocation: '/loginPage',
   routes: [
     GoRoute(
       path: '/onBoarding',
       builder: (context, state) => PageViewOnBoarding(),
+    ),
+    GoRoute(
+      path: '/OtpDigitField',
+      builder: (context, state) => OtpDigitField(),
+    ),
+    GoRoute(
+      path: '/SendOtpPage',
+      builder: (context, state) => SendOtpPage(),
+    ),
+    GoRoute(
+      path: '/loginPage',
+      builder: (context, state) => LoginPage(),
+    ),
+    GoRoute(
+      path: '/signUpPage',
+      builder: (context, state) => SignUpPage(),
     ),
     GoRoute(
       path: '/onBoardingRecipe',

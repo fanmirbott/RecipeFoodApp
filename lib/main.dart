@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
-import 'package:recipefoodapp/utils/Appcolors.dart';
+import 'package:provider/provider.dart';
+import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/data/repositories/AuthenticationRepository.dart';
+import 'package:recipefoodapp/core/utils/Appcolors.dart';
+import 'package:recipefoodapp/data/repositories/categoriesRepostory.dart';
+import 'package:recipefoodapp/data/repositories/categories_detail_repostory.dart';
 import 'features/goRouter/router.dart';
 
 void main() {
   runApp(MyApp());
 }
-
-// final router = GoRouter(routes: [
-//   GoRoute(path: '/categories', builder: (context, state) => CategoriesPage(),),
-//   GoRoute(path: '/recipe', builder: (context, state) => RecipesPage(),)
-// ]);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -20,10 +19,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: Size(430, 932),
-      child: MaterialApp.router(
-        theme: ThemeData(scaffoldBackgroundColor: Appcolors().backgroundBegie),
-        debugShowCheckedModeBanner: false,
-        routerConfig: router,
+      child: MultiProvider(
+        providers: [
+          Provider(
+            create: (context) => ApiClient(),
+          ),
+          Provider(
+            create: (context) => AuthenticationRepository(client: context.read()),
+          ),
+          Provider(create: (context) => CategoriesRepository(client: context.read())),
+          Provider(create: (context) => CategoriesDetailRepository(client: context.read(),))
+        ],
+        child: MaterialApp.router(
+          theme: ThemeData(
+            scaffoldBackgroundColor: Appcolors().backgroundBegie,
+          ),
+          debugShowCheckedModeBanner: false,
+          routerConfig: router,
+        ),
       ),
     );
   }

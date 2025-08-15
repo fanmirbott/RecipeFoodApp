@@ -4,8 +4,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/appDetails/bottom_nav_bar.dart';
-import 'package:recipefoodapp/utils/Appcolors.dart';
-
+import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/core/utils/Appcolors.dart';
+import 'package:recipefoodapp/data/repositories/recipe_detail_repostory.dart';
 import '../../../managers/RecipeDetailProvider.dart';
 
 class RecipeDetail extends StatelessWidget {
@@ -18,8 +19,8 @@ class RecipeDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => RecipeDetailProvider(id: id),
-      builder: (context, child) => Consumer<RecipeDetailProvider>(
+      create: (context) => RecipeDetailViewModel(id: id, repository: RecipeDetailRepository(ApiClient())),
+      builder: (context, child) => Consumer<RecipeDetailViewModel>(
         builder: (context, vm, child) => Scaffold(
           extendBody: true,
           appBar: AppBar(

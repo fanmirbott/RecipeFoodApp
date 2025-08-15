@@ -1,11 +1,15 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:recipefoodapp/data/models/Cuisene_model_recipe.dart';
+import '../../data/repositories/categories_detail_repostory.dart';
 
-import '../../../core/cleint.dart';
+class CategoriesProviderDetail extends ChangeNotifier {
+  final CategoriesDetailRepository _repository;
+  late final int categoryId;
 
-class Categories_provider_Detail extends ChangeNotifier {
-  Categories_provider_Detail({required this.categoryId}) {
+  CategoriesProviderDetail({
+    required CategoriesDetailRepository repository,
+    required this.categoryId,
+  }) : _repository = repository {
     getCategoriesDetail();
     getCategories();
   }
@@ -13,24 +17,23 @@ class Categories_provider_Detail extends ChangeNotifier {
   bool isLoading = false;
   List<CuisineModelRecipe> productsDetail = [];
   List categories = [];
-  int categoryId;
-
 
   Future<void> getCategoriesDetail() async {
-
     isLoading = true;
     notifyListeners();
-    Response response = await dio.get("/recipes/list?Category=$categoryId");
-    productsDetail = (response.data as List).map((x)=> CuisineModelRecipe.fromJson(x)).toList();
+
+    productsDetail = (await _repository.getCategoriesDetail(categoryId)) as List<CuisineModelRecipe>;
+
     isLoading = false;
     notifyListeners();
   }
 
-  Future<void> getCategories() async{
+  Future<void> getCategories() async {
     isLoading = true;
     notifyListeners();
-    Response response = await dio.get("/categories/list");
-    categories = response.data;
+
+    categories = (await _repository.getCategories()) as List;
+
     isLoading = false;
     notifyListeners();
   }

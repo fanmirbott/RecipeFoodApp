@@ -1,21 +1,28 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import '../../../core/cleint.dart';
+
+import '../../data/repositories/onBoardingReposrtory.dart';
+
 class OnBoardingProvider extends ChangeNotifier {
-  OnBoardingProvider(){
+  final OnBoardingRepository _repository;
+
+  OnBoardingProvider(this._repository) {
     getOnBoarding();
     getRecipe();
   }
 
-
   bool isLoading = false;
   List onBoarding = [];
   List recipe = [];
+
   Future<void> getOnBoarding() async {
     isLoading = true;
     notifyListeners();
-    Response responseData = await dio.get("/onboarding/list");
-    onBoarding = responseData.data;
+
+    try {
+      onBoarding = await _repository.getOnBoarding();
+    } catch (e) {
+    }
+
     isLoading = false;
     notifyListeners();
   }
@@ -23,8 +30,12 @@ class OnBoardingProvider extends ChangeNotifier {
   Future<void> getRecipe() async {
     isLoading = true;
     notifyListeners();
-    Response responseData = await dio.get("/categories/list?Limit=6");
-    recipe = responseData.data;
+
+    try {
+      recipe = await _repository.getRecipe(limit: 6);
+    } catch (e) {
+    }
+
     isLoading = false;
     notifyListeners();
   }

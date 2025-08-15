@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../../utils/Appcolors.dart';
+import '../../../../../../core/utils/Appcolors.dart';
 import '../widgets/PrefferencesBottom.dart';
 
 class CookingLevelPage extends StatefulWidget {
@@ -100,7 +100,7 @@ class _CookingLevelPageState extends State<CookingLevelPage> {
                 iconButtonText: "Continue",
                 onPressed: () {
                   widget.controller.nextPage(
-                    duration: const Duration(milliseconds: 300),
+                    duration: Duration(milliseconds: 300),
                     curve: Curves.easeInOut,
                   );
                 },

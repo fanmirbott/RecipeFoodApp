@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recipefoodapp/utils/Appcolors.dart';
+import 'package:recipefoodapp/core/utils/Appcolors.dart';
 
 
 class BottomItem extends StatelessWidget {

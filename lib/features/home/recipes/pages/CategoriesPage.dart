@@ -4,8 +4,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/appDetails/bottom_nav_bar.dart';
-import 'package:recipefoodapp/utils/Appcolors.dart';
-
+import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/core/utils/Appcolors.dart';
+import 'package:recipefoodapp/data/repositories/categoriesRepostory.dart';
 import '../../../managers/Categories_provider.dart';
 
 class CategoriesPage extends StatelessWidget {
@@ -14,7 +15,7 @@ class CategoriesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => Categories_provider(),
+      create: (context) => CategoriesViewModel(CategoriesRepository(client: ApiClient())),
       builder: (context, child) => Scaffold(
         extendBody: true,
         appBar: AppBar(
@@ -46,7 +47,7 @@ class CategoriesPage extends StatelessWidget {
           ],
         ),
         bottomNavigationBar: BottomNavBar(),
-        body: Consumer<Categories_provider>(
+        body: Consumer<CategoriesViewModel>(
           builder: (context, vm, child) => GridView.builder(
             padding: EdgeInsets.only(
               right: 37.w,

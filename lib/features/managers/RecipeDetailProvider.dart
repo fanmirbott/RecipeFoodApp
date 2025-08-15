@@ -1,20 +1,33 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import '../../../core/cleint.dart';
-class RecipeDetailProvider extends ChangeNotifier {
-  RecipeDetailProvider({required this.id}){
+
+import '../../data/repositories/recipe_detail_repostory.dart';
+
+class RecipeDetailViewModel extends ChangeNotifier {
+  final RecipeDetailRepository _repository;
+  final int id;
+
+  RecipeDetailViewModel({
+    required RecipeDetailRepository repository,
+    required this.id,
+  }) : _repository = repository {
     getRecipe();
   }
 
-
   bool isLoading = false;
-  Map<String,dynamic> recipeData = {};
-  int id;
+  String? errorMessage;
+  Map<String, dynamic> recipeData = {};
+
   Future<void> getRecipe() async {
     isLoading = true;
+    errorMessage = null;
     notifyListeners();
-    Response responseData = await dio.get("/recipes/detail/$id");
-    recipeData = responseData.data;
+
+    try {
+      recipeData = await _repository.getRecipeDetail(id);
+    } catch (e) {
+      errorMessage = e.toString();
+    }
+
     isLoading = false;
     notifyListeners();
   }

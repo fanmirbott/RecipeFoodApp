@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipefoodapp/utils/Appcolors.dart';
+import 'package:recipefoodapp/core/utils/Appcolors.dart';
 
 class PreferencesPageAnimatedContainer extends StatelessWidget {
   final int pageIndex;

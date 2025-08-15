@@ -4,9 +4,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/appDetails/bottom_nav_bar.dart';
-
+import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/data/repositories/categories_detail_repostory.dart';
 import '../../../../core/appDetails/recipeBottomCategoryBar.dart';
-import '../../../../utils/Appcolors.dart';
+import '../../../../core/utils/Appcolors.dart';
 import '../../../managers/CategoriesDetailProvider.dart';
 import 'RecipeDetail.dart';
 
@@ -24,7 +25,7 @@ class _RecipesPageState extends State<RecipesPage> {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) =>
-          Categories_provider_Detail(categoryId: widget.categoryId),
+          CategoriesProviderDetail(categoryId: widget.categoryId, repository:  CategoriesDetailRepository(client: ApiClient())),
       builder: (context, child) => Scaffold(
         extendBody: true,
         appBar: AppBar(
@@ -35,7 +36,6 @@ class _RecipesPageState extends State<RecipesPage> {
             },
             icon: SvgPicture.asset("assets/Icons/back-arrow.svg"),
           ),
-
           centerTitle: true,
           title: Text(
             widget.title,
@@ -60,7 +60,7 @@ class _RecipesPageState extends State<RecipesPage> {
           bottom: RecipeAppBarBottom(),
         ),
         bottomNavigationBar: BottomNavBar(),
-        body: Consumer<Categories_provider_Detail>(
+        body: Consumer<CategoriesProviderDetail>(
           builder: (context, vm, child) {
             if (vm.isLoading) {
               return Center(child: CircularProgressIndicator());

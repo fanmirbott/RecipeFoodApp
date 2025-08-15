@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/utils/Appcolors.dart';
-
-import '../../features/managers/CategoriesDetailProvider.dart';
+import 'package:recipefoodapp/core/utils/Appcolors.dart';
+import 'package:recipefoodapp/features/managers/CategoriesDetailProvider.dart';
 
 class RecipeAppBarBottom extends StatelessWidget
     implements PreferredSizeWidget {
@@ -14,7 +13,7 @@ class RecipeAppBarBottom extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<Categories_provider_Detail>(
+    return Consumer<CategoriesProviderDetail>(
       builder: (context, vm, child) {
         if (vm.isLoading) {
           return const Center(child: CircularProgressIndicator());

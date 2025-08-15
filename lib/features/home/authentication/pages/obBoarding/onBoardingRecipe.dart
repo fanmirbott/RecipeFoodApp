@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/features/home/recipes/pages/obBoarding/widgets/onboardingpage_text_button.dart';
+import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/data/repositories/onBoardingReposrtory.dart';
+import 'package:recipefoodapp/features/home/authentication/pages/obBoarding/widgets/onboardingpage_text_button.dart';
 import 'package:recipefoodapp/features/managers/OnBoardingProvider.dart';
-import 'package:recipefoodapp/utils/Appcolors.dart';
+import 'package:recipefoodapp/core/utils/Appcolors.dart';
 
 class Onboardingrecipe extends StatefulWidget {
   const Onboardingrecipe({super.key});
@@ -17,7 +20,7 @@ class _OnboardingrecipeState extends State<Onboardingrecipe> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => OnBoardingProvider(),
+      create: (context) => OnBoardingProvider(OnBoardingRepository(ApiClient())),
       builder: (context, child) => Consumer<OnBoardingProvider>(
         builder: (context, vm, child) => Scaffold(
           appBar: AppBar(
@@ -81,9 +84,13 @@ class _OnboardingrecipeState extends State<Onboardingrecipe> {
                   ),
                 ),
                 SizedBox(height: 13.h,),
-                OnboardingpageTextButton(onPressed: () {}, text: 'I’m New'),
+                OnboardingpageTextButton(onPressed: () {
+                  context.push('/onBoarding');
+                }, text: 'I’m New'),
                 SizedBox(height: 20.h,),
-                OnboardingpageTextButton(onPressed: () {}, text: 'I’ve been here '),
+                OnboardingpageTextButton(onPressed: () {
+                  context.push('/categories');
+                }, text: 'I’ve been here '),
                 SizedBox(height: 35.h,),
               ],
             ),

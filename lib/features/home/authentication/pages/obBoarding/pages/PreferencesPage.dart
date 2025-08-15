@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../../../../utils/Appcolors.dart';
+import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/data/repositories/preferencesRepostory.dart';
+import '../../../../../../core/utils/Appcolors.dart';
 import '../../../../../managers/PreferencesViewModel.dart';
 import '../widgets/PrefferencesBottom.dart';
 
@@ -12,7 +14,7 @@ class PreferencesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => PreferencesViewModel(),
+      create: (context) => PreferencesViewModel(PreferencesRepository(ApiClient())),
       builder: (context, child) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Consumer<PreferencesViewModel>(

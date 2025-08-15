@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recipefoodapp/features/home/recipes/pages/obBoarding/pages/AllergicPage.dart';
-import 'package:recipefoodapp/features/home/recipes/pages/obBoarding/pages/CookingLevelPage.dart';
-import 'package:recipefoodapp/features/home/recipes/pages/obBoarding/pages/PreferencesPage.dart';
-import 'package:recipefoodapp/utils/Appcolors.dart';
+import 'package:recipefoodapp/features/home/authentication/pages/obBoarding/pages/AllergicPage.dart';
+import 'package:recipefoodapp/features/home/authentication/pages/obBoarding/pages/CookingLevelPage.dart';
+import 'package:recipefoodapp/features/home/authentication/pages/obBoarding/pages/PreferencesPage.dart';
+import 'package:recipefoodapp/core/utils/Appcolors.dart';
 
-import 'AnimadietContainer.dart';
+import 'widgets/AnimadietContainer.dart';
 class PageViewOnBoarding extends StatefulWidget {
   PageViewOnBoarding({super.key});
 

@@ -1,32 +1,42 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../../core/cleint.dart';
+import '../../data/repositories/preferencesRepostory.dart';
 
-class PreferencesViewModel extends ChangeNotifier{
-  PreferencesViewModel(){
+class PreferencesViewModel extends ChangeNotifier {
+  final PreferencesRepository _repository;
+
+  PreferencesViewModel(this._repository) {
     getProductCuisenes();
     getProductAllergic();
   }
+
   bool isLoading = false;
   List products = [];
   List allergicProducts = [];
 
-  void getProductCuisenes() async {
+  Future<void> getProductCuisenes() async {
     isLoading = true;
     notifyListeners();
-    Response response = await dio.get("/cuisines/list");
-    products = response.data;
+
+    try {
+      products = await _repository.getProductCuisenes();
+    } catch (e) {
+    }
+
     isLoading = false;
     notifyListeners();
   }
-  void getProductAllergic() async {
+
+  Future<void> getProductAllergic() async {
     isLoading = true;
     notifyListeners();
-    Response response = await dio.get("/allergic/list");
-    allergicProducts = response.data;
+
+    try {
+      allergicProducts = await _repository.getProductAllergic();
+    } catch (e) {
+    }
+
     isLoading = false;
     notifyListeners();
   }
 }
-

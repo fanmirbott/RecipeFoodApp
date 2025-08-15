@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import '../../../../../../utils/Appcolors.dart';
+import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/data/repositories/preferencesRepostory.dart';
+import '../../../../../../core/utils/Appcolors.dart';
 import '../../../../../managers/PreferencesViewModel.dart';
 import '../widgets/PrefferencesBottom.dart';
 
@@ -19,16 +21,16 @@ class Allergicpage extends StatelessWidget {
         child: PreferencesBottom(
           iconButtonText: "Continue",
           onPressed: () {
-            context.push('/categories');
+            context.push('/loginPage');
           },
           buttonColor: Appcolors().pinkSub,
           textColor: Appcolors().white,
         ),
       ),
       body: ChangeNotifierProvider(
-        create: (context) => PreferencesViewModel(),
+        create: (context) => PreferencesViewModel(PreferencesRepository(ApiClient())),
         builder: (context, child) => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding:  EdgeInsets.symmetric(horizontal: 30),
           child: Consumer<PreferencesViewModel>(
             builder: (context, vm, child) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,7 +68,7 @@ class Allergicpage extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        const SizedBox(height: 5),
+                        SizedBox(height: 5),
                         Text(
                           vm.allergicProducts[index]["title"],
                           style: TextStyle(
@@ -78,13 +80,13 @@ class Allergicpage extends StatelessWidget {
                       ],
                     ),
                     gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                        SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
                           mainAxisSpacing: 21,
                         ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                 SizedBox(height: 20),
               ],
             ),
           ),
