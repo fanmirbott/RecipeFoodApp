@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
 import '../../data/repositories/recipe_detail_repostory.dart';
 
 class RecipeDetailViewModel extends ChangeNotifier {

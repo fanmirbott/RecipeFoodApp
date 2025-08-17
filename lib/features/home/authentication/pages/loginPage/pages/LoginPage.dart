@@ -5,13 +5,10 @@ import 'package:provider/provider.dart';
 import 'package:recipefoodapp/features/home/authentication/pages/loginPage/widgets/login_page_text_button.dart';
 import 'package:recipefoodapp/features/home/authentication/pages/loginPage/widgets/login_page_text_field.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
-
-import '../../../../../managers/LoginProvider.dart';
+import '../../../../../managers/LoginViewModel.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginPage({
-    super.key
-  });
+  LoginPage({super.key});
 
   final controllerEmail = TextEditingController();
   final controllerPassword = TextEditingController();
@@ -64,7 +61,7 @@ class LoginPage extends StatelessWidget {
               ),
               LoginPageTextButton(
                 onPressed: () async {
-                  context.push('/categories');
+                  context.go('/homePage');
                 },
                 text: 'Login',
                 textColor: Appcolors().white,
@@ -85,7 +82,7 @@ class LoginPage extends StatelessWidget {
                 height: 48.h,
               ),
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   context.push('/OtpDigitField');
                 },
                 child: Text(
@@ -135,7 +132,9 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 24.h,),
+              SizedBox(
+                height: 24.h,
+              ),
               Text(
                 'Don’t have an account? Sign Up',
                 style: TextStyle(
