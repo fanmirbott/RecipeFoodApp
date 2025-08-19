@@ -8,7 +8,7 @@ import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/categories_detail_repostory.dart';
 import '../../../../core/appDetails/recipeBottomCategoryBar.dart';
 import '../../../../core/utils/Appcolors.dart';
-import '../../../managers/CategoriesDetailProvider.dart';
+import '../../../managers/CategoriesDetailViewModel.dart';
 import 'RecipeDetail.dart';
 
 class RecipesPage extends StatefulWidget {
@@ -66,7 +66,7 @@ class _RecipesPageState extends State<RecipesPage> {
               return Center(child: CircularProgressIndicator());
             }
             if (vm.productsDetail.isEmpty) {
-              return Center(child: Text("Bu kategoriyada ovqatlar topilmadi."));
+              return Center(child: Text("Bu kategoriyada ovqatlar topilmadi.", style: TextStyle(color: Appcolors().white),));
             }
             return GridView.builder(
               padding: EdgeInsets.only(left: 37.w, right: 37.w, bottom: 100.h, top: 20.h),
@@ -77,14 +77,7 @@ class _RecipesPageState extends State<RecipesPage> {
                   height: 226.h,
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => RecipeDetail(
-                            id: vm.productsDetail[index].id,
-                          ),
-                        ),
-                      );
+                        context.push('/recipe/${vm.productsDetail[index].id}');
                     },
                     child: Stack(
                       children: [

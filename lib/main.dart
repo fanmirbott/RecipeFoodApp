@@ -7,7 +7,7 @@ import 'package:recipefoodapp/core/utils/Appcolors.dart';
 import 'package:recipefoodapp/data/repositories/categoriesRepostory.dart';
 import 'package:recipefoodapp/data/repositories/categories_detail_repostory.dart';
 import 'package:recipefoodapp/data/repositories/topChefRepostory.dart';
-import 'features/goRouter/router.dart';
+import 'core/goRouter/router.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,14 +30,14 @@ class MyApp extends StatelessWidget {
           ),
           Provider(create: (context) => CategoriesRepository(client: context.read())),
           Provider(create: (context) => CategoriesDetailRepository(client: context.read(),)),
-          Provider(create: (context) => TopChefRepository(client: context.read()),)
         ],
         child: MaterialApp.router(
           theme: ThemeData(
             scaffoldBackgroundColor: Appcolors().backgroundBegie,
           ),
           debugShowCheckedModeBanner: false,
-          routerConfig: router,
+          routerConfig: router
+          ,
         ),
       ),
     );

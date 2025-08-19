@@ -6,12 +6,12 @@ import '../../data/repositories/topChefRepostory.dart';
 class TopChefViewModel extends ChangeNotifier {
   final TopChefRepository _repository;
 
-  TopChefViewModel(this._repository) {
+  TopChefViewModel(this._repository,) {
     getTopChefs();
-    getChefs();
     getTopChefsView();
     getTopChefsData();
   }
+
 
   bool isLoading = false;
   List<TopChefModel> topChef = [];
@@ -59,18 +59,7 @@ class TopChefViewModel extends ChangeNotifier {
     isLoading = false;
     notifyListeners();
   }
-  Future<void> getChefs() async {
-    isLoading = true;
-    notifyListeners();
+  ChefsModel? chef;
 
-    try {
-      chefs = await _repository.getChefs();
-    } catch (e) {
-      chefs = [];
-    }
-
-    isLoading = false;
-    notifyListeners();
-  }
 
 }

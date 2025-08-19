@@ -5,9 +5,9 @@ class ChefsModel {
   final String lastName;
   final String profilePhoto;
   final String presentation;
-  final double recipesCount;
-  final double followingCount;
-  final double followerCount;
+  final int recipesCount;
+  final int followingCount;
+  final int followerCount;
 
   ChefsModel({
     required this.id,
@@ -30,9 +30,9 @@ class ChefsModel {
       username: json['username'],
       lastName: json['lastName'],
       presentation: json['presentation'],
-      followerCount: (json['followerCount'] as num).toDouble(),
-      followingCount: (json['followingCount'] as num).toDouble(),
-      recipesCount: (json['recipesCount'] as num).toDouble(),
+      followerCount: json['followerCount'],
+      followingCount: json['followingCount'],
+      recipesCount: json['recipesCount'],
     );
   }
 }

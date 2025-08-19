@@ -11,8 +11,7 @@ class CategoriesDetailRepository {
 
   Future<Result<List<CuisineModelRecipe>>> getCategoriesDetail(int categoryId) async {
     final result = await _client.get<List<dynamic>>(
-      "/recipes/list",
-      queryParams: {"Category": categoryId},
+      "/recipes/list?Category=$categoryId",
     );
 
     return result.fold(
