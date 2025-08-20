@@ -6,7 +6,9 @@ import 'package:recipefoodapp/data/repositories/AuthenticationRepository.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
 import 'package:recipefoodapp/data/repositories/categoriesRepostory.dart';
 import 'package:recipefoodapp/data/repositories/categories_detail_repostory.dart';
+import 'package:recipefoodapp/data/repositories/chefDetailRepostory.dart';
 import 'package:recipefoodapp/data/repositories/topChefRepostory.dart';
+import 'package:recipefoodapp/features/managers/chefDetailViewModel.dart';
 import 'core/goRouter/router.dart';
 
 void main() {
@@ -26,18 +28,28 @@ class MyApp extends StatelessWidget {
             create: (context) => ApiClient(),
           ),
           Provider(
-            create: (context) => AuthenticationRepository(client: context.read()),
+            create: (context) =>
+                AuthenticationRepository(client: context.read()),
           ),
-          Provider(create: (context) => CategoriesRepository(client: context.read())),
-          Provider(create: (context) => CategoriesDetailRepository(client: context.read(),)),
+          Provider(
+            create: (context) => CategoriesRepository(client: context.read()),
+          ),
+          Provider(
+            create: (context) => CategoriesDetailRepository(
+              client: context.read(),
+            ),
+          ),
+          ChangeNotifierProvider(
+            create: (context) =>
+                ChefDetailViewModel(ChefDetailRepository(client: ApiClient())),
+          ),
         ],
         child: MaterialApp.router(
           theme: ThemeData(
             scaffoldBackgroundColor: Appcolors().backgroundBegie,
           ),
           debugShowCheckedModeBanner: false,
-          routerConfig: router
-          ,
+          routerConfig: router,
         ),
       ),
     );

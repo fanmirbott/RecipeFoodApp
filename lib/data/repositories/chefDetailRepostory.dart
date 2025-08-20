@@ -6,7 +6,7 @@ class ChefDetailRepository {
 
   ChefDetailRepository({required ApiClient client}) : _client = client;
 
-  Future<ChefsModel> getChefs(int id) async {
+  Future<ChefsModel> getChefDetails(int id) async {
     final result = await _client.get<Map<String, dynamic>>(
       "/auth/details/$id",
     );

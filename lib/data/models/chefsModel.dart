@@ -35,4 +35,9 @@ class ChefsModel {
       recipesCount: json['recipesCount'],
     );
   }
+
+  @override
+  String toString() {
+    return 'ChefsModel{id: $id, username: $username, firstName: $firstName, lastName: $lastName, profilePhoto: $profilePhoto, presentation: $presentation, recipesCount: $recipesCount, followingCount: $followingCount, followerCount: $followerCount}';
+  }
 }

@@ -1,8 +1,8 @@
 import 'package:recipefoodapp/core/cleint.dart';
 
-class Reviews{
+class ReviewsRepostory{
   final ApiClient _client;
-  Reviews(this._client);
+  ReviewsRepostory(this._client);
   Future<Map<String, dynamic>> getRecipeDetail(int id) async {
     final result = await _client.get<Map<String, dynamic>>("/recipes/reviews/detail/$id");
     return result.fold(

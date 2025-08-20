@@ -17,7 +17,7 @@ import '../../features/home/recipes/pages/RecipeDetail.dart';
 import '../../features/home/recipes/pages/RecipePage.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: '/topChef',
+  initialLocation: '/categories',
   routes: [
     GoRoute(
       path: '/onBoarding',
@@ -56,9 +56,9 @@ final GoRouter router = GoRouter(
       builder: (context, state) => TopChefPage(),
     ),
     GoRoute(
-      path: '/chefDetail/:id',
+      path: '/chefDetail',
       builder: (context, state) => ChefsDetailPage(
-        id: int.parse(state.pathParameters['id']!),
+
       ),
     ),
     GoRoute(
@@ -87,7 +87,7 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: 'reviewsPage',
-      builder: (context, state) => ReviewsPage(),
+      builder: (context, state) => ReviewsPage(id: int.parse(state.pathParameters['id']!),),
     ),
   ],
 );

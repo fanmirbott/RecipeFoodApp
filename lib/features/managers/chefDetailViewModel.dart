@@ -5,24 +5,22 @@ import '../../data/repositories/chefDetailRepostory.dart';
 class ChefDetailViewModel extends ChangeNotifier {
   final ChefDetailRepository _repository;
 
-  ChefDetailViewModel(this._repository, this.id) {
-    getChefs(id);
-  }
-
-  final int id;
-
+  ChefDetailViewModel(this._repository,) {}
+  
   bool isLoading = false;
   var chefs = {};
 
   ChefsModel? chef;
 
-  Future<void> getChefs(int id) async {
+  Future<void> getChefDetails(int id) async {
     isLoading = true;
     notifyListeners();
 
     try {
-      chef = await _repository.getChefs(id);
+      chef = await _repository.getChefDetails(id);
+      print('chef$chef');
     } catch (e) {
+      print('Error: $e');
       chef = null;
     }
     isLoading = false;

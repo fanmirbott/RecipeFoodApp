@@ -25,12 +25,14 @@ class _RecipeDetailState extends State<RecipeDetail> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => RecipeDetailViewModel(id: widget.id, repository: RecipeDetailRepository(ApiClient())),
+      create: (context) => RecipeDetailViewModel(
+        id: widget.id,
+        repository: RecipeDetailRepository(ApiClient()),
+      ),
       builder: (context, child) => Consumer<RecipeDetailViewModel>(
         builder: (context, vm, child) {
           final recipe = vm.recipeData!;
-          return
-          Scaffold(
+          return Scaffold(
             extendBody: true,
             appBar: AppBar(
               backgroundColor: Appcolors().backgroundBegie,
@@ -53,13 +55,15 @@ class _RecipeDetailState extends State<RecipeDetail> {
                 IconButton(
                   onPressed: () {},
                   style: IconButton.styleFrom(
-                      backgroundColor: Appcolors().pink),
+                    backgroundColor: Appcolors().pink,
+                  ),
                   icon: SvgPicture.asset("assets/Icons/notification.svg"),
                 ),
                 IconButton(
                   onPressed: () {},
                   style: IconButton.styleFrom(
-                      backgroundColor: Appcolors().pink),
+                    backgroundColor: Appcolors().pink,
+                  ),
                   icon: SvgPicture.asset("assets/Icons/search.svg"),
                 ),
               ],
@@ -67,317 +71,327 @@ class _RecipeDetailState extends State<RecipeDetail> {
             bottomNavigationBar: BottomNavBar(),
             body: vm.isLoading
                 ? Center(
-              child: CircularProgressIndicator(),
-            )
+                    child: CircularProgressIndicator(),
+                  )
                 : SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsetsGeometry.symmetric(horizontal: 36),
-                child: Column(
-                  children: [
-                    SizedBox(height: 20),
-                    SizedBox(
-                      width: 357.w,
-                      height: 337.h,
-                      child: Stack(
+                    child: Padding(
+                      padding: EdgeInsetsGeometry.symmetric(horizontal: 36),
+                      child: Column(
                         children: [
-                          Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Container(
-                              padding: EdgeInsetsGeometry.symmetric(
-                                horizontal: 10,
-                              ),
-                              width: 357.w,
-                              height: 70.h,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadiusGeometry.circular(
-                                  10,
-                                ),
-                                color: Appcolors().redpinkmain,
-                              ),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    recipe['title'],
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 20,
-                                      color: Appcolors().white,
+                          SizedBox(height: 20),
+                          SizedBox(
+                            width: 357.w,
+                            height: 337.h,
+                            child: Stack(
+                              children: [
+                                Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Container(
+                                    padding: EdgeInsetsGeometry.symmetric(
+                                      horizontal: 10,
                                     ),
-                                  ),
-                                  Spacer(),
-                                  GestureDetector(
-                                    onTap: (){
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => ReviewsPage(),));
-                                    },
+                                    width: 357.w,
+                                    height: 70.h,
+                                    decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadiusGeometry.circular(
+                                            10,
+                                          ),
+                                      color: Appcolors().redpinkmain,
+                                    ),
                                     child: Row(
-                                      spacing: 4,
                                       children: [
-                                        SvgPicture.asset(
-                                          "assets/Icons/star.svg",
-                                          width: 10.w,
-                                          height: 10.h,
-                                          color: Appcolors().white,
-                                        ),
                                         Text(
-                                          recipe['rating'].toString(),
+                                          recipe['title'],
                                           style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 20,
                                             color: Appcolors().white,
                                           ),
+                                        ),
+                                        Spacer(),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    ReviewsPage(
+                                                      id: vm.id,
+                                                    ),
+                                              ),
+                                            );
+                                          },
+                                          child: Row(
+                                            spacing: 4,
+                                            children: [
+                                              SvgPicture.asset(
+                                                "assets/Icons/star.svg",
+                                                width: 10.w,
+                                                height: 10.h,
+                                                color: Appcolors().white,
+                                              ),
+                                              Text(
+                                                recipe['rating'].toString(),
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w400,
+                                                  color: Appcolors().white,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(width: 10.w),
+                                        Row(
+                                          spacing: 4,
+                                          children: [
+                                            SvgPicture.asset(
+                                              "assets/Icons/reviews.svg",
+                                              width: 10.w,
+                                              height: 10.h,
+                                              color: Appcolors().white,
+                                            ),
+                                            Text(
+                                              recipe['reviewsCount'].toString(),
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400,
+                                                color: Appcolors().white,
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
                                   ),
-                                  SizedBox(width: 10.w),
-                                  Row(
-                                    spacing: 4,
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    10,
+                                  ),
+                                  child: Stack(
                                     children: [
-                                      SvgPicture.asset(
-                                        "assets/Icons/reviews.svg",
-                                        width: 10.w,
-                                        height: 10.h,
-                                        color: Appcolors().white,
+                                      Image.network(
+                                        recipe['photo'],
+                                        width: 357.w,
+                                        height: 281.h,
+                                        fit: BoxFit.cover,
                                       ),
-                                      Text(
-                                        recipe['reviewsCount']
-                                            .toString(),
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w400,
-                                          color: Appcolors().white,
+                                      Positioned(
+                                        top: 105,
+                                        right: 142,
+                                        child: IconButton(
+                                          onPressed: () {},
+                                          style: IconButton.styleFrom(
+                                            shape: CircleBorder(),
+                                            fixedSize: Size(71, 75),
+                                            backgroundColor:
+                                                Appcolors().redpinkmain,
+                                          ),
+                                          icon: SvgPicture.asset(
+                                            'assets/Icons/play.svg',
+                                            width: 29,
+                                            height: 40,
+                                          ),
                                         ),
                                       ),
                                     ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          ClipRRect(
-                            borderRadius: BorderRadiusGeometry.circular(10),
-                            child: Stack(
-                              children: [
-                                Image.network(
-                                  recipe['photo'],
-                                  width: 357.w,
-                                  height: 281.h,
-                                  fit: BoxFit.cover,
-                                ),
-                                Positioned(
-                                  top: 105,
-                                  right: 142,
-                                  child: IconButton(
-                                    onPressed: () {},
-                                    style: IconButton.styleFrom(
-                                      shape: CircleBorder(),
-                                      fixedSize: Size(71, 75),
-                                      backgroundColor:
-                                      Appcolors().redpinkmain,
-                                    ),
-                                    icon: SvgPicture.asset(
-                                      'assets/Icons/play.svg',
-                                      width: 29,
-                                      height: 40,
-                                    ),
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 26.h),
-                    SizedBox(
-                      height: 63.h,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadiusGeometry.circular(
-                              100.r,
-                            ),
-                            child: Image.network(
-                              recipe['user']['profilePhoto'],
-                              width: 61.w,
-                              height: 63.h,
+                          SizedBox(height: 26.h),
+                          SizedBox(
+                            height: 63.h,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    100.r,
+                                  ),
+                                  child: Image.network(
+                                    recipe['user']['profilePhoto'],
+                                    width: 61.w,
+                                    height: 63.h,
+                                  ),
+                                ),
+                                SizedBox(width: 15.w),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          gmail,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 12,
+                                            color: Appcolors().redpinkmain,
+                                          ),
+                                        ),
+                                        Text(
+                                          recipe['user']['username'],
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 12,
+                                            color: Appcolors().redpinkmain,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          recipe['user']['firstName'],
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 11,
+                                            color: Appcolors().white,
+                                          ),
+                                        ),
+                                        SizedBox(width: 2.w),
+                                        Text(
+                                          recipe['user']['lastName'],
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 11,
+                                            color: Appcolors().white,
+                                          ),
+                                        ),
+                                        Text(
+                                          '-chef',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 11,
+                                            color: Appcolors().white,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Spacer(),
+                                TextButton(
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    padding: EdgeInsets.zero,
+                                    fixedSize: Size(109.09.w, 21.h),
+                                    minimumSize: Size(109.09.w, 21.h),
+                                    backgroundColor: Appcolors().pink,
+                                  ),
+                                  child: Text(
+                                    'Following',
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                      color: Appcolors().pinkSub,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 9.w),
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: SvgPicture.asset(
+                                    'assets/Icons/three_dots.svg',
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          SizedBox(width: 15.w),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          SizedBox(height: 20.h),
+                          Divider(color: Appcolors().pinkSub),
+                          SizedBox(height: 31.h),
+                          Row(
+                            spacing: 4,
                             children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    gmail,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 12,
-                                      color: Appcolors().redpinkmain,
-                                    ),
-                                  ),
-                                  Text(
-                                    recipe['user']['username'],
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 12,
-                                      color: Appcolors().redpinkmain,
-                                    ),
-                                  ),
-                                ],
+                              Text(
+                                'Details',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 20,
+                                  color: Appcolors().redpinkmain,
+                                ),
                               ),
-                              Row(
-                                children: [
-                                  Text(
-                                    recipe['user']['firstName'],
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 11,
-                                      color: Appcolors().white,
-                                    ),
-                                  ),
-                                  SizedBox(width: 2.w),
-                                  Text(
-                                    recipe['user']['lastName'],
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 11,
-                                      color: Appcolors().white,
-                                    ),
-                                  ),
-                                  Text(
-                                    '-chef',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 11,
-                                      color: Appcolors().white,
-                                    ),
-                                  ),
-                                ],
+                              SizedBox(width: 11.h),
+                              SvgPicture.asset('assets/Icons/clock.svg'),
+                              Text(
+                                recipe['timeRequired'].toString(),
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: Appcolors().white,
+                                ),
+                              ),
+                              Text(
+                                'min',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: Appcolors().white,
+                                ),
                               ),
                             ],
                           ),
-                          Spacer(),
-                          TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                              fixedSize: Size(109.09.w, 21.h),
-                              minimumSize: Size(109.09.w, 21.h),
-                              backgroundColor: Appcolors().pink,
-                            ),
+                          SizedBox(
+                            height: 36,
                             child: Text(
-                              'Following',
+                              recipe['instructions'][0]['text'],
                               style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                                color: Appcolors().pinkSub,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 12,
+                                color: Appcolors().white,
                               ),
                             ),
                           ),
-                          SizedBox(width: 9.w),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset(
-                              'assets/Icons/three_dots.svg',
+                          SizedBox(height: 31),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Ingredients',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 20,
+                                color: Appcolors().redpinkmain,
+                              ),
                             ),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 10),
+                              ListView.builder(
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemCount: recipe['ingredients'].length,
+                                itemBuilder: (context, index) {
+                                  final ingredient =
+                                      recipe['ingredients'][index];
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 2.0,
+                                    ),
+                                    child: Text(
+                                      '${ingredient['amount']} ${ingredient['name']}',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(height: 20.h),
-                    Divider(color: Appcolors().pinkSub),
-                    SizedBox(height: 31.h),
-                    Row(
-                      spacing: 4,
-                      children: [
-                        Text(
-                          'Details',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 20,
-                            color: Appcolors().redpinkmain,
-                          ),
-                        ),
-                        SizedBox(width: 11.h),
-                        SvgPicture.asset('assets/Icons/clock.svg'),
-                        Text(
-                          recipe['timeRequired'].toString(),
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: Appcolors().white,
-                          ),
-                        ),
-                        Text(
-                          'min',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: Appcolors().white,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 36,
-                      child: Text(
-                        recipe['instructions'][0]['text'],
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12,
-                          color: Appcolors().white,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 31),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Ingredients',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 20,
-                          color: Appcolors().redpinkmain,
-                        ),
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: 10),
-                        ListView.builder(
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          itemCount: recipe['ingredients'].length,
-                          itemBuilder: (context, index) {
-                            final ingredient =
-                            recipe['ingredients'][index];
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 2.0,
-                              ),
-                              child: Text(
-                                '${ingredient['amount']} ${ingredient['name']}',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
+                  ),
           );
-        }
+        },
       ),
     );
   }

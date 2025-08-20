@@ -9,6 +9,7 @@ import 'package:recipefoodapp/core/appDetails/bottom_nav_bar.dart';
 import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/topChefRepostory.dart';
 import 'package:recipefoodapp/features/managers/TopChefViewModel.dart';
+import 'package:recipefoodapp/features/managers/chefDetailViewModel.dart';
 import '../../../../../core/utils/Appcolors.dart';
 import 'mostviewedchefs_widgets.dart';
 
@@ -22,7 +23,6 @@ class TopChefPage extends StatefulWidget {
 class _TopChefPageState extends State<TopChefPage> {
   late List<bool> isFollowing;
 
-   int? id;
 
   @override
   void initState() {
@@ -99,8 +99,8 @@ class _TopChefPageState extends State<TopChefPage> {
                                   final chef = vm.topChefView[index];
                                   return GestureDetector(
                                     onTap: (){
-                                      id = vm.topChefView[index].id;
-                                      context.push('/chefDetail/$id',);
+                                      context.read<ChefDetailViewModel>().getChefDetails(vm.topChefView[index].id);
+                                      context.push('/chefDetail',);
                                     },
                                     child: SizedBox(
                                       width: 170.w,
