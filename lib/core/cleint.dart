@@ -15,7 +15,6 @@ class ApiClient {
     request: true,
     responseBody: true
   ));
-
   Future<Result<T>> get<T>(
     String path, {
     Map<String, dynamic>? queryParams,

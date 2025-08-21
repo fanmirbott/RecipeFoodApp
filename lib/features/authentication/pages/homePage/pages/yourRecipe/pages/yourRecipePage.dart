@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/appDetails/bottom_nav_bar.dart';
 import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/core/router/routerName.dart';
 import 'package:recipefoodapp/data/repositories/yourRecipeRepostory.dart';
 import 'package:recipefoodapp/features/managers/YourRecipeViewModel.dart';
 import '../../../../../../../core/utils/Appcolors.dart';
@@ -86,7 +87,7 @@ class YourRecipePage extends StatelessWidget {
                             height: 195.h,
                             child: GestureDetector(
                               onTap: () {
-                                context.go('/yourRecipe');
+                                context.go(Routers.yourRecipe);
                               },
                               child: Stack(
                                 children: [
@@ -99,6 +100,7 @@ class YourRecipePage extends StatelessWidget {
                                           width: 168.52.w,
                                           height: 162.h,
                                           fit: BoxFit.cover,
+
                                         ),
                                         Positioned(
                                           top: 7.h,
@@ -220,27 +222,116 @@ class YourRecipePage extends StatelessWidget {
                 ),
                 Expanded(
                   child: GridView.builder(
-                    padding: EdgeInsetsGeometry.only(right: 36, left: 36, bottom: 100, top: 31),
+                    padding: EdgeInsetsGeometry.only(
+                      right: 36,
+                      left: 36,
+                      bottom: 100,
+                      top: 31,
+                    ),
                     itemCount: vm.recipes.length - 2,
                     itemBuilder: (context, index) {
                       final recipe = vm.recipes[index + 2];
                       return SizedBox(
-                        width: 168.52.w,
-                        height: 195.h,
+                        width: 170.w,
+                        height: 226.h,
                         child: GestureDetector(
                           onTap: () {
                             context.go('/yourRecipe');
                           },
                           child: Stack(
                             children: [
+                              Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Container(
+                                  padding: EdgeInsets.only(right: 15, left: 15, top: 15),
+                                  width: 160.w,
+                                  height: 80.h,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(13.r),
+                                    color: Appcolors().white,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        vm.recipes[index].title,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: 13,
+                                          color: Appcolors().backgroundBegie,
+                                        ),
+                                      ),
+                                      Text(
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        vm.recipes[index+2].description,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 12,
+                                          color: Appcolors().backgroundBegie,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 8.h,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Text(
+                                                recipe.rating.toString(),
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w400,
+                                                  color: Appcolors().pinkSub,
+                                                ),
+                                              ),
+                                              SvgPicture.asset(
+                                                'assets/Icons/star.svg',
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                'assets/Icons/clock.svg',
+                                              ),
+                                              SizedBox(width: 4),
+                                              Text(
+                                                recipe.timeRequired.toString(),
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w400,
+                                                  color: Appcolors().pinkSub,
+                                                ),
+                                              ),
+                                              Text(
+                                                'min',
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w400,
+                                                  color: Appcolors().pinkSub,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(14),
                                 child: Stack(
                                   children: [
                                     Image.network(
                                       recipe.photo,
-                                      width: 168.52.w,
-                                      height: 162.h,
+                                      width: 170.w,
+                                      height: 153.h,
                                       fit: BoxFit.cover,
                                     ),
                                     Positioned(
@@ -272,73 +363,6 @@ class YourRecipePage extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 15),
-                                  width: 168.52.w,
-                                  height: 48.h,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(13.r),
-                                    color: Appcolors().white,
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(vm.recipes[index].title),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Text(
-                                                recipe.rating
-                                                    .toString(),
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w400,
-                                                  color: Appcolors().pinkSub,
-                                                ),
-                                              ),
-                                              SvgPicture.asset(
-                                                'assets/Icons/star.svg',
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              SvgPicture.asset(
-                                                'assets/Icons/clock.svg',
-                                              ),
-                                              SizedBox(width: 4),
-                                              Text(
-                                                recipe.timeRequired
-                                                    .toString(),
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w400,
-                                                  color: Appcolors().pinkSub,
-                                                ),
-                                              ),
-                                              Text(
-                                                'min',
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w400,
-                                                  color: Appcolors().pinkSub,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
                             ],
                           ),
                         ),
@@ -348,7 +372,7 @@ class YourRecipePage extends StatelessWidget {
                       crossAxisCount: 2,
                       mainAxisSpacing: 10,
                       crossAxisSpacing: 15,
-                      mainAxisExtent: 197
+                      mainAxisExtent: 226,
                     ),
                   ),
                 ),

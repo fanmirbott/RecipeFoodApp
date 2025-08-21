@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:recipefoodapp/core/router/routerName.dart';
 import 'package:recipefoodapp/features/authentication/pages/homePage/pages/yourRecipe/pages/yourRecipePage.dart';
 import 'package:recipefoodapp/features/home/recipes/pages/ReviewsPage.dart';
 import '../../features/authentication/pages/categories/pages/CategoriesPage.dart';
@@ -17,60 +18,60 @@ import '../../features/home/recipes/pages/RecipeDetail.dart';
 import '../../features/home/recipes/pages/RecipePage.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: '/homePage',
+  initialLocation: Routers.homePage,
   routes: [
     GoRoute(
-      path: '/onBoarding',
+      path: Routers.onBoarding,
       builder: (context, state) => PageViewOnBoarding(),
     ),
     GoRoute(
-      path: '/OtpDigitField',
+      path: Routers.otpDigitField,
       builder: (context, state) => OtpDigitField(),
     ),
     GoRoute(
-      path: '/SendOtpPage',
+      path: Routers.sendOtpPage,
       builder: (context, state) => SendOtpPage(),
     ),
     GoRoute(
-      path: '/loginPage',
+      path: Routers.loginPage,
       builder: (context, state) => LoginPage(),
     ),
     GoRoute(
-      path: '/signUpPage',
+      path: Routers.signUpPage,
       builder: (context, state) => SignUpPage(),
     ),
     GoRoute(
-      path: '/onBoardingRecipe',
+      path: Routers.onBoardingRecipe,
       builder: (context, state) => Onboardingrecipe(),
     ),
     GoRoute(
-      path: '/onBoardingPage',
+      path: Routers.onBoardingPage,
       builder: (context, state) => Onboardingpage(),
     ),
     GoRoute(
-      path: '/categories',
+      path: Routers.categories,
       builder: (context, state) => CategoriesPage(),
     ),
     GoRoute(
-      path: '/topChef',
+      path: Routers.topChef,
       builder: (context, state) => TopChefPage(),
     ),
     GoRoute(
-      path: '/chefDetail',
+      path: Routers.chefDetail,
       builder: (context, state) => ChefsDetailPage(
 
       ),
     ),
     GoRoute(
-      path: '/trending',
+      path: Routers.trending,
       builder: (context, state) => TrendingPage(),
     ),
     GoRoute(
-      path: '/homePage',
+      path: Routers.homePage,
       builder: (context, state) => HomePage(),
     ),
     GoRoute(
-      path: '/recipePage',
+      path: Routers.recipePage,
       builder: (context, state) {
         final data = state.extra as Map<String, dynamic>;
         return RecipesPage(
@@ -80,16 +81,16 @@ final GoRouter router = GoRouter(
       },
     ),
     GoRoute(
-      path: '/recipe/:id',
+      path: Routers.recipe,
       builder: (context, state) => RecipeDetail(
         id: int.parse(state.pathParameters['id']!),
       ),
     ),
     GoRoute(
-      path: 'reviewsPage',
+      path: Routers.reviewsPage,
       builder: (context, state) => ReviewsPage(id: int.parse(state.pathParameters['id']!),),
     ),
-    GoRoute(path: '/yourRecipe',
+    GoRoute(path: Routers.yourRecipe,
     builder: (context, state) => YourRecipePage(),)
   ],
 );

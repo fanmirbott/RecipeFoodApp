@@ -3,20 +3,23 @@ class YourRecipeModel {
   final String title;
   final double rating;
   final int timeRequired;
+  final String description;
 
   YourRecipeModel({
     required this.photo,
     required this.title,
     required this.rating,
     required this.timeRequired,
+    required this.description,
   });
 
   factory YourRecipeModel.fromJson(Map<String, dynamic> json) {
     return YourRecipeModel(
-        photo: json['photo'],
-        title: json['title'],
-        rating: (json['rating'] as num).toDouble(),
-        timeRequired: json['timeRequired']
+      photo: json['photo'],
+      title: json['title'],
+      rating: (json['rating'] as num).toDouble(),
+      timeRequired: json['timeRequired'],
+      description: json['description'],
     );
   }
 }
