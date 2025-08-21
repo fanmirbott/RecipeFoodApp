@@ -13,11 +13,11 @@ class YourRecipeViewModel extends ChangeNotifier {
   List<YourRecipeModel> recipes = [];
   List<bool> likedStates = [];
 
-  Future<void> getRecipes({int limit = 2}) async {
+  Future<void> getRecipes() async {
     isLoading = true;
     notifyListeners();
 
-    recipes = await _repository.fetchRecipes(limit: limit);
+    recipes = await _repository.fetchRecipes();
     likedStates = List.filled(recipes.length, false);
 
     isLoading = false;

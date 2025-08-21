@@ -5,7 +5,6 @@ import 'package:recipefoodapp/core/utils/Appcolors.dart';
 import 'package:recipefoodapp/features/authentication/pages/obBoarding/pages/AllergicPage.dart';
 import 'package:recipefoodapp/features/authentication/pages/obBoarding/pages/CookingLevelPage.dart';
 import 'package:recipefoodapp/features/authentication/pages/obBoarding/pages/PreferencesPage.dart';
-
 import 'widgets/AnimadietContainer.dart';
 class PageViewOnBoarding extends StatefulWidget {
   PageViewOnBoarding({super.key});

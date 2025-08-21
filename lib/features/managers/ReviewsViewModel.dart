@@ -14,7 +14,7 @@ class ReviewsViewModel extends ChangeNotifier {
 
   bool isLoading = false;
   String? errorMessage;
-  Map<String, dynamic>? recipeData; // nullable qilindi
+  Map<String, dynamic>? recipeData;
 
   Future<void> getRecipeDetail() async {
     try {
@@ -24,7 +24,7 @@ class ReviewsViewModel extends ChangeNotifier {
 
       final result = await _repository.getRecipeDetail(id);
 
-      recipeData = result; // qiymat berildi
+      recipeData = result;
     } catch (e) {
       errorMessage = e.toString();
     } finally {

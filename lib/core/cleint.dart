@@ -4,14 +4,22 @@ import 'package:recipefoodapp/core/utils/result.dart';
 class ApiClient {
   final _dio = Dio(
     BaseOptions(
-      baseUrl: "http://192.168.10.106:8888/api/v1",
+      baseUrl: "http://192.168.1.71:8888/api/v1",
       validateStatus: (status) => true,
       connectTimeout: const Duration(seconds: 3),
       receiveTimeout: const Duration(seconds: 5),
     ),
-  );
+  )..interceptors.add(LogInterceptor(
+    requestBody: true,
+    error: true,
+    request: true,
+    responseBody: true
+  ));
 
-  Future<Result<T>> get<T>(String path, {Map<String, dynamic>? queryParams}) async {
+  Future<Result<T>> get<T>(
+    String path, {
+    Map<String, dynamic>? queryParams,
+  }) async {
     try {
       var response = await _dio.get(path, queryParameters: queryParams);
       if (response.statusCode != 200) {
@@ -23,7 +31,10 @@ class ApiClient {
     }
   }
 
-  Future<Result<T>> post<T>(String path, {required Map<String, dynamic> data}) async {
+  Future<Result<T>> post<T>(
+    String path, {
+    required Map<String, dynamic> data,
+  }) async {
     try {
       var response = await _dio.post(path, data: data);
       if (response.statusCode != 200 || response.statusCode != 201) {
@@ -35,7 +46,10 @@ class ApiClient {
     }
   }
 
-  Future<Result<T>> patch<T>(String path, {required Map<String, dynamic> data}) async {
+  Future<Result<T>> patch<T>(
+    String path, {
+    required Map<String, dynamic> data,
+  }) async {
     try {
       var response = await _dio.patch(path, data: data);
       if (response.statusCode != 200) {

@@ -7,9 +7,9 @@ import 'package:recipefoodapp/core/utils/Appcolors.dart';
 import 'package:recipefoodapp/data/repositories/categoriesRepostory.dart';
 import 'package:recipefoodapp/data/repositories/categories_detail_repostory.dart';
 import 'package:recipefoodapp/data/repositories/chefDetailRepostory.dart';
-import 'package:recipefoodapp/data/repositories/topChefRepostory.dart';
 import 'package:recipefoodapp/features/managers/chefDetailViewModel.dart';
-import 'core/goRouter/router.dart';
+
+import 'core/router/router.dart';
 
 void main() {
   runApp(MyApp());

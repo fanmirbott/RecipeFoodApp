@@ -35,11 +35,10 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) =>
-          ReviewsViewModel(
-            repository: ReviewsRepostory(ApiClient()),
-            id: widget.id,
-          ),
+      create: (context) => ReviewsViewModel(
+        repository: ReviewsRepostory(ApiClient()),
+        id: widget.id,
+      ),
       child: Scaffold(
         extendBody: true,
         appBar: AppBar(
@@ -62,13 +61,21 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
         body: Consumer<ReviewsViewModel>(
           builder: (context, vm, child) {
             if (vm.isLoading) {
-              Center(child: CircularProgressIndicator(),);
+              Center(
+                child: CircularProgressIndicator(),
+              );
             }
             if (vm.recipeData == null) {
-              Center(child: Text('Malumotlar topilmadi', style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                  color: Appcolors().white),),);
+              Center(
+                child: Text(
+                  'Malumotlar topilmadi',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    color: Appcolors().white,
+                  ),
+                ),
+              );
             }
             final recipe = vm.recipeData!;
             return SingleChildScrollView(
@@ -232,7 +239,9 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                                 });
                               },
                             ),
-                            SizedBox(width: 50.w,),
+                            SizedBox(
+                              width: 50.w,
+                            ),
                             Text(
                               'Yes',
                               style: TextStyle(
@@ -256,7 +265,9 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 110.h,),
+                        SizedBox(
+                          height: 110.h,
+                        ),
                         Row(
                           spacing: 19,
                           children: [
@@ -269,7 +280,102 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                               textColor: Appcolors().pinkSub,
                             ),
                             ReviewsButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      title: Center(
+                                        child: SizedBox(
+                                          width: 171.w,
+                                          child: Column(
+                                            children: [
+                                              Text(
+                                                "Thank you for",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 22,
+                                                  color:
+                                                      Appcolors().backgroundBegie,
+                                                ),
+                                              ),
+                                              Text(
+                                                "your Review!",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 22,
+                                                  color:
+                                                      Appcolors().backgroundBegie,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      content: SizedBox(
+                                        width: 276.w,
+                                        height: 180.h,
+                                        child: Column(
+                                          children: [
+                                            Center(
+                                              child: SvgPicture.asset(
+                                                'assets/Icons/big-tick.svg',
+                                                width: 59.w,
+                                                height: 59.h,
+                                                color: Appcolors().redpinkmain,
+                                              ),
+                                            ),
+                                            SizedBox(height: 20.h),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                    horizontal: 48,
+                                                  ),
+                                              child: Text(
+                                                "Lorem ipsum dolor sit amet pretium cras id dui pellentesque ornare.",
+                                                style: TextStyle(
+                                                  fontSize: 13.sp,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(height: 8.h),
+                                          ],
+                                        ),
+                                      ),
+                                      actions: [
+                                        Center(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              context.go('/homePage');
+                                            },
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              width: 207.w,
+                                              height: 45.h,
+                                              decoration: BoxDecoration(
+                                                color: Appcolors().redpinkmain,
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                      30.r,
+                                                    ),
+                                              ),
+                                              child: Text(
+                                                'Go to home',
+                                                style: TextStyle(
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Appcolors().white,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              },
                               backColor: Appcolors().redpinkmain,
                               text: 'Submit',
                               textColor: Appcolors().white,

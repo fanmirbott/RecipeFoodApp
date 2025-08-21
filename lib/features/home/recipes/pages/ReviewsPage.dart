@@ -55,8 +55,6 @@ class ReviewsPage extends StatelessWidget {
             final detail = vm.recipeData!;
             final int rating = (detail['rating'] as num).toInt();
             final int reviewsCount = (detail['reviewsCount'] as num).toInt();
-            final user = detail['user'];
-
             return Column(
               children: [
                 Container(
@@ -204,6 +202,20 @@ class ReviewsPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: 10.h,),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Comments',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15,
+                        color: Appcolors().redpinkmain,
+                      ),
+                    ),
+                  ],
+                ),
               ],
             );
           },
@@ -228,9 +240,13 @@ class RatingStars extends StatelessWidget {
     return Row(
       children: List.generate(maxRating.toInt(), (index) {
         if (index < rating.toInt()) {
-          return SvgPicture.asset('assets/Icons/star-filled.svg',);
+          return SvgPicture.asset(
+            'assets/Icons/star-filled.svg',
+          );
         } else {
-          return SvgPicture.asset('assets/Icons/star-empty.svg',);
+          return SvgPicture.asset(
+            'assets/Icons/star-empty.svg',
+          );
         }
       }),
     );
