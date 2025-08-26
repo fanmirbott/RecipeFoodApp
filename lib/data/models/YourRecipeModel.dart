@@ -1,4 +1,5 @@
 class YourRecipeModel {
+  final int id;
   final String photo;
   final String title;
   final double rating;
@@ -6,6 +7,7 @@ class YourRecipeModel {
   final String description;
 
   YourRecipeModel({
+    required this.id,
     required this.photo,
     required this.title,
     required this.rating,
@@ -20,6 +22,7 @@ class YourRecipeModel {
       rating: (json['rating'] as num).toDouble(),
       timeRequired: json['timeRequired'],
       description: json['description'],
+      id: json['id'],
     );
   }
 }

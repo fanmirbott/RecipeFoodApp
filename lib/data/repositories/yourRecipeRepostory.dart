@@ -1,4 +1,4 @@
-import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/core/network/cleint.dart';
 import '../../data/models/YourRecipeModel.dart';
 
 class YourRecipeRepository {

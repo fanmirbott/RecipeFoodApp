@@ -1,4 +1,4 @@
-import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/core/network/cleint.dart';
 
 class PreferencesRepository {
   final ApiClient _client;

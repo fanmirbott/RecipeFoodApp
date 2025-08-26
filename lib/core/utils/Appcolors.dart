@@ -10,4 +10,5 @@ class Appcolors{
   Color pinkSub = Color(0xFFEC888D);
   Color brownLetters = Color(0xFF3E2823);
   Color black = Colors.black;
+  Color transparent = Colors.transparent;
 }

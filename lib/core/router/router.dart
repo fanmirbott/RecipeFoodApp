@@ -1,24 +1,27 @@
 import 'package:go_router/go_router.dart';
 import 'package:recipefoodapp/core/router/routerName.dart';
-import 'package:recipefoodapp/features/authentication/pages/homePage/pages/yourRecipe/pages/yourRecipePage.dart';
-import 'package:recipefoodapp/features/home/recipes/pages/ReviewsPage.dart';
-import '../../features/authentication/pages/categories/pages/CategoriesPage.dart';
-import '../../features/authentication/pages/homePage/pages/HomePage.dart';
+import 'package:recipefoodapp/features/profile/profile.dart';
 import '../../features/authentication/pages/loginPage/pages/LoginPage.dart';
 import '../../features/authentication/pages/loginPage/pages/SignUpPage.dart';
 import '../../features/authentication/pages/loginPage/pages/otp_digit_field.dart';
 import '../../features/authentication/pages/loginPage/pages/send_otp_page.dart';
-import '../../features/authentication/pages/obBoarding/OnBoardingPage.dart';
-import '../../features/authentication/pages/obBoarding/onBoardingPage.dart';
-import '../../features/authentication/pages/obBoarding/onBoardingRecipe.dart';
-import '../../features/authentication/pages/topChef/pages/ChefsDetailPage.dart';
-import '../../features/authentication/pages/topChef/pages/TopChefPage.dart';
-import '../../features/authentication/pages/trenndingPage/trendingPage.dart';
-import '../../features/home/recipes/pages/RecipeDetail.dart';
-import '../../features/home/recipes/pages/RecipePage.dart';
+import '../../features/categories/pages/CategoriesPage.dart';
+import '../../features/community/pages/CommunityPage.dart';
+import '../../features/home/pages/HomePage.dart';
+import '../../features/obBoarding/pages/LaunchPage.dart';
+import '../../features/obBoarding/pages/OnBoardingPage.dart';
+import '../../features/obBoarding/pages/onBoardingPage.dart';
+import '../../features/obBoarding/pages/onBoardingRecipe.dart';
+import '../../features/recipes/pages/RecipeDetail.dart';
+import '../../features/recipes/pages/RecipePage.dart';
+import '../../features/recipes/pages/ReviewsPage.dart';
+import '../../features/topChef/pages/ChefsDetailPage.dart';
+import '../../features/topChef/pages/TopChefPage.dart';
+import '../../features/trenndingPage/pages/trendingPage.dart';
+import '../../features/yourRecipe/pages/yourRecipePage.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: Routers.homePage,
+  initialLocation: Routers.launchPage,
   routes: [
     GoRoute(
       path: Routers.onBoarding,
@@ -58,9 +61,7 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routers.chefDetail,
-      builder: (context, state) => ChefsDetailPage(
-
-      ),
+      builder: (context, state) => ChefsDetailPage(),
     ),
     GoRoute(
       path: Routers.trending,
@@ -82,15 +83,33 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routers.recipe,
-      builder: (context, state) => RecipeDetail(
+      builder: (context, state) {
+        final id = state.extra as int;
+        return RecipeDetail(id: id);
+      },
+    ),
+
+    GoRoute(
+      path: Routers.reviewsPage,
+      builder: (context, state) => ReviewsPage(
         id: int.parse(state.pathParameters['id']!),
       ),
     ),
     GoRoute(
-      path: Routers.reviewsPage,
-      builder: (context, state) => ReviewsPage(id: int.parse(state.pathParameters['id']!),),
+      path: Routers.yourRecipe,
+      builder: (context, state) => YourRecipePage(),
     ),
-    GoRoute(path: Routers.yourRecipe,
-    builder: (context, state) => YourRecipePage(),)
+    GoRoute(
+      path: Routers.community,
+      builder: (context, state) => CommunityPage(),
+    ),
+    GoRoute(
+      path: Routers.launchPage,
+      builder: (context, state) => LaunchPage(),
+    ),
+    GoRoute(
+      path: Routers.profilePage,
+      builder: (context, state) => ProfilePage(),
+    ),
   ],
 );

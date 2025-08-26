@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/utils/AppTheme.dart';
+import 'package:recipefoodapp/core/utils/provider.dart';
 import 'package:recipefoodapp/data/repositories/AuthenticationRepository.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
 import 'package:recipefoodapp/data/repositories/categoriesRepostory.dart';
 import 'package:recipefoodapp/data/repositories/categories_detail_repostory.dart';
 import 'package:recipefoodapp/data/repositories/chefDetailRepostory.dart';
-import 'package:recipefoodapp/features/managers/chefDetailViewModel.dart';
+import 'package:recipefoodapp/features/topChef/managers/chefDetailViewModel.dart';
 
 import 'core/router/router.dart';
 
@@ -40,16 +42,27 @@ class MyApp extends StatelessWidget {
             ),
           ),
           ChangeNotifierProvider(
-            create: (context) =>
-                ChefDetailViewModel(ChefDetailRepository(client: ApiClient())),
+            create: (context) => ChefDetailViewModel(
+              ChefDetailRepository(
+                client: ApiClient(),
+              ),
+            ),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => ThemeViewModel(),
           ),
         ],
-        child: MaterialApp.router(
-          theme: ThemeData(
-            scaffoldBackgroundColor: Appcolors().backgroundBegie,
-          ),
-          debugShowCheckedModeBanner: false,
-          routerConfig: router,
+        child: Builder(
+          builder: (context) {
+            bool isDarkMode = context.watch<ThemeViewModel>().isDarkTheme;
+            return MaterialApp.router(
+              theme: AppNight.theme,
+              darkTheme: AppDark.theme,
+              themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
+              debugShowCheckedModeBanner: false,
+              routerConfig: router,
+            );
+          },
         ),
       ),
     );

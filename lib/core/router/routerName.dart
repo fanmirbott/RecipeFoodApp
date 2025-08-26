@@ -16,4 +16,7 @@ class Routers{
   static const recipe = '/recipe/:id';
   static const reviewsPage = 'reviewsPage';
   static const yourRecipe = '/yourRecipe';
+  static const community  = '/communityPage';
+  static const launchPage = '/launchPage';
+  static const profilePage= '/profile';
 }

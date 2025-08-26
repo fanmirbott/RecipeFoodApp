@@ -1,5 +1,5 @@
-import 'package:recipefoodapp/core/cleint.dart';
-import 'package:recipefoodapp/core/utils/result.dart';
+import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/network/result.dart';
 import 'package:recipefoodapp/data/models/Cuisene_model_recipe.dart';
 
 class CategoriesDetailRepository {

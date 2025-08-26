@@ -1,4 +1,4 @@
-class RecipeDetail {
+class RecipeDetailModel {
   final int id;
   final String title;
   final String photo;
@@ -6,7 +6,7 @@ class RecipeDetail {
   final int reviewsCount;
   final User user;
 
-  RecipeDetail({
+  RecipeDetailModel({
     required this.id,
     required this.title,
     required this.photo,
@@ -15,8 +15,8 @@ class RecipeDetail {
     required this.user,
   });
 
-  factory RecipeDetail.fromJson(Map<String, dynamic> json) {
-    return RecipeDetail(
+  factory RecipeDetailModel.fromJson(Map<String, dynamic> json) {
+    return RecipeDetailModel(
       id: json['id'],
       title: json['title'],
       photo: json['photo'],

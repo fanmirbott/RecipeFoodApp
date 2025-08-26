@@ -1,5 +1,5 @@
 import 'package:recipefoodapp/data/models/trendingRecipiesModel.dart';
-import '../../core/cleint.dart';
+import '../../core/network/cleint.dart';
 import '../models/TopChefModel.dart';
 import '../models/trendingRecipeMOdel.dart';
 
