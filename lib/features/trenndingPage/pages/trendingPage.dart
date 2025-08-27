@@ -286,179 +286,184 @@ class _TrendingPageState extends State<TrendingPage> {
                             height: 150.h,
                             child: Stack(
                               children: [
-                                Row(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius:
-                                          BorderRadiusGeometry.circular(14),
-                                      child: Stack(
-                                        children: [ Image.network(
-                                          vm.categories[index].photo,
-                                          width: 150.w,
-                                          height: 150.h,
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Container(
+                                  width: 209.w,
+                                  height: 122.h,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadiusGeometry.only(
+                                        bottomRight: Radius.circular(
+                                          14.r,
                                         ),
-                                          Positioned(
-                                            top: 7.h,
-                                            left: 115.w,
-                                            child: GestureDetector(
-                                              onTap: () => vm.toggleLike(index),
-                                              child: Container(
-                                                width: 28.w,
-                                                height: 28.h,
-                                                decoration: BoxDecoration(
-                                                  color: vm.likedStates[index]
-                                                      ? Appcolors().redpinkmain
-                                                      : Appcolors().pink,
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: SvgPicture.asset(
-                                                  'assets/Icons/like.svg',
-                                                  width: 15.w,
-                                                  height: 15.h,
-                                                  fit: BoxFit.none,
-                                                  color: vm.likedStates[index]
-                                                      ? Appcolors().white
-                                                      : Appcolors().pinkSub,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ]
+                                        topRight: Radius.circular(14.r),
                                       ),
+                                      color: Appcolors().white,
+                                      border: Border.all(color: Appcolors().redpinkmain)
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsGeometry.symmetric(
+                                      horizontal: 10,
+                                      vertical: 10,
                                     ),
-                                    Container(
-                                      width: 207.w,
-                                      height: 122.h,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadiusGeometry.only(
-                                          bottomRight: Radius.circular(
-                                            14.r,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          vm.categories[index].title,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 12,
+                                            color:
+                                            Appcolors().backgroundBegie,
                                           ),
-                                          topRight: Radius.circular(14.r),
                                         ),
-                                        color: Appcolors().white,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsGeometry.symmetric(
-                                          horizontal: 10,
-                                          vertical: 10,
+                                        Text(
+                                          vm.categories[index].description,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 13,
+                                            color:
+                                            Appcolors().backgroundBegie,
+                                          ),
+                                          maxLines: 2,
                                         ),
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                        Text(
+                                          'By Chef ${vm.topChef[index].firstName}',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 12,
+                                            color: Appcolors().redpinkmain,
+                                          ),
+                                        ),
+                                        Row(
+                                          spacing: 15,
                                           children: [
-                                            Text(
-                                              vm.categories[index].title,
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 12,
-                                                color:
-                                                    Appcolors().backgroundBegie,
-                                              ),
-                                            ),
-                                            Text(
-                                              vm.categories[index].description,
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.w300,
-                                                fontSize: 13,
-                                                color:
-                                                    Appcolors().backgroundBegie,
-                                              ),
-                                              maxLines: 2,
-                                            ),
-                                            Text(
-                                              'By Chef ${vm.topChef[index].firstName}',
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.w300,
-                                                fontSize: 12,
-                                                color: Appcolors().redpinkmain,
-                                              ),
+                                            Row(
+                                              children: [
+                                                SvgPicture.asset(
+                                                  'assets/Icons/clock.svg',
+                                                ),
+                                                SizedBox(width: 6),
+                                                Text(
+                                                  vm
+                                                      .categories[index]
+                                                      .timeRequired
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                    FontWeight.w400,
+                                                    color:
+                                                    Appcolors().pinkSub,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  'min',
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                    FontWeight.w400,
+                                                    color:
+                                                    Appcolors().pinkSub,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                             Row(
-                                              spacing: 15,
+                                              spacing: 3,
                                               children: [
-                                                Row(
-                                                  children: [
-                                                    SvgPicture.asset(
-                                                      'assets/Icons/clock.svg',
-                                                    ),
-                                                    SizedBox(width: 6),
-                                                    Text(
-                                                      vm
-                                                          .categories[index]
-                                                          .timeRequired
-                                                          .toString(),
-                                                      style: TextStyle(
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        color:
-                                                            Appcolors().pinkSub,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      'min',
-                                                      style: TextStyle(
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        color:
-                                                            Appcolors().pinkSub,
-                                                      ),
-                                                    ),
-                                                  ],
+                                                Text(
+                                                  vm
+                                                      .categories[index]
+                                                      .difficulty
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                    FontWeight.w400,
+                                                    color:
+                                                    Appcolors().pinkSub,
+                                                  ),
                                                 ),
-                                                Row(
-                                                  spacing: 3,
-                                                  children: [
-                                                    Text(
-                                                      vm
-                                                          .categories[index]
-                                                          .difficulty
-                                                          .toString(),
-                                                      style: TextStyle(
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        color:
-                                                            Appcolors().pinkSub,
-                                                      ),
-                                                    ),
-                                                    SvgPicture.asset(
-                                                      'assets/Icons/def.svg',
-                                                    ),
-                                                  ],
+                                                SvgPicture.asset(
+                                                  'assets/Icons/def.svg',
                                                 ),
-                                                Row(
-                                                  spacing: 4,
-                                                  children: [
-                                                    Text(
-                                                      vm
-                                                          .categories[index]
-                                                          .rating
-                                                          .toString(),
-                                                      style: TextStyle(
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        color:
-                                                            Appcolors().pinkSub,
-                                                      ),
-                                                    ),
-                                                    SvgPicture.asset(
-                                                      'assets/Icons/star.svg',
-                                                    ),
-                                                  ],
+                                              ],
+                                            ),
+                                            Row(
+                                              spacing: 4,
+                                              children: [
+                                                Text(
+                                                  vm
+                                                      .categories[index]
+                                                      .rating
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                    FontWeight.w400,
+                                                    color:
+                                                    Appcolors().pinkSub,
+                                                  ),
+                                                ),
+                                                SvgPicture.asset(
+                                                  'assets/Icons/star.svg',
                                                 ),
                                               ],
                                             ),
                                           ],
                                         ),
-                                      ),
+                                      ],
                                     ),
-                                  ],
+                                  ),
+                                                                ),
+                                ),
+                                Align(
+                                  alignment: Alignment.centerLeft,
+
+                                  child: ClipRRect(
+                                    borderRadius:
+                                        BorderRadiusGeometry.circular(14),
+                                    child: Stack(
+                                      children: [ Image.network(
+                                        vm.categories[index].photo,
+                                        width: 150.w,
+                                        height: 150.h,
+                                        fit: BoxFit.cover,
+                                      ),
+                                        Positioned(
+                                          top: 7.h,
+                                          left: 115.w,
+                                          child: GestureDetector(
+                                            onTap: () => vm.toggleLike(index),
+                                            child: Container(
+                                              width: 28.w,
+                                              height: 28.h,
+                                              decoration: BoxDecoration(
+                                                color: vm.likedStates[index]
+                                                    ? Appcolors().redpinkmain
+                                                    : Appcolors().pink,
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: SvgPicture.asset(
+                                                'assets/Icons/like.svg',
+                                                width: 15.w,
+                                                height: 15.h,
+                                                fit: BoxFit.none,
+                                                color: vm.likedStates[index]
+                                                    ? Appcolors().white
+                                                    : Appcolors().pinkSub,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ]
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),

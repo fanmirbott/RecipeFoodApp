@@ -2,27 +2,25 @@ import 'package:recipefoodapp/core/network/cleint.dart';
 import 'package:recipefoodapp/core/network/result.dart';
 
 class AuthenticationRepository {
-  AuthenticationRepository({
-    required ApiClient client,
-  }) : _client = client;
   final ApiClient _client;
-
-  Future<Result<Map<String, dynamic>>> add(Map<String, dynamic> data) async {
-    var result = await _client.post('/auth/register', data: data);
-    return result.fold(
-      (error) => Result.error(error),
-      (value) => Result.ok(value),
-    );
-  }
+  AuthenticationRepository({required ApiClient client}) : _client = client;
 
   Future<Result<String>> login(String login, String password) async {
-    var response = await _client.post<String>(
+    final response = await _client.post<Map<String, dynamic>>(
       '/auth/login',
       data: {'login': login, 'password': password},
     );
+
     return response.fold(
-      (error) => Result.error(error),
-      (success) => Result.ok(success),
+          (error) => Result.error(error),
+          (data) {
+        final token = data['accessToken'] as String?;
+        if (token != null && token.isNotEmpty) {
+          return Result.ok(token);
+        } else {
+          return Result.error(Exception("Token topilmadi"));
+        }
+      },
     );
   }
 }

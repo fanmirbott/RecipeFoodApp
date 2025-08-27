@@ -1,7 +1,6 @@
-import 'package:recipefoodapp/data/models/trendingRecipiesModel.dart';
 import '../../core/network/cleint.dart';
-import '../models/TopChefModel.dart';
-import '../models/trendingRecipeMOdel.dart';
+import '../models/chefs/chefsModel.dart';
+import '../models/recipe/RecipeModel.dart';
 
 class TrendingRepository {
   final ApiClient client;

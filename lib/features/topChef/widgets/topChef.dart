@@ -66,11 +66,7 @@ class TopChef extends StatelessWidget {
                             SizedBox(height: 2.h),
                             Text(
                               chef.firstName,
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: Appcolors().white,
-                              ),
+                              style: Theme.of(context).textTheme.bodyMedium
                             ),
                           ],
                         ),

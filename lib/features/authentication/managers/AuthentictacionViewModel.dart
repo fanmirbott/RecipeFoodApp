@@ -1,33 +1,42 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../data/repositories/AuthenticationRepository.dart';
 
-class SignUpViewModel extends ChangeNotifier {
+class LoginViewModel extends ChangeNotifier {
   final AuthenticationRepository _repository;
 
-  SignUpViewModel(this._repository);
+  LoginViewModel(this._repository);
 
   bool isLoading = false;
   String? errorMessage;
   String? successMessage;
+  bool isSuccess = false;
 
-  Future<void> signUp(Map<String, dynamic> data) async {
+  Future<bool> login(String login, String password) async {
     isLoading = true;
     errorMessage = null;
     successMessage = null;
+    isSuccess = false;
     notifyListeners();
 
-    final result = await _repository.add(data);
+    final result = await _repository.login(login, password);
 
-    result.fold(
+    await result.fold(
           (error) {
-        errorMessage = error as String?;
+        errorMessage = error.toString();
+        isSuccess = false;
       },
-          (value) {
-        successMessage = "Ro‘yxatdan o‘tish muvaffaqiyatli!";
+          (token) async {
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString("token", token);
+
+        successMessage = "Kirish muvaffaqiyatli!";
+        isSuccess = true;
       },
     );
 
     isLoading = false;
     notifyListeners();
+    return isSuccess;
   }
 }

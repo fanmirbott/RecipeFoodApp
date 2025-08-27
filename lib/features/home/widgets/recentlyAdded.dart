@@ -56,58 +56,15 @@ class _RecentlyAddedState extends State<RecentlyAdded> {
                     final recipe = vm.recentlyAdded[index];
                     return SizedBox(
                       width: 168.52.w,
-                      height: 195.h,
+                      height: 226.h,
                       child: Stack(
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(14.r),
-                            child: Stack(
-                              children: [
-                                Image.network(
-                                  recipe.photo,
-                                  width: 168.52.w,
-                                  height: 162.h,
-                                  fit: BoxFit.cover,
-                                ),
-                                Positioned(
-                                  top: 7.h,
-                                  left: 132.w,
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        likedStates[index] = !likedStates[index];
-                                      });
-                                    },
-                                    child: Container(
-                                      width: 28.w,
-                                      height: 28.h,
-                                      decoration: BoxDecoration(
-                                        color: likedStates[index]
-                                            ? Appcolors().redpinkmain
-                                            : Appcolors().pink,
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: SvgPicture.asset(
-                                        'assets/Icons/like.svg',
-                                        width: 15.w,
-                                        height: 15.h,
-                                        fit: BoxFit.none,
-                                        color: likedStates[index]
-                                            ? Appcolors().white
-                                            : Appcolors().pinkSub,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                           Align(
                             alignment: Alignment.bottomCenter,
                             child: Container(
                               padding: EdgeInsets.symmetric(horizontal: 15.w),
-                              width: 168.52.w,
-                              height: 48.h,
+                              width: 158.52.w,
+                              height: 87.h,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(13.r),
                                 color: Appcolors().white,
@@ -116,7 +73,14 @@ class _RecentlyAddedState extends State<RecentlyAdded> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(recipe.title),
+                                  Text(
+                                    recipe.title,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 12,
+                                      color: Appcolors().backgroundBegie,
+                                    ),
+                                  ),
                                   Row(
                                     children: [
                                       Row(
@@ -149,15 +113,64 @@ class _RecentlyAddedState extends State<RecentlyAdded> {
                                               color: Appcolors().pinkSub,
                                             ),
                                           ),
-                                          Text(" min", style: TextStyle(
-                                            fontSize: 12, fontWeight: FontWeight.w400, color: Appcolors().pinkSub
-                                          ),),
+                                          Text(
+                                            " min",
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                              color: Appcolors().pinkSub,
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ],
                                   ),
                                 ],
                               ),
+                            ),
+                          ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(14.r),
+                            child: Stack(
+                              children: [
+                                Image.network(
+                                  recipe.photo,
+                                  width: 169.w,
+                                  height: 153.h,
+                                  fit: BoxFit.cover,
+                                ),
+                                Positioned(
+                                  top: 7.h,
+                                  left: 132.w,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        likedStates[index] =
+                                            !likedStates[index];
+                                      });
+                                    },
+                                    child: Container(
+                                      width: 28.w,
+                                      height: 28.h,
+                                      decoration: BoxDecoration(
+                                        color: likedStates[index]
+                                            ? Appcolors().redpinkmain
+                                            : Appcolors().pink,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: SvgPicture.asset(
+                                        'assets/Icons/like.svg',
+                                        width: 15.w,
+                                        height: 15.h,
+                                        fit: BoxFit.none,
+                                        color: likedStates[index]
+                                            ? Appcolors().white
+                                            : Appcolors().pinkSub,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],

@@ -5,13 +5,13 @@ import 'package:recipefoodapp/core/network/cleint.dart';
 import 'package:recipefoodapp/core/utils/AppTheme.dart';
 import 'package:recipefoodapp/core/utils/provider.dart';
 import 'package:recipefoodapp/data/repositories/AuthenticationRepository.dart';
-import 'package:recipefoodapp/core/utils/Appcolors.dart';
 import 'package:recipefoodapp/data/repositories/categoriesRepostory.dart';
 import 'package:recipefoodapp/data/repositories/categories_detail_repostory.dart';
 import 'package:recipefoodapp/data/repositories/chefDetailRepostory.dart';
 import 'package:recipefoodapp/features/topChef/managers/chefDetailViewModel.dart';
-
 import 'core/router/router.dart';
+import 'features/authentication/managers/AuthentictacionViewModel.dart';
+import 'features/authentication/pages/loginPage/pages/LoginPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,6 +32,10 @@ class MyApp extends StatelessWidget {
           Provider(
             create: (context) =>
                 AuthenticationRepository(client: context.read()),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => LoginViewModel(context.read<AuthenticationRepository>()),
+            child: LoginPage(),
           ),
           Provider(
             create: (context) => CategoriesRepository(client: context.read()),
@@ -58,7 +62,7 @@ class MyApp extends StatelessWidget {
             return MaterialApp.router(
               theme: AppNight.theme,
               darkTheme: AppDark.theme,
-              themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
+              themeMode: isDarkMode ? ThemeMode.light : ThemeMode.dark,
               debugShowCheckedModeBanner: false,
               routerConfig: router,
             );

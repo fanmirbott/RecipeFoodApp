@@ -77,6 +77,9 @@ class _RecipesPageState extends State<RecipesPage> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(14.r),
                               color: Appcolors().white,
+                              border: Border.all(
+                                color: Theme.of(context).colorScheme.secondary
+                              )
                             ),
                             child: Padding(
                               padding: EdgeInsets.only(

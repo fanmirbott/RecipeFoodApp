@@ -83,11 +83,7 @@ class _CommunityPageState extends State<CommunityPage> {
                                   children: [
                                     Text(
                                       '@${items.user.username}',
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w400,
-                                        color: Appcolors().white,
-                                      ),
+                                      style: Theme.of(context).textTheme.bodySmall
                                     ),
                                     Text(
                                       '${items.created.month.toString()} Month ago',

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:recipefoodapp/core/network/cleint.dart'; // Yuqoridagi ApiClient fayl nomi
+import 'package:recipefoodapp/core/network/cleint.dart';
 import 'package:recipefoodapp/core/network/result.dart';
 
-import '../../../data/models/chefDetailModel.dart';
+import '../../../data/models/chefs/chefsModel.dart';
 
 class ChefRepository {
   ChefRepository({

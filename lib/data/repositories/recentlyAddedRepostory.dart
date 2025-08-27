@@ -1,6 +1,6 @@
 import 'package:recipefoodapp/core/network/cleint.dart';
 
-import '../models/RecentlyAddedModel.dart';
+import '../models/home/RecentlyAddedModel.dart';
 
 class RecentlyAddedRepository {
   final ApiClient _client;

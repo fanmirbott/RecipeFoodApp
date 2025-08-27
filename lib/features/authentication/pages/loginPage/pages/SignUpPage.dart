@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/data/models/SignUpModel.dart';
+import 'package:recipefoodapp/data/models/authentication/AuthenticationModel.dart';
 import 'package:recipefoodapp/data/repositories/AuthenticationRepository.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
 
@@ -153,7 +153,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   onPressed: () async {
                     if (formKey.currentState!.validate()) {
                       final repo = context.read<AuthenticationRepository>();
-                      AuthModel signUp = AuthModel(
+                      SignUpModel signUp = SignUpModel(
                         username: controllerUsername.text,
                         firstName: controllerFirstName.text,
                         lastName: controllerLastName.text,

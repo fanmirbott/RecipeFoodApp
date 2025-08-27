@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import '../../../data/models/RecentlyAddedModel.dart';
+import '../../../data/models/home/RecentlyAddedModel.dart';
 import '../../../data/repositories/recentlyAddedRepostory.dart';
 
 class RecentlyAddedViewModel extends ChangeNotifier {

@@ -42,7 +42,6 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
       child: Scaffold(
         extendBody: true,
         appBar: AppBar(
-          backgroundColor: Appcolors().backgroundBegie,
           leading: IconButton(
             onPressed: () => context.pop(),
             icon: SvgPicture.asset("assets/Icons/back-arrow.svg"),
@@ -79,8 +78,9 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
             }
             final recipe = vm.recipeData!;
             return SingleChildScrollView(
+               physics: AlwaysScrollableScrollPhysics(),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 36),
+                padding: const EdgeInsets.only(right: 36, left: 36, top: 10),
                 child: Column(
                   children: [
                     Container(
@@ -144,7 +144,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
-                        color: Appcolors().white,
+                        color: Theme.of(context).primaryColor
                       ),
                     ),
                     Column(
@@ -196,7 +196,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w500,
-                                color: Appcolors().white,
+                                color: Theme.of(context).primaryColor,
                               ),
                             ),
                           ],
@@ -214,7 +214,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 12,
-                            color: Appcolors().white,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                         Row(
@@ -222,7 +222,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                             Text(
                               'No',
                               style: TextStyle(
-                                color: Appcolors().white,
+                                color: Theme.of(context).primaryColor,
                                 fontSize: 15,
                                 fontWeight: FontWeight.w300,
                               ),
@@ -245,7 +245,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                             Text(
                               'Yes',
                               style: TextStyle(
-                                color: Appcolors().white,
+                                color: Theme.of(context).primaryColor,
                                 fontSize: 15,
                                 fontWeight: FontWeight.w300,
                               ),

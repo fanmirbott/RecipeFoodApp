@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:recipefoodapp/core/router/routerName.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
 
+import '../../../managers/AuthentictacionViewModel.dart';
 import '../widgets/login_page_text_button.dart';
 import '../widgets/login_page_text_field.dart';
 
@@ -14,6 +17,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loginViewModel = context.read<LoginViewModel>();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Appcolors().backgroundBegie,
@@ -60,8 +64,25 @@ class LoginPage extends StatelessWidget {
               ),
               LoginPageTextButton(
                 onPressed: () async {
-                  context.go('/homePage');
+                  final loginVM = context.read<LoginViewModel>();
+                  final success = await loginVM.login(
+                    controllerEmail.text,
+                    controllerPassword.text,
+                  );
+
+                  if (success) {
+                    context.go(Routers.homePage);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          loginVM.errorMessage ?? "Xatolik yuz berdi",
+                        ),
+                      ),
+                    );
+                  }
                 },
+
                 text: 'Login',
                 textColor: Appcolors().white,
                 backgroundColor: Appcolors().pink,
@@ -71,7 +92,7 @@ class LoginPage extends StatelessWidget {
               ),
               LoginPageTextButton(
                 onPressed: () {
-                  context.push('/signUpPage');
+                  context.push(Routers.signUpPage);
                 },
                 text: 'Sign up',
                 textColor: Appcolors().pinkSub,
@@ -82,7 +103,7 @@ class LoginPage extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  context.push('/OtpDigitField');
+                  context.push(Routers.otpDigitField);
                 },
                 child: Text(
                   'Forgot Password?',

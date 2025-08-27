@@ -1,6 +1,5 @@
 import '../../core/network/cleint.dart';
-import '../models/TopChefModel.dart';
-import '../models/chefsModel.dart';
+import '../models/chefs/chefsModel.dart';
 
 class TopChefRepository {
   final ApiClient _client;

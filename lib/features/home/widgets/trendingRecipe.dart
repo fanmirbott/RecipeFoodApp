@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:recipefoodapp/core/router/routerName.dart';
 import '../../../../../core/network/cleint.dart';
 import '../../../../../core/utils/Appcolors.dart';
 import '../../../../../data/repositories/trendingRecipeRepostory.dart';
@@ -54,7 +55,7 @@ class _TrendingRecipeState extends State<TrendingRecipe> {
                 SizedBox(height: 9.h),
                 GestureDetector(
                   onTap: (){
-                    context.push('/trending');
+                    context.push(Routers.trending);
                   },
                   child: SizedBox(
                     width: 358.w,
@@ -67,7 +68,7 @@ class _TrendingRecipeState extends State<TrendingRecipe> {
                             padding: EdgeInsets.only(
                               left: 12.w,
                               right: 10.w,
-                              top: 20.h,
+                              top: 18.5.h,
                             ),
                             width: 348.w,
                             height: 60.h,
@@ -84,21 +85,13 @@ class _TrendingRecipeState extends State<TrendingRecipe> {
                                     children: [
                                       Text(
                                         recipe.title,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 13,
-                                          color: Appcolors().white,
-                                        ),
+                                        style: Theme.of(context).textTheme.bodyMedium
                                       ),
                                       Text(
                                         recipe.description,
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w300,
-                                          fontSize: 13,
-                                          color: Appcolors().white,
-                                        ),
+                                        style: Theme.of(context).textTheme.bodyLarge
                                       ),
                                     ],
                                   ),
@@ -133,6 +126,7 @@ class _TrendingRecipeState extends State<TrendingRecipe> {
                                       ],
                                     ),
                                     Row(
+                                      spacing: 5,
                                       children: [
                                         Text(
                                           recipe.rating.toString(),

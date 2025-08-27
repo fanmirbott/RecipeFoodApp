@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import '../../../data/models/TopChefModel.dart';
-import '../../../data/models/chefsModel.dart';
+import '../../../data/models/chefs/chefsModel.dart';
 import '../../../data/repositories/topChefRepostory.dart';
 
 class TopChefViewModel extends ChangeNotifier {

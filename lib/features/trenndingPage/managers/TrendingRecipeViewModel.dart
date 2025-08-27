@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../data/models/TopChefModel.dart';
-import '../../../data/models/trendingRecipeMOdel.dart';
-import '../../../data/models/trendingRecipiesModel.dart';
+import '../../../data/models/chefs/chefsModel.dart';
+import '../../../data/models/recipe/RecipeModel.dart';
 import '../../../data/repositories/trendingRecipeRepostory.dart';
 
 class TrendingViewModel extends ChangeNotifier {

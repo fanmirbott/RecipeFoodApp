@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:recipefoodapp/data/models/cuisene_model.dart';
+import '../../../data/models/categories/CategoriesModel.dart';
 import '../../../data/repositories/categoriesRepostory.dart';
 
 class CategoriesViewModel extends ChangeNotifier {

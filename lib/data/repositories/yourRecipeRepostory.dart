@@ -1,5 +1,5 @@
 import 'package:recipefoodapp/core/network/cleint.dart';
-import '../../data/models/YourRecipeModel.dart';
+import '../models/recipe/RecipeModel.dart';
 
 class YourRecipeRepository {
   final ApiClient _client;

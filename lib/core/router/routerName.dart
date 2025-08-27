@@ -1,5 +1,4 @@
-
-class Routers{
+class Routers {
   static const homePage = '/homePage';
   static const onBoarding = '/onBoarding';
   static const otpDigitField = '/OtpDigitField';
@@ -14,9 +13,10 @@ class Routers{
   static const trending = '/trending';
   static const recipePage = '/recipePage';
   static const recipe = '/recipe/:id';
-  static const reviewsPage = 'reviewsPage';
+  static const reviewsPage = '/reviewsPage';
   static const yourRecipe = '/yourRecipe';
   static const community  = '/communityPage';
   static const launchPage = '/launchPage';
   static const profilePage= '/profile';
+  static const splashPage = '/splashPage';
 }

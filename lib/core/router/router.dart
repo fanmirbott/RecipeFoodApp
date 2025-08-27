@@ -1,13 +1,14 @@
 import 'package:go_router/go_router.dart';
 import 'package:recipefoodapp/core/router/routerName.dart';
-import 'package:recipefoodapp/features/profile/profile.dart';
+import 'package:recipefoodapp/features/home/pages/HomePage.dart';
+import 'package:recipefoodapp/features/profile/pages/profilePage.dart';
+import 'package:recipefoodapp/features/splashPage/splash.dart';
 import '../../features/authentication/pages/loginPage/pages/LoginPage.dart';
 import '../../features/authentication/pages/loginPage/pages/SignUpPage.dart';
 import '../../features/authentication/pages/loginPage/pages/otp_digit_field.dart';
 import '../../features/authentication/pages/loginPage/pages/send_otp_page.dart';
 import '../../features/categories/pages/CategoriesPage.dart';
 import '../../features/community/pages/CommunityPage.dart';
-import '../../features/home/pages/HomePage.dart';
 import '../../features/obBoarding/pages/LaunchPage.dart';
 import '../../features/obBoarding/pages/OnBoardingPage.dart';
 import '../../features/obBoarding/pages/onBoardingPage.dart';
@@ -21,7 +22,7 @@ import '../../features/trenndingPage/pages/trendingPage.dart';
 import '../../features/yourRecipe/pages/yourRecipePage.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: Routers.launchPage,
+  initialLocation: Routers.splashPage,
   routes: [
     GoRoute(
       path: Routers.onBoarding,
@@ -111,5 +112,6 @@ final GoRouter router = GoRouter(
       path: Routers.profilePage,
       builder: (context, state) => ProfilePage(),
     ),
+    GoRoute(path: Routers.splashPage, builder: (context, state) => SplashPage(),)
   ],
 );

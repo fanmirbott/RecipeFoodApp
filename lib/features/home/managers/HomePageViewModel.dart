@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import '../../../data/models/HomePageModel.dart';
+import '../../../data/models/home/HomePageModel.dart';
 import '../../../data/repositories/homePageRepostory.dart';
 
 class HomePageViewModel extends ChangeNotifier {

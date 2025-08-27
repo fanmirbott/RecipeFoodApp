@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:recipefoodapp/data/models/CommunityModel.dart';
+import 'package:recipefoodapp/data/models/recipe/RecipeModel.dart';
 import '../../../data/repositories/communityRepostory.dart';
 
 class CommunityViewModel extends ChangeNotifier {
@@ -26,7 +26,6 @@ class CommunityViewModel extends ChangeNotifier {
       notifyListeners();
     }
   }
-
   void toggleLike(int index) {
     if (index < 0 || index >= likedStates.length) return;
     likedStates[index] = !likedStates[index];

@@ -51,7 +51,7 @@ class YourRecipes extends StatelessWidget {
                       width: 168.52.w,
                       height: 195.h,
                       child: GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           context.go(Routers.yourRecipe);
                         },
                         child: Stack(
@@ -109,16 +109,22 @@ class YourRecipes extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(vm.recipes[index].title),
+                                    Text(
+                                      vm.recipes[index].title,
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                        color: Appcolors().backgroundBegie,
+                                      ),
+                                    ),
                                     Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Row(
                                           children: [
                                             Text(
-                                              vm.recipes[index]
-                                                  .rating
+                                              vm.recipes[index].rating
                                                   .toString(),
                                               style: TextStyle(
                                                 fontSize: 12,
@@ -127,17 +133,18 @@ class YourRecipes extends StatelessWidget {
                                               ),
                                             ),
                                             SvgPicture.asset(
-                                                'assets/Icons/star.svg'),
+                                              'assets/Icons/star.svg',
+                                            ),
                                           ],
                                         ),
                                         Row(
                                           children: [
                                             SvgPicture.asset(
-                                                'assets/Icons/clock.svg'),
+                                              'assets/Icons/clock.svg',
+                                            ),
                                             SizedBox(width: 4),
                                             Text(
-                                              vm.recipes[index]
-                                                  .timeRequired
+                                              vm.recipes[index].timeRequired
                                                   .toString(),
                                               style: TextStyle(
                                                 fontSize: 12,

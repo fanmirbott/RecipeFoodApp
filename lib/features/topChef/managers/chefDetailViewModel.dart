@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import '../../../data/models/chefsModel.dart';
+import '../../../data/models/chefs/chefsModel.dart';
 import '../../../data/repositories/chefDetailRepostory.dart';
 
 class ChefDetailViewModel extends ChangeNotifier {
   final ChefDetailRepository _repository;
 
-  ChefDetailViewModel(this._repository,) {}
+  ChefDetailViewModel(this._repository,);
   
   bool isLoading = false;
   var chefs = {};

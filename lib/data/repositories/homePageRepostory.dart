@@ -1,5 +1,5 @@
 import '../../core/network/cleint.dart';
-import '../models/HomePageModel.dart';
+import '../models/home/HomePageModel.dart';
 
 class HomePageRepository {
   final ApiClient _client;

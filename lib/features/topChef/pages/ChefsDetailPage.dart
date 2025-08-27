@@ -6,12 +6,15 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
 import 'package:recipefoodapp/features/topChef/managers/chefDetailViewModel.dart';
+import 'package:recipefoodapp/features/topChef/pages/following_container.dart';
 
 import '../../../../../../core/utils/Appcolors.dart';
 import '../widgets/chef_recipe_grid_view.dart';
 
 class ChefsDetailPage extends StatefulWidget {
-  const ChefsDetailPage({super.key,});
+  const ChefsDetailPage({
+    super.key,
+  });
 
   @override
   State<ChefsDetailPage> createState() => _ChefsDetailPageState();
@@ -29,7 +32,7 @@ class _ChefsDetailPageState extends State<ChefsDetailPage> {
       builder: (context, vm, child) {
         return Scaffold(
           extendBody: true,
-          appBar:AppBar(
+          appBar: AppBar(
             backgroundColor: Appcolors().backgroundBegie,
             leading: IconButton(
               onPressed: () => context.pop(),
@@ -72,7 +75,7 @@ class _ChefsDetailPageState extends State<ChefsDetailPage> {
                               left: 56,
                               right: 56,
                               top: 45,
-                              bottom: 40
+                              bottom: 40,
                             ),
                             width: double.infinity,
                             height: 373.h,
@@ -113,8 +116,8 @@ class _ChefsDetailPageState extends State<ChefsDetailPage> {
                                     ),
                                   ],
                                 ),
-                                 SizedBox(height: 20),
-                                 Text(
+                                SizedBox(height: 20),
+                                Text(
                                   "Manage notifications",
                                   style: TextStyle(
                                     fontSize: 18,
@@ -122,14 +125,20 @@ class _ChefsDetailPageState extends State<ChefsDetailPage> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                 SizedBox(height: 10),
+                                SizedBox(height: 10),
 
                                 // Mute notifications
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text("Mute notifications",
-                                        style: TextStyle(fontSize: 16, color: Colors.black)),
+                                    Text(
+                                      "Mute notifications",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.black,
+                                      ),
+                                    ),
                                     CupertinoSwitch(
                                       value: muteNotifications,
                                       activeColor: Colors.red,
@@ -145,10 +154,16 @@ class _ChefsDetailPageState extends State<ChefsDetailPage> {
 
                                 // Mute Account
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    const Text("Mute Account",
-                                        style: TextStyle(fontSize: 16, color: Colors.black)),
+                                    const Text(
+                                      "Mute Account",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.black,
+                                      ),
+                                    ),
                                     CupertinoSwitch(
                                       value: muteAccount,
                                       activeColor: Colors.red,
@@ -164,10 +179,16 @@ class _ChefsDetailPageState extends State<ChefsDetailPage> {
 
                                 // Block Account
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    const Text("Block Account",
-                                        style: TextStyle(fontSize: 16, color: Colors.black)),
+                                    const Text(
+                                      "Block Account",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.black,
+                                      ),
+                                    ),
                                     CupertinoSwitch(
                                       value: blockAccount,
                                       activeColor: Colors.red,
@@ -218,215 +239,138 @@ class _ChefsDetailPageState extends State<ChefsDetailPage> {
             ],
           ),
           bottomNavigationBar: BottomNavBar(),
-          body: vm.isLoading ? Center(child: CircularProgressIndicator(),) : Column(
-            children: [
-              Padding(
-                padding: EdgeInsetsGeometry.symmetric(horizontal: 35),
-                child: SizedBox(
-                  height: 97.h,
-                  child: Row(
-                    spacing: 13,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadiusGeometry.circular(50.r),
-                        child: Image.network(
-                          vm.chef?.profilePhoto ?? "",
-                          width: 100.w,
-                          height: 96.h,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Column(
-                        spacing: 7,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                vm.chef?.firstName ?? '',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15,
-                                  color: Appcolors().redpinkmain,
-                                ),
-                              ),
-                              Text(
-                                vm.chef?.lastName ?? '',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15,
-                                  color: Appcolors().redpinkmain,
-                                ),
-                              ),
-                              Text(
-                                '-Chef',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15,
-                                  color: Appcolors().redpinkmain,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Text(
-                            vm.chef?.presentation ?? '',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w300,
-                              color: Appcolors().white,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                following = !following;
-                              });
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              width: 81.w,
-                              height: 19.h,
-                              decoration: BoxDecoration(
-                                color: following
-                                    ? Appcolors().pink
-                                    : Appcolors().redpinkmain,
-                                borderRadius: BorderRadius.circular(
-                                  30.r,
-                                ),
-                              ),
-                              child: Text(
-                                following ? 'Follow' : 'Following',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  color: Appcolors().white,
-                                  fontSize: 9,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 14.h,
-              ),
-              Container(
-                width: 356.w,
-                height: 50.h,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Appcolors().pink),
-                  borderRadius: BorderRadiusGeometry.circular(14.r),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          body: vm.isLoading
+              ? Center(
+                  child: CircularProgressIndicator(),
+                )
+              : Column(
                   children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          vm.chef?.recipesCount.toString() ?? '0',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: Appcolors().white,
-                          ),
+                    Padding(
+                      padding: EdgeInsetsGeometry.symmetric(horizontal: 35),
+                      child: SizedBox(
+                        height: 97.h,
+                        child: Row(
+                          spacing: 13,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadiusGeometry.circular(50.r),
+                              child: Image.network(
+                                vm.chef?.profilePhoto ?? "",
+                                width: 100.w,
+                                height: 96.h,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Column(
+                              spacing: 7,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      vm.chef?.firstName ?? '',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 15,
+                                        color: Appcolors().redpinkmain,
+                                      ),
+                                    ),
+                                    Text(
+                                      vm.chef?.lastName ?? '',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 15,
+                                        color: Appcolors().redpinkmain,
+                                      ),
+                                    ),
+                                    Text(
+                                      '-Chef',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 15,
+                                        color: Appcolors().redpinkmain,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  vm.chef?.presentation ?? '',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w300,
+                                    color: Appcolors().white,
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      following = !following;
+                                    });
+                                  },
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    width: 81.w,
+                                    height: 19.h,
+                                    decoration: BoxDecoration(
+                                      color: following
+                                          ? Appcolors().pink
+                                          : Appcolors().redpinkmain,
+                                      borderRadius: BorderRadius.circular(
+                                        30.r,
+                                      ),
+                                    ),
+                                    child: Text(
+                                      following ? 'Follow' : 'Following',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        color: Appcolors().white,
+                                        fontSize: 9,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                        Text(
-                          'Recipes',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                            color: Appcolors().white,
-                          ),
-                        ),
-                      ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 14.h,
+                    ),
+                    FollowingContainer(
+                      recipes: vm.chef?.recipesCount.toString() ?? '0',
+                      following: vm.chef?.followingCount.toString() ?? '0',
+                      followers: vm.chef?.followerCount.toString() ?? '0',
+                    ),
+                    SizedBox(
+                      height: 12.h,
+                    ),
+                    Text(
+                      'Recipes',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Appcolors().white,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5.h,
                     ),
                     Container(
-                      height: 30.h,
-                      width: 1.w,
-                      color: Appcolors().pink,
+                      width: 358.w,
+                      height: 1.h,
+                      decoration: BoxDecoration(
+                        color: Appcolors().redpinkmain,
+                        borderRadius: BorderRadiusGeometry.circular(10.r),
+                      ),
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          vm.chef?.followingCount.toString() ?? '0',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: Appcolors().white,
-                          ),
-                        ),
-                        Text(
-                          'Following',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                            color: Appcolors().white,
-                          ),
-                        ),
-                      ],
+                    SizedBox(
+                      height: 14.h,
                     ),
-                    Container(
-                      height: 30.h,
-                      width: 1.w,
-                      color: Appcolors().pink,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          vm.chef?.followerCount.toString() ?? '0',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: Appcolors().white,
-                          ),
-                        ),
-                        Text(
-                          'Followers',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                            color: Appcolors().white,
-                          ),
-                        ),
-                      ],
-                    ),
+                    ChefRecipeGridView(),
                   ],
                 ),
-              ),
-              SizedBox(
-                height: 12.h,
-              ),
-              Text(
-                'Recipes',
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: Appcolors().white,
-                ),
-              ),
-              SizedBox(
-                height: 5.h,
-              ),
-              Container(
-                width: 358.w,
-                height: 1.h,
-                decoration: BoxDecoration(
-                  color: Appcolors().redpinkmain,
-                  borderRadius: BorderRadiusGeometry.circular(10.r),
-                ),
-              ),
-              SizedBox(
-                height: 14.h,
-              ),
-              ChefRecipeGridView(),
-            ],
-          ),
         );
       },
     );

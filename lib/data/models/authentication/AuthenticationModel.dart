@@ -1,4 +1,4 @@
-class AuthModel {
+class SignUpModel {
   final String username;
   final String firstName;
   final String lastName;
@@ -7,7 +7,7 @@ class AuthModel {
   final String birthDate;
   final String password;
 
-  AuthModel(
+  SignUpModel(
       {required this.username,
         required this.firstName,
         required this.lastName,
