@@ -10,7 +10,7 @@ import 'package:recipefoodapp/core/utils/Appcolors.dart';
 import 'package:recipefoodapp/data/repositories/recipe/recipe_detail_repostory.dart';
 
 import '../../../core/utils/provider.dart';
-import '../managers/RecipeDetailProvider.dart';
+import '../managers/RecipeDetailViewModel.dart';
 import 'ReviewsPage.dart';
 
 class RecipeDetail extends StatefulWidget {

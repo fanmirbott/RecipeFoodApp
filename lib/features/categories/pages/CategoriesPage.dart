@@ -10,7 +10,7 @@ import 'package:recipefoodapp/core/utils/Appcolors.dart';
 import 'package:recipefoodapp/data/repositories/categories/categoriesRepostory.dart';
 import 'package:recipefoodapp/features/common/appBar/app_bar_home.dart';
 
-import '../managers/Categories_provider.dart';
+import '../managers/CategoriesViewModel.dart';
 
 class CategoriesPage extends StatelessWidget {
   CategoriesPage({super.key});
