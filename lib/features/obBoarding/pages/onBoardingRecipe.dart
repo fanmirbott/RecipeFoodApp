@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/network/cleint.dart';
-import 'package:recipefoodapp/data/repositories/onBoardingReposrtory.dart';
+import 'package:recipefoodapp/data/repositories/onBoarding/onBoardingReposrtory.dart';
 import 'package:recipefoodapp/features/obBoarding/managers/OnBoardingProvider.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
 

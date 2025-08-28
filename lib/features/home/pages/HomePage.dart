@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/network/cleint.dart';
-import 'package:recipefoodapp/data/repositories/homePageRepostory.dart';
+import 'package:recipefoodapp/data/repositories/home/homePageRepostory.dart';
 import 'package:recipefoodapp/features/home/managers/HomePageViewModel.dart';
 import '../../common/bottomNavigationBar/bottom_nav_bar.dart';
 import '../../common/appBar/AppBarHome.dart';

@@ -7,7 +7,7 @@ import 'package:recipefoodapp/features/common/appBar/app_bar_home.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
 import 'package:recipefoodapp/core/network/cleint.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
-import 'package:recipefoodapp/data/repositories/recipe_detail_repostory.dart';
+import 'package:recipefoodapp/data/repositories/recipe/recipe_detail_repostory.dart';
 
 import '../../../core/utils/provider.dart';
 import '../managers/RecipeDetailProvider.dart';

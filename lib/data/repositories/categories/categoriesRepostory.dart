@@ -1,5 +1,5 @@
 import 'package:recipefoodapp/core/network/cleint.dart';
-import '../models/categories/CategoriesModel.dart';
+import '../../models/categories/CategoriesModel.dart';
 
 class CategoriesRepository {
 

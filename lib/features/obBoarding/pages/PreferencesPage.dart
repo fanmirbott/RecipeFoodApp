@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/network/cleint.dart';
-import 'package:recipefoodapp/data/repositories/preferencesRepostory.dart';
+import 'package:recipefoodapp/data/repositories/onBoarding/preferencesRepostory.dart';
 import '../../../../../../core/utils/Appcolors.dart';
 import '../managers/PreferencesViewModel.dart';
 import '../widgets/PrefferencesBottom.dart';

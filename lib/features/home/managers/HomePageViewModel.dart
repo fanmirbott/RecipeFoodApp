@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import '../../../data/models/home/HomePageModel.dart';
-import '../../../data/repositories/homePageRepostory.dart';
+import '../../../data/repositories/home/homePageRepostory.dart';
 
 class HomePageViewModel extends ChangeNotifier {
   final HomePageRepository _repository;
@@ -15,13 +15,8 @@ class HomePageViewModel extends ChangeNotifier {
   Future<void> getCategories() async {
     isLoading = true;
     notifyListeners();
-    try {
-      categories = await _repository.getCategories();
-    } catch (e) {
-      print("Error: $e");
-    } finally {
-      isLoading = false;
-      notifyListeners();
-    }
+    categories = await _repository.getCategories();
+    isLoading = false;
+    notifyListeners();
   }
 }

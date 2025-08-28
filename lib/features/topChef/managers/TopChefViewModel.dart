@@ -1,16 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import '../../../data/models/chefs/chefsModel.dart';
-import '../../../data/repositories/topChefRepostory.dart';
+import '../../../data/repositories/chef/topChefRepostory.dart';
 
 class TopChefViewModel extends ChangeNotifier {
   final TopChefRepository _repository;
 
-  TopChefViewModel(this._repository,) {
+  TopChefViewModel(
+    this._repository,
+  ) {
     getTopChefs();
     getTopChefsView();
     getTopChefsData();
   }
-
 
   bool isLoading = false;
   List<TopChefModel> topChef = [];
@@ -18,47 +19,36 @@ class TopChefViewModel extends ChangeNotifier {
   List<TopChefModel> topChefData = [];
   List<ChefsModel> chefs = [];
 
-
   Future<void> getTopChefs() async {
     isLoading = true;
     notifyListeners();
 
-    try {
-      topChef = await _repository.getTopChefs();
-    } catch (e) {
-      topChef = [];
-    }
+    topChef = await _repository.getTopChefs();
+    topChef = [];
 
     isLoading = false;
     notifyListeners();
   }
+
   Future<void> getTopChefsView() async {
     isLoading = true;
     notifyListeners();
 
-    try {
-      topChefView = await _repository.getTopChefsView();
-    } catch (e) {
-      topChefView = [];
-    }
+    topChefView = await _repository.getTopChefsView();
+    topChefView = [];
 
     isLoading = false;
     notifyListeners();
   }
+
   Future<void> getTopChefsData() async {
     isLoading = true;
     notifyListeners();
 
-    try {
-      topChefData = await _repository.getTopChefsData();
-    } catch (e) {
-      topChefData = [];
-    }
+    topChefData = await _repository.getTopChefsData();
+    topChefData = [];
 
     isLoading = false;
     notifyListeners();
   }
-  ChefsModel? chef;
-
-
 }

@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
 import 'package:recipefoodapp/core/network/cleint.dart';
 import 'package:recipefoodapp/core/router/routerName.dart';
-import 'package:recipefoodapp/data/repositories/yourRecipeRepostory.dart';
+import 'package:recipefoodapp/data/repositories/recipe/yourRecipeRepostory.dart';
 import 'package:recipefoodapp/features/yourRecipe/managers/YourRecipeViewModel.dart';
 import '../../../../../../../core/utils/Appcolors.dart';
 

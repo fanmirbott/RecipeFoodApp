@@ -1,5 +1,5 @@
-import '../../core/network/cleint.dart';
-import '../models/chefs/chefsModel.dart';
+import '../../../core/network/cleint.dart';
+import '../../models/chefs/chefsModel.dart';
 
 class ChefDetailRepository {
   final ApiClient _client;

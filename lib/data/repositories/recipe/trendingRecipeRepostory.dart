@@ -1,6 +1,6 @@
-import '../../core/network/cleint.dart';
-import '../models/chefs/chefsModel.dart';
-import '../models/recipe/RecipeModel.dart';
+import '../../../core/network/cleint.dart';
+import '../../models/chefs/chefsModel.dart';
+import '../../models/recipe/RecipeModel.dart';
 
 class TrendingRepository {
   final ApiClient client;

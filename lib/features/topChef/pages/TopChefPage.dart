@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
 import 'package:recipefoodapp/core/network/cleint.dart';
-import 'package:recipefoodapp/data/repositories/topChefRepostory.dart';
+import 'package:recipefoodapp/data/repositories/chef/topChefRepostory.dart';
 import 'package:recipefoodapp/features/common/appBar/app_bar_home.dart';
 import 'package:recipefoodapp/features/topChef/managers/TopChefViewModel.dart';
 import 'package:recipefoodapp/features/topChef/managers/chefDetailViewModel.dart';

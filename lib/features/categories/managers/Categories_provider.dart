@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import '../../../data/models/categories/CategoriesModel.dart';
-import '../../../data/repositories/categoriesRepostory.dart';
+import '../../../data/repositories/categories/categoriesRepostory.dart';
 
 class CategoriesViewModel extends ChangeNotifier {
   final CategoriesRepository _repository;

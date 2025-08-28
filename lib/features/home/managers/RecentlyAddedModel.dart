@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import '../../../data/models/home/RecentlyAddedModel.dart';
-import '../../../data/repositories/recentlyAddedRepostory.dart';
+import '../../../data/repositories/home/recentlyAddedRepostory.dart';
 
 class RecentlyAddedViewModel extends ChangeNotifier {
   final RecentlyAddedRepository _repository;
@@ -15,13 +15,8 @@ class RecentlyAddedViewModel extends ChangeNotifier {
   Future<void> getRecentlyAdded() async {
     isLoading = true;
     notifyListeners();
-
-    try {
-      recentlyAdded = await _repository.getRecentlyAdded();
-    } catch (e) {
-      recentlyAdded = [];
-    }
-
+    recentlyAdded = await _repository.getRecentlyAdded();
+    recentlyAdded = [];
     isLoading = false;
     notifyListeners();
   }

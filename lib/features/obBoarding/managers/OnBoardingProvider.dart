@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../data/repositories/onBoardingReposrtory.dart';
+import '../../../data/repositories/onBoarding/onBoardingReposrtory.dart';
 
 class OnBoardingProvider extends ChangeNotifier {
   final OnBoardingRepository _repository;

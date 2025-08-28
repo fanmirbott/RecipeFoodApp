@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../../../../core/network/cleint.dart';
 import '../../../../../core/utils/Appcolors.dart';
-import '../../../../../data/repositories/topChefRepostory.dart';
+import '../../../data/repositories/chef/topChefRepostory.dart';
 import '../managers/TopChefViewModel.dart';
 
 class TopChef extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../authentication/pages/loginPage/pages/LoginPage.dart';
+import '../authentication/pages/LoginPage.dart';
 import '../home/pages/HomePage.dart';
 
 class SplashPage extends StatefulWidget {

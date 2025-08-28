@@ -4,12 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/data/models/authentication/AuthenticationModel.dart';
-import 'package:recipefoodapp/data/repositories/AuthenticationRepository.dart';
+import 'package:recipefoodapp/data/repositories/Auth/AuthenticationRepository.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
 
 import '../widgets/login_page_text_button.dart';
 import '../widgets/login_page_text_field.dart';
-
 class SignUpPage extends StatefulWidget {
   SignUpPage({super.key});
 

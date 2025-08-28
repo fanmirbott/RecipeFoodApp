@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:recipefoodapp/core/network/result.dart';
 import '../../../data/models/recipe/RecipeModel.dart';
-import '../../../data/repositories/categories_detail_repostory.dart';
+import '../../../data/repositories/recipe/categories_detail_repostory.dart';
 
 class CategoriesProviderDetail extends ChangeNotifier {
   final CategoriesDetailRepository _repository;

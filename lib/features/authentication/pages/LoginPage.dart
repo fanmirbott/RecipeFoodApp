@@ -4,11 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/router/routerName.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
-
-import '../../../managers/AuthentictacionViewModel.dart';
+import '../managers/AuthentictacionViewModel.dart';
 import '../widgets/login_page_text_button.dart';
 import '../widgets/login_page_text_field.dart';
-
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 

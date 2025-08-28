@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/network/cleint.dart';
-import 'package:recipefoodapp/data/repositories/topChefRepostory.dart';
+import 'package:recipefoodapp/data/repositories/chef/topChefRepostory.dart';
 import 'package:recipefoodapp/features/topChef/managers/TopChefViewModel.dart';
 
 import '../../../../../../core/utils/Appcolors.dart';

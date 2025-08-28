@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/network/cleint.dart';
 import 'package:recipefoodapp/core/router/routerName.dart';
-import 'package:recipefoodapp/data/repositories/yourRecipeRepostory.dart';
+import 'package:recipefoodapp/data/repositories/recipe/yourRecipeRepostory.dart';
 import '../../../../../../../core/utils/Appcolors.dart';
 import '../managers/YourRecipeViewModel.dart';
 

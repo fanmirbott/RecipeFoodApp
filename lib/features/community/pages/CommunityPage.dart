@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
 import 'package:recipefoodapp/core/network/cleint.dart';
 import 'package:recipefoodapp/core/router/routerName.dart';
-import 'package:recipefoodapp/data/repositories/communityRepostory.dart';
+import 'package:recipefoodapp/data/repositories/recipe/communityRepostory.dart';
 import 'package:recipefoodapp/features/common/appBar/app_bar_home.dart';
 import 'package:recipefoodapp/features/community/widgets/CommunityBottomBar.dart';
 import 'package:recipefoodapp/features/community/managers/CommuntyViewModel.dart';

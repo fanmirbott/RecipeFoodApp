@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:recipefoodapp/data/repositories/ReviewsRepostory.dart';
+import 'package:recipefoodapp/data/repositories/recipe/ReviewsRepostory.dart';
 
 class ReviewsViewModel extends ChangeNotifier {
   final ReviewsRepostory _repository;
@@ -17,19 +17,14 @@ class ReviewsViewModel extends ChangeNotifier {
   Map<String, dynamic>? recipeData;
 
   Future<void> getRecipeDetail() async {
-    try {
-      isLoading = true;
-      errorMessage = null;
-      notifyListeners();
+    isLoading = true;
+    errorMessage = null;
+    notifyListeners();
 
-      final result = await _repository.getRecipeDetail(id);
+    final result = await _repository.getRecipeDetail(id);
 
-      recipeData = result;
-    } catch (e) {
-      errorMessage = e.toString();
-    } finally {
-      isLoading = false;
-      notifyListeners();
-    }
+    recipeData = result;
+    isLoading = false;
+    notifyListeners();
   }
 }

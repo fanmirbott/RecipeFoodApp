@@ -4,14 +4,14 @@ import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/network/cleint.dart';
 import 'package:recipefoodapp/core/utils/AppTheme.dart';
 import 'package:recipefoodapp/core/utils/provider.dart';
-import 'package:recipefoodapp/data/repositories/AuthenticationRepository.dart';
-import 'package:recipefoodapp/data/repositories/categoriesRepostory.dart';
-import 'package:recipefoodapp/data/repositories/categories_detail_repostory.dart';
-import 'package:recipefoodapp/data/repositories/chefDetailRepostory.dart';
+import 'package:recipefoodapp/data/repositories/Auth/AuthenticationRepository.dart';
+import 'package:recipefoodapp/data/repositories/categories/categoriesRepostory.dart';
+import 'package:recipefoodapp/data/repositories/recipe/categories_detail_repostory.dart';
+import 'package:recipefoodapp/data/repositories/chef/chefDetailRepostory.dart';
 import 'package:recipefoodapp/features/topChef/managers/chefDetailViewModel.dart';
 import 'core/router/router.dart';
 import 'features/authentication/managers/AuthentictacionViewModel.dart';
-import 'features/authentication/pages/loginPage/pages/LoginPage.dart';
+import 'features/authentication/pages/LoginPage.dart';
 
 void main() {
   runApp(MyApp());

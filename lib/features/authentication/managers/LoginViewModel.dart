@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../data/repositories/AuthenticationRepository.dart';
+import '../../../data/repositories/Auth/AuthenticationRepository.dart';
 
 class LoginViewModel extends ChangeNotifier {
   final AuthenticationRepository _repository;
@@ -22,16 +22,14 @@ class LoginViewModel extends ChangeNotifier {
     final result = await _repository.login(login, password);
 
     await result.fold(
-          (error) {
+      (error) {
         errorMessage = error.toString();
         isSuccess = false;
       },
-          (token) async {
+      (token) async {
         if (token.isNotEmpty) {
-          // Tokenni saqlash
           final prefs = await SharedPreferences.getInstance();
           await prefs.setString("token", token);
-
           successMessage = "Kirish muvaffaqiyatli!";
           isSuccess = true;
         } else {

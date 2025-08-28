@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/network/cleint.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
-import '../../../../../data/repositories/recentlyAddedRepostory.dart';
+import '../../../data/repositories/home/recentlyAddedRepostory.dart';
 import '../managers/RecentlyAddedModel.dart';
 
 class RecentlyAdded extends StatefulWidget {

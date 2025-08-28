@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../../../core/network/cleint.dart';
 import '../../../core/utils/Appcolors.dart';
-import '../../../data/repositories/homePageRepostory.dart';
+import '../../../data/repositories/home/homePageRepostory.dart';
 import '../../home/managers/HomePageViewModel.dart';
 class CategoryBottomBar extends StatefulWidget implements PreferredSizeWidget {
   const CategoryBottomBar({super.key});

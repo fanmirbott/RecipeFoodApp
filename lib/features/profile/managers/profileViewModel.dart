@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:recipefoodapp/data/repositories/profileRepostory.dart';
+import 'package:recipefoodapp/data/repositories/profile/profileRepostory.dart';
 
 import '../../../data/models/profile/profileModel.dart';
 
@@ -14,14 +14,8 @@ class ProfileViewModel extends ChangeNotifier {
   Future<void> getProfileDetails() async {
     isLoading = true;
     notifyListeners();
-
-    try {
-      profile = await repository.getProfileDetails();
-      print('Profile: ${profile?.username}');
-    } catch (e) {
-      print('Error: $e');
-      profile = null;
-    }
+    profile = await repository.getProfileDetails();
+    profile = null;
 
     isLoading = false;
     notifyListeners();

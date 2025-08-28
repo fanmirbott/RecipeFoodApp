@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
 import 'package:recipefoodapp/core/network/cleint.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
-import 'package:recipefoodapp/data/repositories/trendingRecipeRepostory.dart';
+import 'package:recipefoodapp/data/repositories/recipe/trendingRecipeRepostory.dart';
 import 'package:recipefoodapp/features/trenndingPage/managers/TrendingRecipeViewModel.dart';
 
 class TrendingPage extends StatefulWidget {

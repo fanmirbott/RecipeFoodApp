@@ -4,13 +4,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/network/cleint.dart';
-import 'package:recipefoodapp/data/repositories/chefDetailRepostory.dart';
-import 'package:recipefoodapp/data/repositories/topChefRepostory.dart';
+import 'package:recipefoodapp/data/repositories/chef/chefDetailRepostory.dart';
+import 'package:recipefoodapp/data/repositories/chef/topChefRepostory.dart';
 import 'package:recipefoodapp/features/topChef/managers/TopChefViewModel.dart';
 import 'package:recipefoodapp/features/topChef/managers/chefDetailRecipeViewModel.dart';
 import 'package:recipefoodapp/features/topChef/managers/chefDetailViewModel.dart';
 import '../../../../../../core/utils/Appcolors.dart';
-import '../../../../../data/repositories/categories_detail_repostory.dart';
+import '../../../data/repositories/recipe/categories_detail_repostory.dart';
 
 class ChefRecipeGridView extends StatelessWidget {
   const ChefRecipeGridView({

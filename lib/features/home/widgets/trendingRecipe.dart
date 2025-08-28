@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:recipefoodapp/core/router/routerName.dart';
 import '../../../../../core/network/cleint.dart';
 import '../../../../../core/utils/Appcolors.dart';
-import '../../../../../data/repositories/trendingRecipeRepostory.dart';
+import '../../../data/repositories/recipe/trendingRecipeRepostory.dart';
 import '../../trenndingPage/managers/TrendingRecipeViewModel.dart';
 
 class TrendingRecipe extends StatefulWidget {

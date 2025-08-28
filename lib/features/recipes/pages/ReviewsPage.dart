@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
 import 'package:recipefoodapp/core/network/cleint.dart';
-import 'package:recipefoodapp/data/repositories/ReviewsRepostory.dart';
+import 'package:recipefoodapp/data/repositories/recipe/ReviewsRepostory.dart';
 import 'package:recipefoodapp/features/recipes/managers/ReviewsViewModel.dart';
 import '../../../../core/utils/Appcolors.dart';
 import 'LeaveReviewPage.dart';

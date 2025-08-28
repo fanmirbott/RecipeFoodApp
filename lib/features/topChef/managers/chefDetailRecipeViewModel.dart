@@ -18,8 +18,8 @@ class ChefRepository {
     );
 
     return result.fold(
-          (error) => Result.error(error),
-          (data) => Result.ok(
+      (error) => Result.error(error),
+      (data) => Result.ok(
         data.map((x) => ChefDetailModel.fromJson(x)).toList(),
       ),
     );
@@ -49,11 +49,11 @@ class ChefDetailRecipeViewModel extends ChangeNotifier {
     final result = await _repository.getRecipesByUserId(userId);
 
     result.fold(
-          (error) {
+      (error) {
         errorMessage = error.toString();
         isLoading = false;
       },
-          (data) {
+      (data) {
         recipes = data;
         isLoading = false;
       },
