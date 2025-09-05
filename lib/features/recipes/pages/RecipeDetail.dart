@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/features/common/appBar/app_bar_home.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
 import 'package:recipefoodapp/data/repositories/recipe/recipe_detail_repostory.dart';
-
-import '../../../core/utils/provider.dart';
+import '../../../core/utils/theme_view_model.dart';
 import '../managers/RecipeDetailViewModel.dart';
 import 'ReviewsPage.dart';
 
@@ -43,7 +41,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                 'Malumotlar Topilmadi',
                 style: TextStyle(
                   decoration: TextDecoration.none,
-                  color: Appcolors().white,
+                  color: AppColors.white,
                   fontWeight: FontWeight.w600,
                   fontSize: 20,
                 ),
@@ -89,7 +87,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                                           BorderRadiusGeometry.circular(
                                             10,
                                           ),
-                                      color: Appcolors().redpinkmain,
+                                      color: AppColors.redPinkMain,
                                     ),
                                     child: Row(
                                       children: [
@@ -98,7 +96,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                                           style: TextStyle(
                                             fontWeight: FontWeight.w500,
                                             fontSize: 20,
-                                            color: Appcolors().white,
+                                            color: AppColors.white,
                                           ),
                                         ),
                                         Spacer(),
@@ -121,14 +119,14 @@ class _RecipeDetailState extends State<RecipeDetail> {
                                                 "assets/Icons/star.svg",
                                                 width: 10.w,
                                                 height: 10.h,
-                                                color: Appcolors().white,
+                                                color: AppColors.white,
                                               ),
                                               Text(
                                                 recipe['rating'].toString(),
                                                 style: TextStyle(
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.w400,
-                                                  color: Appcolors().white,
+                                                  color: AppColors.white,
                                                 ),
                                               ),
                                             ],
@@ -142,14 +140,14 @@ class _RecipeDetailState extends State<RecipeDetail> {
                                               "assets/Icons/reviews.svg",
                                               width: 10.w,
                                               height: 10.h,
-                                              color: Appcolors().white,
+                                              color: AppColors.white,
                                             ),
                                             Text(
                                               recipe['reviewsCount'].toString(),
                                               style: TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.w400,
-                                                color: Appcolors().white,
+                                                color: AppColors.white,
                                               ),
                                             ),
                                           ],
@@ -179,7 +177,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                                             shape: CircleBorder(),
                                             fixedSize: Size(71, 75),
                                             backgroundColor:
-                                                Appcolors().redpinkmain,
+                                                AppColors.redPinkMain,
                                           ),
                                           icon: SvgPicture.asset(
                                             'assets/Icons/play.svg',
@@ -222,7 +220,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                                           style: TextStyle(
                                             fontWeight: FontWeight.w400,
                                             fontSize: 12,
-                                            color: Appcolors().redpinkmain,
+                                            color: AppColors.redPinkMain,
                                           ),
                                         ),
                                         Text(
@@ -230,7 +228,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                                           style: TextStyle(
                                             fontWeight: FontWeight.w400,
                                             fontSize: 12,
-                                            color: Appcolors().redpinkmain,
+                                            color: AppColors.redPinkMain,
                                           ),
                                         ),
                                       ],
@@ -259,7 +257,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                                           style: TextStyle(
                                             fontWeight: FontWeight.w300,
                                             fontSize: 11,
-                                            color: Appcolors().white,
+                                            color: AppColors.white,
                                           ),
                                         ),
                                       ],
@@ -277,8 +275,8 @@ class _RecipeDetailState extends State<RecipeDetail> {
                                     fixedSize: Size(109.09.w, 21.h),
                                     minimumSize: Size(109.09.w, 21.h),
                                     backgroundColor: isSelected
-                                        ? Appcolors().pinkSub
-                                        : Appcolors().pink,
+                                        ? AppColors.pinkSub
+                                        : AppColors.pink,
                                   ),
                                   child: Text(
                                     isSelected ? 'Unfollow' : 'Following',
@@ -286,8 +284,8 @@ class _RecipeDetailState extends State<RecipeDetail> {
                                       fontSize: 15,
                                       fontWeight: FontWeight.w500,
                                       color: isSelected
-                                          ? Appcolors().pink
-                                          : Appcolors().pinkSub,
+                                          ? AppColors.pink
+                                          : AppColors.pinkSub,
                                     ),
                                   ),
                                 ),
@@ -302,7 +300,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                             ),
                           ),
                           SizedBox(height: 20.h),
-                          Divider(color: Appcolors().pinkSub),
+                          Divider(color: AppColors.pinkSub),
                           SizedBox(height: 31.h),
                           Row(
                             spacing: 4,
@@ -312,7 +310,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                                 style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 20,
-                                  color: Appcolors().redpinkmain,
+                                  color: AppColors.redPinkMain,
                                 ),
                               ),
                               SizedBox(width: 11.h),
@@ -352,7 +350,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 20,
-                                color: Appcolors().redpinkmain,
+                                color: AppColors.redPinkMain,
                               ),
                             ),
                           ),
@@ -377,7 +375,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                                           ingredient['amount'],
                                           style: TextStyle(
                                             fontSize: 14,
-                                            color: Appcolors().redpinkmain
+                                            color: AppColors.redPinkMain
                                           ),
                                         ),
                                         Text(

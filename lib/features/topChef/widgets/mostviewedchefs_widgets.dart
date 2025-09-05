@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/chef/topChefRepostory.dart';
 import 'package:recipefoodapp/features/topChef/managers/TopChefViewModel.dart';
 
@@ -45,7 +45,7 @@ class _ChefsWidgetsMostState extends State<ChefsWidgetsMost> {
             height: 285.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20.r),
-              color: Appcolors().redpinkmain,
+              color: AppColors.redPinkMain,
             ),
             child: Padding(
               padding: EdgeInsetsGeometry.symmetric(horizontal: 36),
@@ -59,7 +59,7 @@ class _ChefsWidgetsMostState extends State<ChefsWidgetsMost> {
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 15,
-                      color: Appcolors().white,
+                      color: AppColors.white,
                     ),
                   ),
                   Row(
@@ -79,7 +79,7 @@ class _ChefsWidgetsMostState extends State<ChefsWidgetsMost> {
                                   width: 160.w,
                                   height: 80.h,
                                   decoration: BoxDecoration(
-                                    color: Appcolors().white,
+                                    color: AppColors.white,
                                     borderRadius: BorderRadius.circular(14.r),
                                   ),
                                   child: Padding(
@@ -98,7 +98,7 @@ class _ChefsWidgetsMostState extends State<ChefsWidgetsMost> {
                                           style: TextStyle(
                                             fontWeight: FontWeight.w400,
                                             fontSize: 11,
-                                            color: Appcolors().backgroundBegie,
+                                            color: AppColors.backgroundBeige,
                                           ),
                                         ),
                                         Text(
@@ -106,7 +106,7 @@ class _ChefsWidgetsMostState extends State<ChefsWidgetsMost> {
                                           style: TextStyle(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w300,
-                                            color: Appcolors().redpinkmain,
+                                            color: AppColors.redPinkMain,
                                           ),
                                         ),
                                         Row(
@@ -120,7 +120,7 @@ class _ChefsWidgetsMostState extends State<ChefsWidgetsMost> {
                                                   style: TextStyle(
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w400,
-                                                    color: Appcolors().pinkSub,
+                                                    color: AppColors.pinkSub,
                                                   ),
                                                 ),
                                                 SizedBox(width: 3.w),
@@ -143,8 +143,8 @@ class _ChefsWidgetsMostState extends State<ChefsWidgetsMost> {
                                                 height: 18.h,
                                                 decoration: BoxDecoration(
                                                   color: isFollowing[index]
-                                                      ? Appcolors().pink
-                                                      : Appcolors().redpinkmain,
+                                                      ? AppColors.pink
+                                                      : AppColors.redPinkMain,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                         30.r,
@@ -156,7 +156,7 @@ class _ChefsWidgetsMostState extends State<ChefsWidgetsMost> {
                                                       : 'Follow',
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w500,
-                                                    color: Appcolors().white,
+                                                    color: AppColors.white,
                                                     fontSize: 9,
                                                   ),
                                                 ),

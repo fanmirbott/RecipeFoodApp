@@ -1,5 +1,5 @@
 import 'package:recipefoodapp/data/models/profile/profileModel.dart';
-import '../../../core/network/cleint.dart';
+import '../../../core/cleint.dart';
 
 class ProfileRepository {
   final ApiClient _client;

@@ -15,8 +15,6 @@ class ProfileViewModel extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     profile = await repository.getProfileDetails();
-    profile = null;
-
     isLoading = false;
     notifyListeners();
   }

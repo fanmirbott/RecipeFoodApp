@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import '../../../core/network/cleint.dart';
+import '../../../core/cleint.dart';
 import '../../../core/utils/Appcolors.dart';
 import '../../../data/repositories/home/homePageRepostory.dart';
 import '../../home/managers/HomePageViewModel.dart';
@@ -59,7 +59,7 @@ class _CategoryBottomBarState extends State<CategoryBottomBar> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(18.r),
                         color: activeCategory == index
-                            ? Appcolors().redpinkmain
+                            ? AppColors.redPinkMain
                             : Colors.transparent,
                       ),
                       child: Center(
@@ -67,8 +67,8 @@ class _CategoryBottomBarState extends State<CategoryBottomBar> {
                           title,
                           style: TextStyle(
                             color: activeCategory == index
-                                ? Appcolors().white
-                                : Appcolors().redpinkmain,
+                                ? AppColors.white
+                                : AppColors.redPinkMain,
                           ),
                         ),
                       ),

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recipefoodapp/core/router/routerName.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
+
+import '../../../core/routing/routes.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
@@ -40,7 +41,7 @@ class BottomNavBar extends StatelessWidget {
                 width: 280.94.w,
                 height: 56.h,
                 decoration: BoxDecoration(
-                  color: Appcolors().redpinkmain,
+                  color: AppColors.redPinkMain,
                   borderRadius: BorderRadiusGeometry.circular(33),
                 ),
                 child: Row(
@@ -48,25 +49,25 @@ class BottomNavBar extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: () {
-                        context.go(Routers.homePage);
+                        context.go(Routes.homePage);
                       },
                       icon: SvgPicture.asset("assets/Icons/home.svg"),
                     ),
                     IconButton(
                       onPressed: () {
-                        context.go(Routers.community);
+                        context.go(Routes.community);
                       },
                       icon: SvgPicture.asset("assets/Icons/community.svg"),
                     ),
                     IconButton(
                       onPressed: () {
-                        context.push(Routers.categories);
+                        context.push(Routes.categories);
                       },
                       icon: SvgPicture.asset("assets/Icons/categories.svg"),
                     ),
                     IconButton(
                       onPressed: () {
-                        context.go(Routers.profilePage);
+                        context.go(Routes.profilePage);
                       },
                       icon: SvgPicture.asset("assets/Icons/profile.svg"),
                     ),

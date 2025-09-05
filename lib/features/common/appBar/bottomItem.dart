@@ -26,13 +26,13 @@ class BottomItem extends StatelessWidget {
           alignment: Alignment.center,
           padding: EdgeInsets.symmetric(horizontal: 9.w),
           decoration: BoxDecoration(
-            color: isSelected ? Appcolors().redpinkmain : Colors.transparent,
+            color: isSelected ? AppColors.redPinkMain : Colors.transparent,
             borderRadius: BorderRadius.circular(18.r),
           ),
           child: Text(
             title,
             style: TextStyle(
-              color: isSelected ? Colors.white : Appcolors().redpinkmain,
+              color: isSelected ? Colors.white : AppColors.redPinkMain,
             ),
           ),
         ),

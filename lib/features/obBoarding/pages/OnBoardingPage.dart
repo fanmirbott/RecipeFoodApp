@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/onBoarding/onBoardingReposrtory.dart';
 import 'package:recipefoodapp/features/obBoarding/managers/OnBoardingViewModel.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
@@ -26,7 +26,7 @@ class _OnboardingpageState extends State<Onboardingpage> {
       builder: (context, child) => Consumer<OnBoardingProvider>(
         builder: (context, vm, child) => Scaffold(
           appBar: AppBar(
-            backgroundColor: Appcolors().backgroundBegie,
+            backgroundColor: AppColors.backgroundBeige,
           ),
           body: PageView.builder(
             controller: controller,
@@ -47,7 +47,7 @@ class _OnboardingpageState extends State<Onboardingpage> {
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 20,
-                            color: Appcolors().white,
+                            color: AppColors.white,
                           ),
                         ),
                         Text(
@@ -55,7 +55,7 @@ class _OnboardingpageState extends State<Onboardingpage> {
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 13,
-                            color: Appcolors().white,
+                            color: AppColors.white,
                           ),
                         ),
                       ],
@@ -84,7 +84,7 @@ class _OnboardingpageState extends State<Onboardingpage> {
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
-                                Appcolors().backgroundBegie,
+                                AppColors.backgroundBeige,
                                 Colors.transparent,
                               ],
                               begin: Alignment.topCenter,
@@ -102,7 +102,7 @@ class _OnboardingpageState extends State<Onboardingpage> {
                             gradient: LinearGradient(
                               colors: [
                                 Colors.transparent,
-                                Appcolors().backgroundBegie,
+                                AppColors.backgroundBeige,
                               ],
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,

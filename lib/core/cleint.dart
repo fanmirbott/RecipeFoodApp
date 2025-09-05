@@ -1,6 +1,19 @@
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:recipefoodapp/core/network/result.dart';
+import 'package:recipefoodapp/core/utils/result.dart';
+
+
+class AuthInterceptor extends Interceptor {
+  @override
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString("token");
+    if (token != null && token.isNotEmpty) {
+      options.headers["Authorization"] = "Bearer $token";
+    }
+    handler.next(options);
+  }
+}
 
 class ApiClient {
   final Dio _dio;
@@ -14,22 +27,12 @@ class ApiClient {
       receiveTimeout: const Duration(seconds: 5),
     ),
   ) {
+    _dio.interceptors.add(AuthInterceptor());
     _dio.interceptors.add(LogInterceptor(
       request: true,
       requestBody: true,
       responseBody: true,
       error: true,
-    ));
-
-    _dio.interceptors.add(InterceptorsWrapper(
-      onRequest: (options, handler) async {
-        final prefs = await SharedPreferences.getInstance();
-        final token = prefs.getString("token");
-        if (token != null && token.isNotEmpty) {
-          options.headers["Authorization"] = "Bearer $token";
-        }
-        return handler.next(options);
-      },
     ));
   }
 
@@ -37,7 +40,7 @@ class ApiClient {
     try {
       final response = await _dio.get(path, queryParameters: queryParams);
       if (response.statusCode != 200) {
-        return Result.error(Exception("Xatolik: ${response.statusCode} - ${response.data}"));
+        return Result.error(Exception("${response.data}"));
       }
       return Result.ok(response.data as T);
     } catch (e) {

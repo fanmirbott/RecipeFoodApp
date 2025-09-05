@@ -23,14 +23,14 @@ class ProfilePageButton extends StatelessWidget {
         height: 27.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadiusGeometry.circular(30.r),
-          color: Appcolors().pink,
+          color: AppColors.pink,
         ),
         child: Text(
           text,
           style: TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w500,
-            color: Appcolors().pinkSub,
+            color: AppColors.pinkSub,
           ),
         ),
       ),

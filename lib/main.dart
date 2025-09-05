@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
-import 'package:recipefoodapp/core/utils/AppTheme.dart';
-import 'package:recipefoodapp/core/utils/provider.dart';
+import 'package:recipefoodapp/core/utils/storageService.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/Auth/AuthenticationRepository.dart';
 import 'package:recipefoodapp/data/repositories/categories/categoriesRepostory.dart';
 import 'package:recipefoodapp/data/repositories/recipe/categories_detail_repostory.dart';
 import 'package:recipefoodapp/data/repositories/chef/chefDetailRepostory.dart';
 import 'package:recipefoodapp/features/topChef/managers/chefDetailViewModel.dart';
-import 'core/router/router.dart';
+import 'core/routing/router.dart';
+import 'core/utils/theme_view_model.dart';
+import 'core/utils/themes.dart';
 import 'features/authentication/managers/AuthentictacionViewModel.dart';
 import 'features/authentication/pages/LoginPage.dart';
 
@@ -30,8 +31,10 @@ class MyApp extends StatelessWidget {
             create: (context) => ApiClient(),
           ),
           Provider(
-            create: (context) =>
-                AuthenticationRepository(client: context.read()),
+            create: (context) => AuthenticationRepository(client: context.read()),
+          ),
+          Provider(
+            create: (context) => StorageService(),
           ),
           ChangeNotifierProvider(
             create: (context) => LoginViewModel(context.read<AuthenticationRepository>()),

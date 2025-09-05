@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/recipe/ReviewsRepostory.dart';
 import 'package:recipefoodapp/features/recipes/managers/ReviewsViewModel.dart';
 import '../../../../core/utils/Appcolors.dart';
@@ -23,7 +23,7 @@ class ReviewsPage extends StatelessWidget {
       builder: (context, child) => Scaffold(
         extendBody: true,
         appBar: AppBar(
-          backgroundColor: Appcolors().backgroundBegie,
+          backgroundColor: AppColors.backgroundBeige,
           leading: IconButton(
             onPressed: () {
               context.pop();
@@ -36,7 +36,7 @@ class ReviewsPage extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 20,
-              color: Appcolors().redpinkmain,
+              color: AppColors.redPinkMain,
             ),
           ),
         ),
@@ -62,7 +62,7 @@ class ReviewsPage extends StatelessWidget {
                   height: 224.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.r),
-                    color: Appcolors().redpinkmain,
+                    color: AppColors.redPinkMain,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -90,7 +90,7 @@ class ReviewsPage extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 15.sp,
                                 fontWeight: FontWeight.w500,
-                                color: Appcolors().white,
+                                color: AppColors.white,
                               ),
                             ),
                             SizedBox(height: 5.h),
@@ -133,7 +133,7 @@ class ReviewsPage extends StatelessWidget {
                                       style: TextStyle(
                                         fontWeight: FontWeight.w400,
                                         fontSize: 13,
-                                        color: Appcolors().white,
+                                        color: AppColors.white,
                                       ),
                                     ),
                                     Row(
@@ -144,7 +144,7 @@ class ReviewsPage extends StatelessWidget {
                                           style: TextStyle(
                                             fontWeight: FontWeight.w300,
                                             fontSize: 13,
-                                            color: Appcolors().white,
+                                            color: AppColors.white,
                                           ),
                                         ),
                                         Text(
@@ -153,7 +153,7 @@ class ReviewsPage extends StatelessWidget {
                                           style: TextStyle(
                                             fontWeight: FontWeight.w300,
                                             fontSize: 13,
-                                            color: Appcolors().white,
+                                            color: AppColors.white,
                                           ),
                                         ),
                                       ],
@@ -184,14 +184,14 @@ class ReviewsPage extends StatelessWidget {
                                   borderRadius: BorderRadiusGeometry.circular(
                                     20.r,
                                   ),
-                                  color: Appcolors().white,
+                                  color: AppColors.white,
                                 ),
                                 child: Text(
                                   'Add Review',
                                   style: TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w500,
-                                    color: Appcolors().redpinkmain,
+                                    color: AppColors.redPinkMain,
                                   ),
                                 ),
                               ),
@@ -211,7 +211,7 @@ class ReviewsPage extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 15,
-                        color: Appcolors().redpinkmain,
+                        color: AppColors.redPinkMain,
                       ),
                     ),
                   ],

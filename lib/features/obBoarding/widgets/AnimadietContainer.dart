@@ -30,14 +30,14 @@ class PreferencesPageAnimatedContainer extends StatelessWidget {
       width: 230,
       height: 12,
       decoration: BoxDecoration(
-        color: Appcolors().white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(6),
       ),
       child: Container(
         width: 80,
         height: 12,
         decoration: BoxDecoration(
-          color: Appcolors().redpinkmain,
+          color: AppColors.redPinkMain,
           borderRadius: BorderRadius.circular(6),
         ),
       ),

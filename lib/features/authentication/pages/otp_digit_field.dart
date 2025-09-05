@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recipefoodapp/core/utils/Appcolors.dart';
 
+import '../../../core/utils/Appcolors.dart';
 import '../widgets/login_page_text_button.dart';
 import '../widgets/login_page_text_field.dart';
 
@@ -19,14 +19,14 @@ class OtpDigitField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Appcolors().backgroundBegie,
+        backgroundColor: AppColors.backgroundBeige,
         centerTitle: true,
         title: Text(
           'Forgot your password',
           style: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 20,
-            color: Appcolors().redpinkmain,
+            color: AppColors.redPinkMain,
           ),
         ),
       ),
@@ -42,7 +42,7 @@ class OtpDigitField extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
-                    color: Appcolors().white,
+                    color: AppColors.white,
                   ),
                 ),
                 Text(
@@ -50,7 +50,7 @@ class OtpDigitField extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w400,
-                    color: Appcolors().white,
+                    color: AppColors.white,
                   ),
                 ),
               ],
@@ -71,8 +71,8 @@ class OtpDigitField extends StatelessWidget {
                 context.push('/SendOtpPage');
               },
               text: 'Login',
-              textColor: Appcolors().pinkSub,
-              backgroundColor: Appcolors().pink,
+              textColor: AppColors.pinkSub,
+              backgroundColor: AppColors.pink,
             ),
             SizedBox(
               height: 48.h,

@@ -4,11 +4,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
-import 'package:recipefoodapp/core/router/routerName.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/recipe/yourRecipeRepostory.dart';
 import 'package:recipefoodapp/features/yourRecipe/managers/YourRecipeViewModel.dart';
 import '../../../../../../../core/utils/Appcolors.dart';
+import '../../../core/routing/routes.dart';
 
 class YourRecipePage extends StatelessWidget {
   const YourRecipePage({super.key});
@@ -21,9 +21,9 @@ class YourRecipePage extends StatelessWidget {
       builder: (context, child) => Scaffold(
         extendBody: true,
         appBar: AppBar(
-          backgroundColor: Appcolors().backgroundBegie,
+          backgroundColor: AppColors.backgroundBeige,
           leading: IconButton(
-            onPressed: () => context.go(Routers.homePage),
+            onPressed: () => context.go(Routes.homePage),
             icon: SvgPicture.asset("assets/Icons/back-arrow.svg"),
           ),
           centerTitle: true,
@@ -32,18 +32,18 @@ class YourRecipePage extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 20,
-              color: Appcolors().redpinkmain,
+              color: AppColors.redPinkMain,
             ),
           ),
           actions: [
             IconButton(
               onPressed: () {},
-              style: IconButton.styleFrom(backgroundColor: Appcolors().pink),
+              style: IconButton.styleFrom(backgroundColor: AppColors.pink),
               icon: SvgPicture.asset("assets/Icons/notification.svg"),
             ),
             IconButton(
               onPressed: () {},
-              style: IconButton.styleFrom(backgroundColor: Appcolors().pink),
+              style: IconButton.styleFrom(backgroundColor: AppColors.pink),
               icon: SvgPicture.asset("assets/Icons/search.svg"),
             ),
           ],
@@ -65,7 +65,7 @@ class YourRecipePage extends StatelessWidget {
                   height: 255.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.r),
-                    color: Appcolors().redpinkmain,
+                    color: AppColors.redPinkMain,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +75,7 @@ class YourRecipePage extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 15,
-                          color: Appcolors().white,
+                          color: AppColors.white,
                         ),
                       ),
                       SizedBox(height: 9.h),
@@ -87,7 +87,7 @@ class YourRecipePage extends StatelessWidget {
                             height: 195.h,
                             child: GestureDetector(
                               onTap: () {
-                                context.push(Routers.recipe, extra: vm.recipes[index].id);
+                                context.push(Routes.recipe, extra: vm.recipes[index].id);
                               },
                               child: Stack(
                                 children: [
@@ -111,8 +111,8 @@ class YourRecipePage extends StatelessWidget {
                                               height: 28.h,
                                               decoration: BoxDecoration(
                                                 color: vm.likedStates[index]
-                                                    ? Appcolors().redpinkmain
-                                                    : Appcolors().pink,
+                                                    ? AppColors.redPinkMain
+                                                    : AppColors.pink,
                                                 shape: BoxShape.circle,
                                               ),
                                               child: SvgPicture.asset(
@@ -121,8 +121,8 @@ class YourRecipePage extends StatelessWidget {
                                                 height: 15.h,
                                                 fit: BoxFit.none,
                                                 color: vm.likedStates[index]
-                                                    ? Appcolors().white
-                                                    : Appcolors().pinkSub,
+                                                    ? AppColors.white
+                                                    : AppColors.pinkSub,
                                               ),
                                             ),
                                           ),
@@ -142,7 +142,7 @@ class YourRecipePage extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(
                                           13.r,
                                         ),
-                                        color: Appcolors().white,
+                                        color: AppColors.white,
                                       ),
                                       child: Column(
                                         mainAxisAlignment:
@@ -165,7 +165,7 @@ class YourRecipePage extends StatelessWidget {
                                                       fontWeight:
                                                           FontWeight.w400,
                                                       color:
-                                                          Appcolors().pinkSub,
+                                                          AppColors.pinkSub,
                                                     ),
                                                   ),
                                                   SvgPicture.asset(
@@ -189,7 +189,7 @@ class YourRecipePage extends StatelessWidget {
                                                       fontWeight:
                                                           FontWeight.w400,
                                                       color:
-                                                          Appcolors().pinkSub,
+                                                          AppColors.pinkSub,
                                                     ),
                                                   ),
                                                   Text(
@@ -199,7 +199,7 @@ class YourRecipePage extends StatelessWidget {
                                                       fontWeight:
                                                           FontWeight.w400,
                                                       color:
-                                                          Appcolors().pinkSub,
+                                                          AppColors.pinkSub,
                                                     ),
                                                   ),
                                                 ],
@@ -235,7 +235,7 @@ class YourRecipePage extends StatelessWidget {
                         height: 226.h,
                         child: GestureDetector(
                           onTap: () {
-                            context.push(Routers.recipe, extra: recipe.id);
+                            context.push(Routes.recipe, extra: recipe.id);
                           },
                           child: Stack(
                             children: [
@@ -247,7 +247,7 @@ class YourRecipePage extends StatelessWidget {
                                   height: 80.h,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(13.r),
-                                    color: Appcolors().white,
+                                    color: AppColors.white,
                                   ),
                                   child: Column(
                                     crossAxisAlignment:
@@ -258,7 +258,7 @@ class YourRecipePage extends StatelessWidget {
                                         style: TextStyle(
                                           fontWeight: FontWeight.w300,
                                           fontSize: 13,
-                                          color: Appcolors().backgroundBegie,
+                                          color: AppColors.backgroundBeige,
                                         ),
                                       ),
                                       Text(
@@ -268,7 +268,7 @@ class YourRecipePage extends StatelessWidget {
                                         style: TextStyle(
                                           fontWeight: FontWeight.w400,
                                           fontSize: 12,
-                                          color: Appcolors().backgroundBegie,
+                                          color: AppColors.backgroundBeige,
                                         ),
                                       ),
                                       SizedBox(
@@ -285,7 +285,7 @@ class YourRecipePage extends StatelessWidget {
                                                 style: TextStyle(
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.w400,
-                                                  color: Appcolors().pinkSub,
+                                                  color: AppColors.pinkSub,
                                                 ),
                                               ),
                                               SvgPicture.asset(
@@ -304,7 +304,7 @@ class YourRecipePage extends StatelessWidget {
                                                 style: TextStyle(
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.w400,
-                                                  color: Appcolors().pinkSub,
+                                                  color: AppColors.pinkSub,
                                                 ),
                                               ),
                                               Text(
@@ -312,7 +312,7 @@ class YourRecipePage extends StatelessWidget {
                                                 style: TextStyle(
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.w400,
-                                                  color: Appcolors().pinkSub,
+                                                  color: AppColors.pinkSub,
                                                 ),
                                               ),
                                             ],
@@ -343,8 +343,8 @@ class YourRecipePage extends StatelessWidget {
                                           height: 28.h,
                                           decoration: BoxDecoration(
                                             color: vm.likedStates[index + 2]
-                                                ? Appcolors().redpinkmain
-                                                : Appcolors().pink,
+                                                ? AppColors.redPinkMain
+                                                : AppColors.pink,
                                             shape: BoxShape.circle,
                                           ),
                                           child: SvgPicture.asset(
@@ -353,8 +353,8 @@ class YourRecipePage extends StatelessWidget {
                                             height: 15.h,
                                             fit: BoxFit.none,
                                             color: vm.likedStates[index + 2]
-                                                ? Appcolors().white
-                                                : Appcolors().pinkSub,
+                                                ? AppColors.white
+                                                : AppColors.pinkSub,
                                           ),
                                         ),
                                       ),

@@ -2,8 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recipefoodapp/core/utils/Appcolors.dart';
-
+import '../../../core/utils/Appcolors.dart';
 import '../widgets/login_page_text_button.dart';
 
 class SendOtpPage extends StatefulWidget {
@@ -56,14 +55,14 @@ class _SendOtpPageState extends State<SendOtpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Appcolors().backgroundBegie,
+        backgroundColor: AppColors.backgroundBeige,
         centerTitle: true,
         title: Text(
           'Forgot your password',
           style: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 20,
-            color: Appcolors().redpinkmain,
+            color: AppColors.redPinkMain,
           ),
         ),
       ),
@@ -82,7 +81,7 @@ class _SendOtpPageState extends State<SendOtpPage> {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
-                    color: Appcolors().white,
+                    color: AppColors.white,
                   ),
                 ),
                 Text(
@@ -90,7 +89,7 @@ class _SendOtpPageState extends State<SendOtpPage> {
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w400,
-                    color: Appcolors().white,
+                    color: AppColors.white,
                   ),
                 ),
               ],
@@ -106,7 +105,7 @@ class _SendOtpPageState extends State<SendOtpPage> {
                   ...List.generate(otpLength, (index) {
                     return TextFormField(
                       keyboardType: TextInputType.number,
-                      cursorColor: Appcolors().white,
+                      cursorColor: AppColors.white,
                       textAlign: TextAlign.center,
                       focusNode: focusNodes[index],
                       controller: controllers[index],
@@ -119,7 +118,7 @@ class _SendOtpPageState extends State<SendOtpPage> {
                       },
                       maxLength: 1,
                       style: TextStyle(
-                        color: Appcolors().white,
+                        color: AppColors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
@@ -132,19 +131,19 @@ class _SendOtpPageState extends State<SendOtpPage> {
                         ),
                         border: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Appcolors().redpinkmain,
+                            color: AppColors.redPinkMain,
                           ),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Appcolors().redpinkmain,
+                            color: AppColors.redPinkMain,
                           ),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Appcolors().redpinkmain,
+                            color: AppColors.redPinkMain,
                           ),
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -160,7 +159,7 @@ class _SendOtpPageState extends State<SendOtpPage> {
               style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 13,
-                color: Appcolors().white,
+                color: AppColors.white,
               ),
             ),
             RichText(
@@ -172,7 +171,7 @@ class _SendOtpPageState extends State<SendOtpPage> {
                     style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w400,
-                      color: Appcolors().redpinkmain,
+                      color: AppColors.redPinkMain,
                     ),
                   ),
                   TextSpan(
@@ -180,7 +179,7 @@ class _SendOtpPageState extends State<SendOtpPage> {
                     style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w400,
-                      color: Appcolors().white,
+                      color: AppColors.white,
                     ),
                   ),
                 ],
@@ -190,8 +189,8 @@ class _SendOtpPageState extends State<SendOtpPage> {
             LoginPageTextButton(
               onPressed: () {},
               text: 'Login',
-              textColor: Appcolors().pinkSub,
-              backgroundColor: Appcolors().pink,
+              textColor: AppColors.pinkSub,
+              backgroundColor: AppColors.pink,
             ),
             SizedBox(
               height: 48.h,

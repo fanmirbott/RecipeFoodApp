@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recipefoodapp/core/router/routerName.dart';
-import '../../../../../core/utils/Appcolors.dart';
+import '../../../core/routing/routes.dart';
+import '../../../core/utils/Appcolors.dart';
 
 class LaunchPage extends StatefulWidget {
   const LaunchPage({super.key});
@@ -16,14 +16,14 @@ class _LaunchPageState extends State<LaunchPage> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 1), () {
-      context.go(Routers.homePage);
+      context.go(Routes.homePage);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Appcolors().redpinkmain,
+      backgroundColor: AppColors.redPinkMain,
       body: Align(
         alignment: Alignment.center,
         child: SizedBox(
@@ -35,7 +35,7 @@ class _LaunchPageState extends State<LaunchPage> {
                 width: 152.67.w,
                 height: 152.67.h,
                 decoration: BoxDecoration(
-                  color: Appcolors().white,
+                  color: AppColors.white,
                   shape: BoxShape.circle,
                 ),
                 child: Row(
@@ -60,7 +60,7 @@ class _LaunchPageState extends State<LaunchPage> {
                 style: TextStyle(
                   fontSize: 63.84,
                   fontWeight: FontWeight.w600,
-                  color: Appcolors().white,
+                  color: AppColors.white,
                 ),
               ),
             ],

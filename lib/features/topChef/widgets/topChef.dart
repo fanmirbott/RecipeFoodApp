@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import '../../../../../core/network/cleint.dart';
+import '../../../core/cleint.dart';
 import '../../../../../core/utils/Appcolors.dart';
 import '../../../data/repositories/chef/topChefRepostory.dart';
 import '../managers/TopChefViewModel.dart';
 
 class TopChef extends StatelessWidget {
   const TopChef({super.key});
-
 
 
   @override
@@ -36,7 +35,7 @@ class TopChef extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 15,
-                    color: Appcolors().redpinkmain,
+                    color: AppColors.redPinkMain,
                   ),
                 ),
                 SizedBox(height: 10.h),

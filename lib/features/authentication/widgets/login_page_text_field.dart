@@ -37,12 +37,12 @@ class LoginPageTextField extends StatelessWidget {
         TextField(
           controller: controller,
           decoration: InputDecoration(
-            constraints: BoxConstraints(maxWidth: 357.w, maxHeight: 47.h),
+            constraints: BoxConstraints(maxWidth: 357.w, maxHeight: 45.h),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(18.r),
             ),
             filled: true,
-            fillColor: Appcolors().pink,
+            fillColor: AppColors.pink,
             hintStyle: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w500,

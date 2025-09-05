@@ -1,4 +1,4 @@
-import '../../../core/network/cleint.dart';
+import '../../../core/cleint.dart';
 import '../../models/chefs/chefsModel.dart';
 
 class TopChefRepository {
@@ -9,9 +9,7 @@ class TopChefRepository {
   Future<List<TopChefModel>> getTopChefs() async {
     final result = await _client.get<List<dynamic>>(
       "/top-chefs/list",
-      queryParams: {"Limit": 10},
     );
-
     return result.fold(
       (error) => throw Exception(error),
       (data) => data.map((x) => TopChefModel.fromJson(x)).toList(),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recipefoodapp/core/utils/Appcolors.dart';
+
+import '../../../core/utils/Appcolors.dart';
 
 class LoginPageTextButton extends StatelessWidget {
   const LoginPageTextButton({
@@ -29,7 +30,7 @@ class LoginPageTextButton extends StatelessWidget {
         style: TextStyle(
           fontWeight: FontWeight.w600,
           fontSize: 20,
-          color: Appcolors().pinkSub,
+          color: AppColors.pinkSub,
         ),
       ),
     );

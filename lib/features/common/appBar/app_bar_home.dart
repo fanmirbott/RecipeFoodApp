@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../../core/utils/Appcolors.dart';
+import '../../../core/utils/Appcolors.dart';
 
 class AppBarHome extends StatelessWidget implements PreferredSizeWidget{
   const AppBarHome({
@@ -35,7 +35,7 @@ class AppBarHome extends StatelessWidget implements PreferredSizeWidget{
         style: TextStyle(
           fontWeight: FontWeight.w600,
           fontSize: 20,
-          color: Appcolors().redpinkmain,
+          color: AppColors.redPinkMain,
         ),
       ),
       actions: [
@@ -47,7 +47,7 @@ class AppBarHome extends StatelessWidget implements PreferredSizeWidget{
             height: 28.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14.r),
-              color: Appcolors().pink,
+              color: AppColors.pink,
             ),
             child: SvgPicture.asset("assets/Icons/notification.svg"),
           ),
@@ -63,7 +63,7 @@ class AppBarHome extends StatelessWidget implements PreferredSizeWidget{
             height: 28.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14.r),
-              color: Appcolors().pink,
+              color: AppColors.pink,
             ),
             child: SvgPicture.asset(
               "assets/Icons/search.svg",

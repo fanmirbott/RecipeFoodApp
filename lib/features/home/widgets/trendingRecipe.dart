@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/core/router/routerName.dart';
-import '../../../../../core/network/cleint.dart';
+import '../../../core/cleint.dart';
 import '../../../../../core/utils/Appcolors.dart';
+import '../../../core/routing/routes.dart';
 import '../../../data/repositories/recipe/trendingRecipeRepostory.dart';
 import '../../trenndingPage/managers/TrendingRecipeViewModel.dart';
 
@@ -34,7 +34,7 @@ class _TrendingRecipeState extends State<TrendingRecipe> {
             return Center(
               child: Text(
                 "Ma'lumot topilmadi",
-                style: TextStyle(fontSize: 20, color: Appcolors().white),
+                style: TextStyle(fontSize: 20, color: AppColors.white),
               ),
             );
           }
@@ -49,13 +49,13 @@ class _TrendingRecipeState extends State<TrendingRecipe> {
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w500,
-                    color: Appcolors().redpinkmain,
+                    color: AppColors.redPinkMain,
                   ),
                 ),
                 SizedBox(height: 9.h),
                 GestureDetector(
                   onTap: (){
-                    context.push(Routers.trending);
+                    context.push(Routes.trending);
                   },
                   child: SizedBox(
                     width: 358.w,
@@ -74,7 +74,7 @@ class _TrendingRecipeState extends State<TrendingRecipe> {
                             height: 60.h,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(14.r),
-                              border: Border.all(color: Appcolors().pinkSub),
+                              border: Border.all(color: AppColors.pinkSub),
                             ),
                             child: Row(
                               children: [
@@ -112,7 +112,7 @@ class _TrendingRecipeState extends State<TrendingRecipe> {
                                           style: TextStyle(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w400,
-                                            color: Appcolors().pinkSub,
+                                            color: AppColors.pinkSub,
                                           ),
                                         ),
                                         Text(
@@ -120,7 +120,7 @@ class _TrendingRecipeState extends State<TrendingRecipe> {
                                           style: TextStyle(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w400,
-                                            color: Appcolors().pinkSub,
+                                            color: AppColors.pinkSub,
                                           ),
                                         ),
                                       ],
@@ -133,7 +133,7 @@ class _TrendingRecipeState extends State<TrendingRecipe> {
                                           style: TextStyle(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w400,
-                                            color: Appcolors().pinkSub,
+                                            color: AppColors.pinkSub,
                                           ),
                                         ),
                                         SvgPicture.asset(
@@ -171,8 +171,8 @@ class _TrendingRecipeState extends State<TrendingRecipe> {
                                     height: 28.h,
                                     decoration: BoxDecoration(
                                       color: like
-                                          ? Appcolors().redpinkmain
-                                          : Appcolors().pink,
+                                          ? AppColors.redPinkMain
+                                          : AppColors.pink,
                                       shape: BoxShape.circle,
                                     ),
                                     child: SvgPicture.asset(
@@ -181,8 +181,8 @@ class _TrendingRecipeState extends State<TrendingRecipe> {
                                       height: 15.h,
                                       fit: BoxFit.none,
                                       color: like
-                                          ? Appcolors().white
-                                          : Appcolors().pinkSub,
+                                          ? AppColors.white
+                                          : AppColors.pinkSub,
                                     ),
                                   ),
                                 ),

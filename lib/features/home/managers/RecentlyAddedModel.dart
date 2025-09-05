@@ -16,7 +16,6 @@ class RecentlyAddedViewModel extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     recentlyAdded = await _repository.getRecentlyAdded();
-    recentlyAdded = [];
     isLoading = false;
     notifyListeners();
   }

@@ -17,7 +17,7 @@ class OnboardingpageTextButton extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
-        backgroundColor: Appcolors().pink,
+        backgroundColor: AppColors.pink,
         fixedSize: Size(207.w, 45.h),
       ),
       child: Text(
@@ -25,7 +25,7 @@ class OnboardingpageTextButton extends StatelessWidget {
         style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w600,
-          color: Appcolors().pinkSub,
+          color: AppColors.pinkSub,
         ),
       ),
     );

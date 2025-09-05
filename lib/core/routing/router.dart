@@ -1,7 +1,10 @@
 import 'package:go_router/go_router.dart';
-import 'package:recipefoodapp/core/router/routerName.dart';
+import 'package:recipefoodapp/core/routing/routes.dart';
 import 'package:recipefoodapp/features/home/pages/HomePage.dart';
+import 'package:recipefoodapp/features/profile/pages/add_recipe_page.dart';
+import 'package:recipefoodapp/features/profile/pages/notification_page.dart';
 import 'package:recipefoodapp/features/profile/pages/profilePage.dart';
+import 'package:recipefoodapp/features/profile/pages/profile_menu_page.dart';
 import 'package:recipefoodapp/features/splashPage/splash.dart';
 import '../../features/authentication/pages/LoginPage.dart';
 import '../../features/authentication/pages/SignUpPage.dart';
@@ -21,59 +24,59 @@ import '../../features/topChef/pages/TopChefPage.dart';
 import '../../features/trenndingPage/pages/trendingPage.dart';
 import '../../features/yourRecipe/pages/yourRecipePage.dart';
 
-final GoRouter router = GoRouter(
-  initialLocation: Routers.splashPage,
+final router = GoRouter(
+  initialLocation: Routes.splashPage,
   routes: [
     GoRoute(
-      path: Routers.onBoarding,
+      path: Routes.onBoarding,
       builder: (context, state) => PageViewOnBoarding(),
     ),
     GoRoute(
-      path: Routers.otpDigitField,
+      path: Routes.otpDigitField,
       builder: (context, state) => OtpDigitField(),
     ),
     GoRoute(
-      path: Routers.sendOtpPage,
+      path: Routes.sendOtpPage,
       builder: (context, state) => SendOtpPage(),
     ),
     GoRoute(
-      path: Routers.loginPage,
+      path: Routes.loginPage,
       builder: (context, state) => LoginPage(),
     ),
     GoRoute(
-      path: Routers.signUpPage,
+      path: Routes.signUpPage,
       builder: (context, state) => SignUpPage(),
     ),
     GoRoute(
-      path: Routers.onBoardingRecipe,
-      builder: (context, state) => Onboardingrecipe(),
+      path: Routes.onBoardingRecipe,
+      builder: (context, state) => OnBoardingRecipe(),
     ),
     GoRoute(
-      path: Routers.onBoardingPage,
+      path: Routes.onBoardingPage,
       builder: (context, state) => Onboardingpage(),
     ),
     GoRoute(
-      path: Routers.categories,
+      path: Routes.categories,
       builder: (context, state) => CategoriesPage(),
     ),
     GoRoute(
-      path: Routers.topChef,
+      path: Routes.topChef,
       builder: (context, state) => TopChefPage(),
     ),
     GoRoute(
-      path: Routers.chefDetail,
+      path: Routes.chefDetail,
       builder: (context, state) => ChefsDetailPage(),
     ),
     GoRoute(
-      path: Routers.trending,
+      path: Routes.trending,
       builder: (context, state) => TrendingPage(),
     ),
     GoRoute(
-      path: Routers.homePage,
+      path: Routes.homePage,
       builder: (context, state) => HomePage(),
     ),
     GoRoute(
-      path: Routers.recipePage,
+      path: Routes.recipePage,
       builder: (context, state) {
         final data = state.extra as Map<String, dynamic>;
         return RecipesPage(
@@ -83,7 +86,7 @@ final GoRouter router = GoRouter(
       },
     ),
     GoRoute(
-      path: Routers.recipe,
+      path: Routes.recipe,
       builder: (context, state) {
         final id = state.extra as int;
         return RecipeDetail(id: id);
@@ -91,27 +94,42 @@ final GoRouter router = GoRouter(
     ),
 
     GoRoute(
-      path: Routers.reviewsPage,
+      path: Routes.reviewsPage,
       builder: (context, state) => ReviewsPage(
         id: int.parse(state.pathParameters['id']!),
       ),
     ),
     GoRoute(
-      path: Routers.yourRecipe,
+      path: Routes.yourRecipe,
       builder: (context, state) => YourRecipePage(),
     ),
     GoRoute(
-      path: Routers.community,
+      path: Routes.community,
       builder: (context, state) => CommunityPage(),
     ),
     GoRoute(
-      path: Routers.launchPage,
+      path: Routes.launchPage,
       builder: (context, state) => LaunchPage(),
     ),
     GoRoute(
-      path: Routers.profilePage,
+      path: Routes.profilePage,
       builder: (context, state) => ProfilePage(),
     ),
-    GoRoute(path: Routers.splashPage, builder: (context, state) => SplashPage(),)
+    GoRoute(
+      path: Routes.profileMenu,
+      builder: (context, state) => ProfileMenuPage(),
+    ),
+    GoRoute(
+      path: Routes.splashPage,
+      builder: (context, state) => SplashPage(),
+    ),
+    GoRoute(
+      path: Routes.addRecipe,
+      builder: (context, state) => AddRecipePage(),
+    ),
+    GoRoute(
+      path: Routes.notificationPage,
+      builder: (context, state) => NotificationPage(),
+    ),
   ],
 );

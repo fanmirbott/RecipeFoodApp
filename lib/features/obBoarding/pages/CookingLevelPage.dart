@@ -35,7 +35,7 @@ class _CookingLevelPageState extends State<CookingLevelPage> {
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 20,
-              color: Appcolors().white,
+              color: AppColors.white,
             ),
           ),
           const SizedBox(height: 15),
@@ -44,7 +44,7 @@ class _CookingLevelPageState extends State<CookingLevelPage> {
             style: TextStyle(
               fontWeight: FontWeight.w400,
               fontSize: 13,
-              color: Appcolors().white,
+              color: AppColors.white,
             ),
           ),
           const SizedBox(height: 20),
@@ -62,8 +62,8 @@ class _CookingLevelPageState extends State<CookingLevelPage> {
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
                     color: isSelect == index
-                        ? Appcolors().redpinkmain
-                        : Appcolors().pink,
+                        ? AppColors.redPinkMain
+                        : AppColors.pink,
                     width: 1.5,
                   ),
                 ),
@@ -75,7 +75,7 @@ class _CookingLevelPageState extends State<CookingLevelPage> {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
-                        color: Appcolors().white,
+                        color: AppColors.white,
                       ),
                     ),
                     const SizedBox(height: 6),
@@ -84,7 +84,7 @@ class _CookingLevelPageState extends State<CookingLevelPage> {
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w400,
-                        color: Appcolors().white,
+                        color: AppColors.white,
                       ),
                     ),
                   ],
@@ -104,8 +104,8 @@ class _CookingLevelPageState extends State<CookingLevelPage> {
                     curve: Curves.easeInOut,
                   );
                 },
-                buttonColor: Appcolors().redpinkmain,
-                textColor: Appcolors().white,
+                buttonColor: AppColors.redPinkMain,
+                textColor: AppColors.white,
               ),
             ],
           ),

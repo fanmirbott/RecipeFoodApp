@@ -1,4 +1,7 @@
+
+
 import 'package:flutter/cupertino.dart';
+
 import '../../../data/models/chefs/chefsModel.dart';
 import '../../../data/repositories/chef/topChefRepostory.dart';
 
@@ -24,7 +27,6 @@ class TopChefViewModel extends ChangeNotifier {
     notifyListeners();
 
     topChef = await _repository.getTopChefs();
-    topChef = [];
 
     isLoading = false;
     notifyListeners();
@@ -35,7 +37,6 @@ class TopChefViewModel extends ChangeNotifier {
     notifyListeners();
 
     topChefView = await _repository.getTopChefsView();
-    topChefView = [];
 
     isLoading = false;
     notifyListeners();
@@ -46,8 +47,6 @@ class TopChefViewModel extends ChangeNotifier {
     notifyListeners();
 
     topChefData = await _repository.getTopChefsData();
-    topChefData = [];
-
     isLoading = false;
     notifyListeners();
   }

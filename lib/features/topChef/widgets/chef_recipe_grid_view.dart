@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/chef/chefDetailRepostory.dart';
 import 'package:recipefoodapp/data/repositories/chef/topChefRepostory.dart';
 import 'package:recipefoodapp/features/topChef/managers/TopChefViewModel.dart';
@@ -45,7 +45,7 @@ class ChefRecipeGridView extends StatelessWidget {
                           alignment: Alignment.bottomCenter,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(14.r),
-                            color: Appcolors().white,
+                            color: AppColors.white,
                           ),
                           child: Padding(
                             padding: EdgeInsets.only(
@@ -61,7 +61,7 @@ class ChefRecipeGridView extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w400,
-                                    color: Appcolors().brownLetters,
+                                    color: AppColors.brownLetters,
                                   ),
                                 ),
                                 Text(
@@ -70,7 +70,7 @@ class ChefRecipeGridView extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 13.w,
                                     fontWeight: FontWeight.w300,
-                                    color: Appcolors().brownLetters,
+                                    color: AppColors.brownLetters,
                                   ),
                                 ),
                                 Row(
@@ -83,7 +83,7 @@ class ChefRecipeGridView extends StatelessWidget {
                                           vm.recipes[index].rating
                                               .toString(),
                                           style: TextStyle(
-                                            color: Appcolors().pinkSub,
+                                            color: AppColors.pinkSub,
                                             fontWeight: FontWeight.w400,
                                             fontSize: 12,
                                           ),
@@ -108,7 +108,7 @@ class ChefRecipeGridView extends StatelessWidget {
                                           vm.recipes[index].timeRequired
                                               .toString(),
                                           style: TextStyle(
-                                            color: Appcolors().pinkSub,
+                                            color: AppColors.pinkSub,
                                             fontSize: 12,
                                             fontWeight: FontWeight.w400,
                                           ),
@@ -116,7 +116,7 @@ class ChefRecipeGridView extends StatelessWidget {
                                         Text(
                                           ' min',
                                           style: TextStyle(
-                                            color: Appcolors().pinkSub,
+                                            color: AppColors.pinkSub,
                                             fontSize: 12,
                                             fontWeight: FontWeight.w400,
                                           ),

@@ -43,8 +43,8 @@ class _CommunityBottomBarState extends State<CommunityBottomBar> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(19.r),
                       color: isSelected == index
-                          ? Appcolors().redpinkmain
-                          : Appcolors().transparent,
+                          ? AppColors.redPinkMain
+                          : AppColors.transparent,
                     ),
                     child: Text(
                       items[index],
@@ -52,8 +52,8 @@ class _CommunityBottomBarState extends State<CommunityBottomBar> {
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
                         color: isSelected == index
-                            ? Appcolors().white
-                            : Appcolors().redpinkmain,
+                            ? AppColors.white
+                            : AppColors.redPinkMain,
                       ),
                     ),
                   ),

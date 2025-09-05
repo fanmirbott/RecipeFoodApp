@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
-import 'package:recipefoodapp/core/network/result.dart';
+import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/core/utils/result.dart';
 
 import '../../../data/models/chefs/chefsModel.dart';
 

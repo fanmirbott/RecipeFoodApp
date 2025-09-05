@@ -1,4 +1,4 @@
-import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 
 class OnBoardingRepository {
   final ApiClient _client;

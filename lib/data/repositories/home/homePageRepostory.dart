@@ -1,4 +1,4 @@
-import '../../../core/network/cleint.dart';
+import '../../../core/cleint.dart';
 import '../../models/home/HomePageModel.dart';
 
 class HomePageRepository {

@@ -4,14 +4,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
-import 'package:recipefoodapp/core/router/routerName.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/recipe/communityRepostory.dart';
 import 'package:recipefoodapp/features/common/appBar/app_bar_home.dart';
 import 'package:recipefoodapp/features/community/widgets/CommunityBottomBar.dart';
 import 'package:recipefoodapp/features/community/managers/CommuntyViewModel.dart';
 
 import '../../../../../core/utils/Appcolors.dart';
+import '../../../core/routing/routes.dart';
 
 class CommunityPage extends StatefulWidget {
   const CommunityPage({super.key});
@@ -90,7 +90,7 @@ class _CommunityPageState extends State<CommunityPage> {
                                       style: TextStyle(
                                         fontWeight: FontWeight.w400,
                                         fontSize: 12,
-                                        color: Appcolors().pinkSub,
+                                        color: AppColors.pinkSub,
                                       ),
                                     ),
                                   ],
@@ -102,7 +102,7 @@ class _CommunityPageState extends State<CommunityPage> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                context.push(Routers.recipe, extra: items.id);
+                                context.push(Routes.recipe, extra: items.id);
                               },
                               child: Column(
                                 children: [
@@ -135,8 +135,8 @@ class _CommunityPageState extends State<CommunityPage> {
                                               height: 28.h,
                                               decoration: BoxDecoration(
                                                 color: likedStates[index]
-                                                    ? Appcolors().redpinkmain
-                                                    : Appcolors().pink,
+                                                    ? AppColors.redPinkMain
+                                                    : AppColors.pink,
                                                 shape: BoxShape.circle,
                                               ),
                                               child: SvgPicture.asset(
@@ -145,8 +145,8 @@ class _CommunityPageState extends State<CommunityPage> {
                                                 height: 15.h,
                                                 fit: BoxFit.none,
                                                 color: likedStates[index]
-                                                    ? Appcolors().white
-                                                    : Appcolors().pinkSub,
+                                                    ? AppColors.white
+                                                    : AppColors.pinkSub,
                                               ),
                                             ),
                                           ),
@@ -164,7 +164,7 @@ class _CommunityPageState extends State<CommunityPage> {
                                     width: 356.w,
                                     height: 79.h,
                                     decoration: BoxDecoration(
-                                      color: Appcolors().redpinkmain,
+                                      color: AppColors.redPinkMain,
                                       borderRadius: BorderRadiusGeometry.only(
                                         bottomRight: Radius.circular(14.r),
                                         bottomLeft: Radius.circular(14.r),
@@ -180,7 +180,7 @@ class _CommunityPageState extends State<CommunityPage> {
                                               style: TextStyle(
                                                 fontSize: 15,
                                                 fontWeight: FontWeight.w600,
-                                                color: Appcolors().white,
+                                                color: AppColors.white,
                                               ),
                                             ),
                                             SizedBox(
@@ -194,7 +194,7 @@ class _CommunityPageState extends State<CommunityPage> {
                                               style: TextStyle(
                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 12,
-                                                color: Appcolors().white,
+                                                color: AppColors.white,
                                               ),
                                             ),
                                           ],
@@ -211,7 +211,7 @@ class _CommunityPageState extends State<CommunityPage> {
                                                 style: TextStyle(
                                                   fontSize: 14,
                                                   fontWeight: FontWeight.w300,
-                                                  color: Appcolors().white,
+                                                  color: AppColors.white,
                                                 ),
                                               ),
                                             ),
@@ -228,7 +228,7 @@ class _CommunityPageState extends State<CommunityPage> {
                                                       'assets/Icons/clock.svg',
                                                       colorFilter:
                                                           ColorFilter.mode(
-                                                            Appcolors().white,
+                                                            AppColors.white,
                                                             BlendMode.srcIn,
                                                           ),
                                                     ),
@@ -239,7 +239,7 @@ class _CommunityPageState extends State<CommunityPage> {
                                                             FontWeight.w400,
                                                         fontSize: 12,
                                                         color:
-                                                            Appcolors().white,
+                                                            AppColors.white,
                                                       ),
                                                     ),
                                                   ],
@@ -255,14 +255,14 @@ class _CommunityPageState extends State<CommunityPage> {
                                                             FontWeight.w400,
                                                         fontSize: 12,
                                                         color:
-                                                            Appcolors().white,
+                                                            AppColors.white,
                                                       ),
                                                     ),
                                                     SvgPicture.asset(
                                                       'assets/Icons/reviews.svg',
                                                       colorFilter:
                                                           ColorFilter.mode(
-                                                            Appcolors().white,
+                                                            AppColors.white,
                                                             BlendMode.srcIn,
                                                           ),
                                                     ),

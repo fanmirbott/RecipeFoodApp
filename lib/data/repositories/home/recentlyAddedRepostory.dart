@@ -1,4 +1,4 @@
-import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 
 import '../../models/home/RecentlyAddedModel.dart';
 

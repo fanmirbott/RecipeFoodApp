@@ -23,7 +23,7 @@ class AppBarHomePage extends StatelessWidget implements PreferredSizeWidget {
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w400,
-                color: Appcolors().redpinkmain,
+                color: AppColors.redPinkMain,
               ),
             ),
             Text(
@@ -31,7 +31,7 @@ class AppBarHomePage extends StatelessWidget implements PreferredSizeWidget {
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w400,
-                color: Appcolors().white,
+                color: AppColors.white,
               ),
             ),
           ],
@@ -42,7 +42,7 @@ class AppBarHomePage extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () {},
           constraints: BoxConstraints(minWidth: 35.w, minHeight: 35.h),
           style: IconButton.styleFrom(
-            backgroundColor: Appcolors().pink,
+            backgroundColor: AppColors.pink,
             fixedSize: Size(30.w, 30.h),
           ),
           icon: SvgPicture.asset('assets/Icons/notification.svg'),
@@ -52,7 +52,7 @@ class AppBarHomePage extends StatelessWidget implements PreferredSizeWidget {
           constraints: BoxConstraints(minWidth: 35.w, minHeight: 35.h),
 
           style: IconButton.styleFrom(
-            backgroundColor: Appcolors().pink,
+            backgroundColor: AppColors.pink,
             fixedSize: Size(28.w, 28.h),
           ),
           icon: SvgPicture.asset('assets/Icons/search.svg'),

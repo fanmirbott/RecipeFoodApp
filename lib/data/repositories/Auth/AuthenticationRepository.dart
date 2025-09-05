@@ -1,5 +1,5 @@
-import 'package:recipefoodapp/core/network/cleint.dart';
-import 'package:recipefoodapp/core/network/result.dart';
+import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/core/utils/result.dart';
 
 class AuthenticationRepository {
   final ApiClient _client;

@@ -7,7 +7,7 @@ import 'AllergicPage.dart';
 import 'CookingLevelPage.dart';
 import 'PreferencesPage.dart';
 class PageViewOnBoarding extends StatefulWidget {
-  PageViewOnBoarding({super.key});
+  const PageViewOnBoarding({super.key});
 
   @override
   State<PageViewOnBoarding> createState() => _PageViewOnBoarding();
@@ -28,7 +28,7 @@ class _PageViewOnBoarding extends State<PageViewOnBoarding> {
     return Scaffold(
       extendBody: true,
       appBar: AppBar(
-        backgroundColor: Appcolors().backgroundBegie,
+        backgroundColor: AppColors.backgroundBeige,
         leading: IconButton(
           onPressed: () {
             context.pop();

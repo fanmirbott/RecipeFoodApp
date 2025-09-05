@@ -1,4 +1,4 @@
-import '../../../core/network/cleint.dart';
+import '../../../core/cleint.dart';
 import '../../models/chefs/chefsModel.dart';
 
 class ChefDetailRepository {

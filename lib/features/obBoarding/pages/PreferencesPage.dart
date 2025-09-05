@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/onBoarding/preferencesRepostory.dart';
 import '../../../../../../core/utils/Appcolors.dart';
 import '../managers/PreferencesViewModel.dart';
@@ -27,7 +27,7 @@ class PreferencesPage extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 20,
-                  color: Appcolors().white,
+                  color: AppColors.white,
                 ),
               ),
               const SizedBox(height: 15),
@@ -36,7 +36,7 @@ class PreferencesPage extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 13,
-                  color: Appcolors().white,
+                  color: AppColors.white,
                 ),
               ),
               const SizedBox(height: 20),
@@ -60,7 +60,7 @@ class PreferencesPage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w500,
-                          color: Appcolors().white,
+                          color: AppColors.white,
                         ),
                       ),
                     ],
@@ -78,8 +78,8 @@ class PreferencesPage extends StatelessWidget {
                   PreferencesBottom(
                     iconButtonText: "Skip",
                     onPressed: () {},
-                    buttonColor: Appcolors().pink,
-                    textColor: Appcolors().pinkSub,
+                    buttonColor: AppColors.pink,
+                    textColor: AppColors.pinkSub,
                   ),
                   PreferencesBottom(
                     iconButtonText: "Continue",
@@ -89,8 +89,8 @@ class PreferencesPage extends StatelessWidget {
                         curve: Curves.easeInOut,
                       );
                     },
-                    buttonColor: Appcolors().redpinkmain,
-                    textColor: Appcolors().white,
+                    buttonColor: AppColors.redPinkMain,
+                    textColor: AppColors.white,
                   ),
                 ],
               ),

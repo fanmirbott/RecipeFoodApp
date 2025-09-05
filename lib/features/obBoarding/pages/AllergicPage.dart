@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/onBoarding/preferencesRepostory.dart';
 import '../../../../../../core/utils/Appcolors.dart';
 import '../managers/PreferencesViewModel.dart';
@@ -23,8 +23,8 @@ class Allergicpage extends StatelessWidget {
           onPressed: () {
             context.push('/loginPage');
           },
-          buttonColor: Appcolors().pinkSub,
-          textColor: Appcolors().white,
+          buttonColor: AppColors.pinkSub,
+          textColor: AppColors.white,
         ),
       ),
       body: ChangeNotifierProvider(
@@ -41,7 +41,7 @@ class Allergicpage extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 20,
-                    color: Appcolors().white,
+                    color: AppColors.white,
                   ),
                 ),
                 SizedBox(height: 15),
@@ -50,7 +50,7 @@ class Allergicpage extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 13,
-                    color: Appcolors().white,
+                    color: AppColors.white,
                   ),
                 ),
                 SizedBox(height: 20),
@@ -74,7 +74,7 @@ class Allergicpage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w500,
-                            color: Appcolors().white,
+                            color: AppColors.white,
                           ),
                         ),
                       ],

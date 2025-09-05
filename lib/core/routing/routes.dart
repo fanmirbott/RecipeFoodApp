@@ -1,4 +1,4 @@
-class Routers {
+class Routes {
   static const homePage = '/homePage';
   static const onBoarding = '/onBoarding';
   static const otpDigitField = '/OtpDigitField';
@@ -10,6 +10,7 @@ class Routers {
   static const categories = '/categories';
   static const topChef = '/topChef';
   static const chefDetail = '/chefDetail';
+  static String getChefDetailId(int id) => '/chefDetail/$id';
   static const trending = '/trending';
   static const recipePage = '/recipePage';
   static const recipe = '/recipe/:id';
@@ -19,4 +20,7 @@ class Routers {
   static const launchPage = '/launchPage';
   static const profilePage= '/profile';
   static const splashPage = '/splashPage';
+  static const addRecipe = '/addRecipe';
+  static const profileMenu = '/profileMenu';
+  static const notificationPage = '/notificationPage';
 }

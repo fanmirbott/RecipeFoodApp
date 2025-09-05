@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/recipe/communityRepostory.dart';
 import 'package:recipefoodapp/features/community/managers/CommuntyViewModel.dart';
 
@@ -51,7 +51,7 @@ class ProfilePageGridview extends StatelessWidget {
                               alignment: Alignment.bottomCenter,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(14.r),
-                                color: Appcolors().white,
+                                color: AppColors.white,
                                 border: Border.all(
                                   color: Theme.of(context).colorScheme.secondary,
                                 ),
@@ -70,7 +70,7 @@ class ProfilePageGridview extends StatelessWidget {
                                       style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w400,
-                                        color: Appcolors().brownLetters,
+                                        color: AppColors.brownLetters,
                                       ),
                                     ),
                                     Text(
@@ -80,7 +80,7 @@ class ProfilePageGridview extends StatelessWidget {
                                       style: TextStyle(
                                         fontSize: 13.w,
                                         fontWeight: FontWeight.w300,
-                                        color: Appcolors().brownLetters,
+                                        color: AppColors.brownLetters,
                                       ),
                                     ),
                                     Row(
@@ -92,7 +92,7 @@ class ProfilePageGridview extends StatelessWidget {
                                             Text(
                                               vm.recipes[index].rating.toString(),
                                               style: TextStyle(
-                                                color: Appcolors().pinkSub,
+                                                color: AppColors.pinkSub,
                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 12,
                                               ),
@@ -116,7 +116,7 @@ class ProfilePageGridview extends StatelessWidget {
                                             Text(
                                               vm.recipes[index].timeRequired.toString(),
                                               style: TextStyle(
-                                                color: Appcolors().pinkSub,
+                                                color: AppColors.pinkSub,
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.w400,
                                               ),

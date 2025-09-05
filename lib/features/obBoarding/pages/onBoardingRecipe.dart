@@ -3,21 +3,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/cleint.dart';
+import 'package:recipefoodapp/core/utils/Appcolors.dart';
 import 'package:recipefoodapp/data/repositories/onBoarding/onBoardingReposrtory.dart';
 import 'package:recipefoodapp/features/obBoarding/managers/OnBoardingViewModel.dart';
-import 'package:recipefoodapp/core/utils/Appcolors.dart';
 
 import '../widgets/onboardingpage_text_button.dart';
 
-class Onboardingrecipe extends StatefulWidget {
-  const Onboardingrecipe({super.key});
+class OnBoardingRecipe extends StatefulWidget {
+  const OnBoardingRecipe({super.key});
 
   @override
-  State<Onboardingrecipe> createState() => _OnboardingrecipeState();
+  State<OnBoardingRecipe> createState() => _OnBoardingRecipeState();
 }
 
-class _OnboardingrecipeState extends State<Onboardingrecipe> {
+class _OnBoardingRecipeState extends State<OnBoardingRecipe> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -25,7 +25,7 @@ class _OnboardingrecipeState extends State<Onboardingrecipe> {
       builder: (context, child) => Consumer<OnBoardingProvider>(
         builder: (context, vm, child) => Scaffold(
           appBar: AppBar(
-            backgroundColor: Appcolors().backgroundBegie,
+            backgroundColor: AppColors.backgroundBeige,
             leading: IconButton(
               onPressed: () {},
               icon: SvgPicture.asset("assets/Icons/back-arrow.svg"),
@@ -68,7 +68,7 @@ class _OnboardingrecipeState extends State<Onboardingrecipe> {
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 25,
-                          color: Appcolors().white,
+                          color: AppColors.white,
                           decoration: TextDecoration.none,
                         ),
                       ),
@@ -77,7 +77,7 @@ class _OnboardingrecipeState extends State<Onboardingrecipe> {
                         style: TextStyle(
                           fontWeight: FontWeight.w400,
                           fontSize: 13,
-                          color: Appcolors().white,
+                          color: AppColors.white,
                           decoration: TextDecoration.none,
                         ),
                       ),

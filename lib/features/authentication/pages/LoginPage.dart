@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/core/router/routerName.dart';
-import 'package:recipefoodapp/core/utils/Appcolors.dart';
+import '../../../core/routing/routes.dart';
+import '../../../core/utils/Appcolors.dart';
 import '../managers/AuthentictacionViewModel.dart';
 import '../widgets/login_page_text_button.dart';
 import '../widgets/login_page_text_field.dart';
@@ -18,14 +18,14 @@ class LoginPage extends StatelessWidget {
     final loginViewModel = context.read<LoginViewModel>();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Appcolors().backgroundBegie,
+        backgroundColor: AppColors.backgroundBeige,
         centerTitle: true,
         title: Text(
           'Login',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,
-            color: Appcolors().redpinkmain,
+            color: AppColors.redPinkMain,
           ),
         ),
       ),
@@ -69,7 +69,7 @@ class LoginPage extends StatelessWidget {
                   );
 
                   if (success) {
-                    context.go(Routers.homePage);
+                    context.go(Routes.homePage);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
@@ -82,33 +82,33 @@ class LoginPage extends StatelessWidget {
                 },
 
                 text: 'Login',
-                textColor: Appcolors().white,
-                backgroundColor: Appcolors().pink,
+                textColor: AppColors.white,
+                backgroundColor: AppColors.pink,
               ),
               SizedBox(
                 height: 22.h,
               ),
               LoginPageTextButton(
                 onPressed: () {
-                  context.push(Routers.signUpPage);
+                  context.push(Routes.signUpPage);
                 },
                 text: 'Sign up',
-                textColor: Appcolors().pinkSub,
-                backgroundColor: Appcolors().pink,
+                textColor: AppColors.pinkSub,
+                backgroundColor: AppColors.pink,
               ),
               SizedBox(
                 height: 48.h,
               ),
               GestureDetector(
                 onTap: () {
-                  context.push(Routers.otpDigitField);
+                  context.push(Routes.otpDigitField);
                 },
                 child: Text(
                   'Forgot Password?',
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
-                    color: Appcolors().white,
+                    color: AppColors.white,
                   ),
                 ),
               ),
@@ -120,7 +120,7 @@ class LoginPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w300,
-                  color: Appcolors().white,
+                  color: AppColors.white,
                 ),
               ),
               SizedBox(
@@ -158,7 +158,7 @@ class LoginPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w300,
-                  color: Appcolors().white,
+                  color: AppColors.white,
                 ),
               ),
             ],

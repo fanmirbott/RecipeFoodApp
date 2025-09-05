@@ -5,12 +5,12 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/data/models/authentication/AuthenticationModel.dart';
 import 'package:recipefoodapp/data/repositories/Auth/AuthenticationRepository.dart';
-import 'package:recipefoodapp/core/utils/Appcolors.dart';
-
+import '../../../core/utils/Appcolors.dart';
 import '../widgets/login_page_text_button.dart';
 import '../widgets/login_page_text_field.dart';
+
 class SignUpPage extends StatefulWidget {
-  SignUpPage({super.key});
+  const SignUpPage({super.key});
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -50,14 +50,14 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Appcolors().backgroundBegie,
+        backgroundColor: AppColors.backgroundBeige,
         centerTitle: true,
         title: Text(
           'Sign Up',
           style: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 20,
-            color: Appcolors().redpinkmain,
+            color: AppColors.redPinkMain,
           ),
         ),
       ),
@@ -136,7 +136,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
-                    color: Appcolors().white,
+                    color: AppColors.white,
                   ),
                 ),
                 Text(
@@ -144,7 +144,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 14,
-                    color: Appcolors().white,
+                    color: AppColors.white,
                   ),
                 ),
                 SizedBox(height: 12.h),
@@ -171,7 +171,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                 style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 20,
-                                  color: Appcolors().backgroundBegie,
+                                  color: AppColors.backgroundBeige,
                                 ),
                               ),
                             ),
@@ -184,7 +184,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                     width: 82.w,
                                     height: 82.h,
                                     decoration: BoxDecoration(
-                                      color: Appcolors().pink,
+                                      color: AppColors.pink,
                                       shape: BoxShape.circle,
                                     ),
                                     child: Center(
@@ -192,7 +192,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                         'assets/Icons/profile.svg',
                                         width: 30.w,
                                         height: 44.h,
-                                        color: Appcolors().redpinkmain,
+                                        colorFilter: ColorFilter.mode(AppColors.redPinkMain, BlendMode.srcIn),
                                       ),
                                     ),
                                   ),
@@ -245,8 +245,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     }
                   },
                   text: 'Sign up',
-                  textColor: Appcolors().white,
-                  backgroundColor: Appcolors().redpinkmain,
+                  textColor: AppColors.white,
+                  backgroundColor: AppColors.redPinkMain,
                 ),
                 SizedBox(height: 12.h),
                 Row(
@@ -257,7 +257,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w300,
-                        color: Appcolors().white,
+                        color: AppColors.white,
                       ),
                     ),
                     GestureDetector(
@@ -269,7 +269,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         style: TextStyle(
                           fontWeight: FontWeight.w300,
                           fontSize: 13,
-                          color: Appcolors().redpinkmain,
+                          color: AppColors.redPinkMain,
                         ),
                       ),
                     ),

@@ -5,9 +5,9 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/features/common/appBar/app_bar_home.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
-import 'package:recipefoodapp/core/router/routerName.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/recipe/categories_detail_repostory.dart';
+import '../../../core/routing/routes.dart';
 import '../../common/appBar/recipeBottomCategoryBar.dart';
 import '../../../../core/utils/Appcolors.dart';
 import '../managers/CategoriesDetailViewModel.dart';
@@ -43,7 +43,7 @@ class _RecipesPageState extends State<RecipesPage> {
               return Center(
                 child: Text(
                   "Bu kategoriyada ovqatlar topilmadi.",
-                  style: TextStyle(color: Appcolors().white),
+                  style: TextStyle(color: AppColors.white),
                 ),
               );
             }
@@ -62,7 +62,7 @@ class _RecipesPageState extends State<RecipesPage> {
                   child: GestureDetector(
                     onTap: () {
                       context.push(
-                        Routers.recipe,
+                        Routes.recipe,
                         extra: vm.productsDetail[index].id,
                       );
                     },
@@ -76,7 +76,7 @@ class _RecipesPageState extends State<RecipesPage> {
                             alignment: Alignment.bottomCenter,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(14.r),
-                              color: Appcolors().white,
+                              color: AppColors.white,
                               border: Border.all(
                                 color: Theme.of(context).colorScheme.secondary
                               )
@@ -95,7 +95,7 @@ class _RecipesPageState extends State<RecipesPage> {
                                     style: TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w400,
-                                      color: Appcolors().brownLetters,
+                                      color: AppColors.brownLetters,
                                     ),
                                   ),
                                   Text(
@@ -104,7 +104,7 @@ class _RecipesPageState extends State<RecipesPage> {
                                     style: TextStyle(
                                       fontSize: 13.w,
                                       fontWeight: FontWeight.w300,
-                                      color: Appcolors().brownLetters,
+                                      color: AppColors.brownLetters,
                                     ),
                                   ),
                                   Row(
@@ -117,7 +117,7 @@ class _RecipesPageState extends State<RecipesPage> {
                                             vm.productsDetail[index].rating
                                                 .toString(),
                                             style: TextStyle(
-                                              color: Appcolors().pinkSub,
+                                              color: AppColors.pinkSub,
                                               fontWeight: FontWeight.w400,
                                               fontSize: 12,
                                             ),
@@ -144,7 +144,7 @@ class _RecipesPageState extends State<RecipesPage> {
                                                 .timeRequired
                                                 .toString(),
                                             style: TextStyle(
-                                              color: Appcolors().pinkSub,
+                                              color: AppColors.pinkSub,
                                               fontSize: 12,
                                               fontWeight: FontWeight.w400,
                                             ),
@@ -152,7 +152,7 @@ class _RecipesPageState extends State<RecipesPage> {
                                           Text(
                                             ' min',
                                             style: TextStyle(
-                                              color: Appcolors().pinkSub,
+                                              color: AppColors.pinkSub,
                                               fontSize: 12,
                                               fontWeight: FontWeight.w400,
                                             ),

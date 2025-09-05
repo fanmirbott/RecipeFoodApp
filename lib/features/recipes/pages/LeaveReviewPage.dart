@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/recipe/ReviewsRepostory.dart';
 import 'package:recipefoodapp/features/recipes/managers/ReviewsViewModel.dart';
 import 'package:recipefoodapp/features/recipes/widgets/reviewsButton.dart';
@@ -52,7 +52,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 20,
-              color: Appcolors().redpinkmain,
+              color: AppColors.redPinkMain,
             ),
           ),
         ),
@@ -71,7 +71,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
-                    color: Appcolors().white,
+                    color: AppColors.white,
                   ),
                 ),
               );
@@ -88,7 +88,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                       height: 262.h,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.r),
-                        color: Appcolors().redpinkmain,
+                        color: AppColors.redPinkMain,
                       ),
                       child: Column(
                         spacing: 10,
@@ -107,7 +107,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 20,
-                              color: Appcolors().white,
+                              color: AppColors.white,
                             ),
                           ),
                         ],
@@ -131,7 +131,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                                 : 'assets/Icons/star-empty.svg',
                             width: 28.w,
                             colorFilter: ColorFilter.mode(
-                              Appcolors().redpinkmain,
+                              AppColors.redPinkMain,
                               BlendMode.srcIn,
                             ),
                           ),
@@ -157,12 +157,12 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                             hintStyle: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 15,
-                              color: Appcolors().backgroundBegie.withValues(
+                              color: AppColors.backgroundBeige.withValues(
                                 alpha: 0.45,
                               ),
                             ),
                             filled: true,
-                            fillColor: Appcolors().pink,
+                            fillColor: AppColors.pink,
                             constraints: BoxConstraints(
                               maxWidth: 358.w,
                               maxHeight: 142.h,
@@ -182,12 +182,12 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                                 width: 25.w,
                                 height: 25.h,
                                 decoration: BoxDecoration(
-                                  color: Appcolors().pink,
+                                  color: AppColors.pink,
                                   borderRadius: BorderRadius.circular(13.r),
                                 ),
                                 child: Icon(
                                   Icons.add,
-                                  color: Appcolors().pinkSub,
+                                  color: AppColors.pinkSub,
                                 ),
                               ),
                             ),
@@ -231,7 +231,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                               value: 'No',
                               groupValue: selected,
                               fillColor: WidgetStatePropertyAll(
-                                Appcolors().redpinkmain,
+                                AppColors.redPinkMain,
                               ),
                               onChanged: (value) {
                                 setState(() {
@@ -253,9 +253,9 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                             Radio<String>(
                               value: 'Yes',
                               groupValue: selected,
-                              focusColor: Appcolors().redpinkmain,
+                              focusColor: AppColors.redPinkMain,
                               fillColor: WidgetStatePropertyAll(
-                                Appcolors().redpinkmain,
+                                AppColors.redPinkMain,
                               ),
                               onChanged: (value) {
                                 setState(() {
@@ -275,9 +275,9 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                               onPressed: () {
                                 context.pop();
                               },
-                              backColor: Appcolors().pink,
+                              backColor: AppColors.pink,
                               text: 'cancel',
-                              textColor: Appcolors().pinkSub,
+                              textColor: AppColors.pinkSub,
                             ),
                             ReviewsButton(
                               onPressed: () {
@@ -296,7 +296,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                                                   fontWeight: FontWeight.w600,
                                                   fontSize: 22,
                                                   color:
-                                                      Appcolors().backgroundBegie,
+                                                      AppColors.backgroundBeige,
                                                 ),
                                               ),
                                               Text(
@@ -305,7 +305,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                                                   fontWeight: FontWeight.w600,
                                                   fontSize: 22,
                                                   color:
-                                                      Appcolors().backgroundBegie,
+                                                      AppColors.backgroundBeige,
                                                 ),
                                               ),
                                             ],
@@ -322,7 +322,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                                                 'assets/Icons/big-tick.svg',
                                                 width: 59.w,
                                                 height: 59.h,
-                                                color: Appcolors().redpinkmain,
+                                                color: AppColors.redPinkMain,
                                               ),
                                             ),
                                             SizedBox(height: 20.h),
@@ -354,7 +354,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                                               width: 207.w,
                                               height: 45.h,
                                               decoration: BoxDecoration(
-                                                color: Appcolors().redpinkmain,
+                                                color: AppColors.redPinkMain,
                                                 borderRadius:
                                                     BorderRadius.circular(
                                                       30.r,
@@ -365,7 +365,7 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                                                 style: TextStyle(
                                                   fontSize: 20,
                                                   fontWeight: FontWeight.w600,
-                                                  color: Appcolors().white,
+                                                  color: AppColors.white,
                                                 ),
                                               ),
                                             ),
@@ -376,9 +376,9 @@ class _LeaveReviewPageState extends State<LeaveReviewPage> {
                                   },
                                 );
                               },
-                              backColor: Appcolors().redpinkmain,
+                              backColor: AppColors.redPinkMain,
                               text: 'Submit',
-                              textColor: Appcolors().white,
+                              textColor: AppColors.white,
                             ),
                           ],
                         ),

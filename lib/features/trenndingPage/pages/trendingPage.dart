@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/core/utils/Appcolors.dart';
 import 'package:recipefoodapp/data/repositories/recipe/trendingRecipeRepostory.dart';
 import 'package:recipefoodapp/features/trenndingPage/managers/TrendingRecipeViewModel.dart';
@@ -36,7 +36,7 @@ class _TrendingPageState extends State<TrendingPage> {
           return Scaffold(
             extendBody: true,
             appBar: AppBar(
-              backgroundColor: Appcolors().backgroundBegie,
+              backgroundColor: AppColors.backgroundBeige,
               leading: IconButton(
                 onPressed: () {
                   context.pop();
@@ -49,21 +49,21 @@ class _TrendingPageState extends State<TrendingPage> {
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 20,
-                  color: Appcolors().redpinkmain,
+                  color: AppColors.redPinkMain,
                 ),
               ),
               actions: [
                 IconButton(
                   onPressed: () {},
                   style: IconButton.styleFrom(
-                    backgroundColor: Appcolors().pink,
+                    backgroundColor: AppColors.pink,
                   ),
                   icon: SvgPicture.asset("assets/Icons/notification.svg"),
                 ),
                 IconButton(
                   onPressed: () {},
                   style: IconButton.styleFrom(
-                    backgroundColor: Appcolors().pink,
+                    backgroundColor: AppColors.pink,
                   ),
                   icon: SvgPicture.asset("assets/Icons/search.svg"),
                 ),
@@ -81,7 +81,7 @@ class _TrendingPageState extends State<TrendingPage> {
                     height: 241.h,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20.r),
-                      color: Appcolors().redpinkmain,
+                      color: AppColors.redPinkMain,
                     ),
                     child: Padding(
                       padding: EdgeInsetsGeometry.symmetric(horizontal: 36),
@@ -96,7 +96,7 @@ class _TrendingPageState extends State<TrendingPage> {
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
-                              color: Appcolors().white,
+                              color: AppColors.white,
                             ),
                           ),
                           SizedBox(
@@ -119,7 +119,7 @@ class _TrendingPageState extends State<TrendingPage> {
                                     height: 60.h,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(14.r),
-                                      color: Appcolors().white,
+                                      color: AppColors.white,
                                     ),
                                     child: Row(
                                       children: [
@@ -134,8 +134,8 @@ class _TrendingPageState extends State<TrendingPage> {
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.w400,
                                                   fontSize: 13,
-                                                  color: Appcolors()
-                                                      .backgroundBegie,
+                                                  color: AppColors
+                                                      .backgroundBeige,
                                                 ),
                                               ),
                                               Text(
@@ -145,8 +145,8 @@ class _TrendingPageState extends State<TrendingPage> {
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.w300,
                                                   fontSize: 13,
-                                                  color: Appcolors()
-                                                      .backgroundBegie,
+                                                  color: AppColors
+                                                      .backgroundBeige,
                                                 ),
                                               ),
                                             ],
@@ -170,7 +170,7 @@ class _TrendingPageState extends State<TrendingPage> {
                                                   style: TextStyle(
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w400,
-                                                    color: Appcolors().pinkSub,
+                                                    color: AppColors.pinkSub,
                                                   ),
                                                 ),
                                                 Text(
@@ -178,7 +178,7 @@ class _TrendingPageState extends State<TrendingPage> {
                                                   style: TextStyle(
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w400,
-                                                    color: Appcolors().pinkSub,
+                                                    color: AppColors.pinkSub,
                                                   ),
                                                 ),
                                               ],
@@ -190,7 +190,7 @@ class _TrendingPageState extends State<TrendingPage> {
                                                   style: TextStyle(
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w400,
-                                                    color: Appcolors().pinkSub,
+                                                    color: AppColors.pinkSub,
                                                   ),
                                                 ),
                                                 SvgPicture.asset(
@@ -228,8 +228,8 @@ class _TrendingPageState extends State<TrendingPage> {
                                             height: 28.h,
                                             decoration: BoxDecoration(
                                               color: like
-                                                  ? Appcolors().redpinkmain
-                                                  : Appcolors().pink,
+                                                  ? AppColors.redPinkMain
+                                                  : AppColors.pink,
                                               shape: BoxShape.circle,
                                             ),
                                             child: SvgPicture.asset(
@@ -238,8 +238,8 @@ class _TrendingPageState extends State<TrendingPage> {
                                               height: 15.h,
                                               fit: BoxFit.none,
                                               color: like
-                                                  ? Appcolors().white
-                                                  : Appcolors().pinkSub,
+                                                  ? AppColors.white
+                                                  : AppColors.pinkSub,
                                             ),
                                           ),
                                         ),
@@ -265,7 +265,7 @@ class _TrendingPageState extends State<TrendingPage> {
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
-                            color: Appcolors().redpinkmain,
+                            color: AppColors.redPinkMain,
                           ),
                         ),
                       ),
@@ -298,8 +298,8 @@ class _TrendingPageState extends State<TrendingPage> {
                                         ),
                                         topRight: Radius.circular(14.r),
                                       ),
-                                      color: Appcolors().white,
-                                      border: Border.all(color: Appcolors().redpinkmain)
+                                      color: AppColors.white,
+                                      border: Border.all(color: AppColors.redPinkMain)
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsGeometry.symmetric(
@@ -318,7 +318,7 @@ class _TrendingPageState extends State<TrendingPage> {
                                             fontWeight: FontWeight.w400,
                                             fontSize: 12,
                                             color:
-                                            Appcolors().backgroundBegie,
+                                            AppColors.backgroundBeige,
                                           ),
                                         ),
                                         Text(
@@ -327,7 +327,7 @@ class _TrendingPageState extends State<TrendingPage> {
                                             fontWeight: FontWeight.w300,
                                             fontSize: 13,
                                             color:
-                                            Appcolors().backgroundBegie,
+                                            AppColors.backgroundBeige,
                                           ),
                                           maxLines: 2,
                                         ),
@@ -336,7 +336,7 @@ class _TrendingPageState extends State<TrendingPage> {
                                           style: TextStyle(
                                             fontWeight: FontWeight.w300,
                                             fontSize: 12,
-                                            color: Appcolors().redpinkmain,
+                                            color: AppColors.redPinkMain,
                                           ),
                                         ),
                                         Row(
@@ -358,7 +358,7 @@ class _TrendingPageState extends State<TrendingPage> {
                                                     fontWeight:
                                                     FontWeight.w400,
                                                     color:
-                                                    Appcolors().pinkSub,
+                                                    AppColors.pinkSub,
                                                   ),
                                                 ),
                                                 Text(
@@ -368,7 +368,7 @@ class _TrendingPageState extends State<TrendingPage> {
                                                     fontWeight:
                                                     FontWeight.w400,
                                                     color:
-                                                    Appcolors().pinkSub,
+                                                    AppColors.pinkSub,
                                                   ),
                                                 ),
                                               ],
@@ -386,7 +386,7 @@ class _TrendingPageState extends State<TrendingPage> {
                                                     fontWeight:
                                                     FontWeight.w400,
                                                     color:
-                                                    Appcolors().pinkSub,
+                                                    AppColors.pinkSub,
                                                   ),
                                                 ),
                                                 SvgPicture.asset(
@@ -407,7 +407,7 @@ class _TrendingPageState extends State<TrendingPage> {
                                                     fontWeight:
                                                     FontWeight.w400,
                                                     color:
-                                                    Appcolors().pinkSub,
+                                                    AppColors.pinkSub,
                                                   ),
                                                 ),
                                                 SvgPicture.asset(
@@ -445,8 +445,8 @@ class _TrendingPageState extends State<TrendingPage> {
                                               height: 28.h,
                                               decoration: BoxDecoration(
                                                 color: vm.likedStates[index]
-                                                    ? Appcolors().redpinkmain
-                                                    : Appcolors().pink,
+                                                    ? AppColors.redPinkMain
+                                                    : AppColors.pink,
                                                 shape: BoxShape.circle,
                                               ),
                                               child: SvgPicture.asset(
@@ -455,8 +455,8 @@ class _TrendingPageState extends State<TrendingPage> {
                                                 height: 15.h,
                                                 fit: BoxFit.none,
                                                 color: vm.likedStates[index]
-                                                    ? Appcolors().white
-                                                    : Appcolors().pinkSub,
+                                                    ? AppColors.white
+                                                    : AppColors.pinkSub,
                                               ),
                                             ),
                                           ),

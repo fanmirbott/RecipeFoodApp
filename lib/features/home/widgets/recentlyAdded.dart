@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
-import 'package:recipefoodapp/core/utils/Appcolors.dart';
+import 'package:recipefoodapp/core/cleint.dart';
+import '../../../core/utils/Appcolors.dart';
 import '../../../data/repositories/home/recentlyAddedRepostory.dart';
 import '../managers/RecentlyAddedModel.dart';
 
@@ -47,7 +47,7 @@ class _RecentlyAddedState extends State<RecentlyAdded> {
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 15,
-                    color: Appcolors().redpinkmain,
+                    color: AppColors.redPinkMain,
                   ),
                 ),
                 Row(
@@ -67,7 +67,7 @@ class _RecentlyAddedState extends State<RecentlyAdded> {
                               height: 87.h,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(13.r),
-                                color: Appcolors().white,
+                                color: AppColors.white,
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -78,7 +78,7 @@ class _RecentlyAddedState extends State<RecentlyAdded> {
                                     style: TextStyle(
                                       fontWeight: FontWeight.w400,
                                       fontSize: 12,
-                                      color: Appcolors().backgroundBegie,
+                                      color: AppColors.backgroundBeige,
                                     ),
                                   ),
                                   Row(
@@ -90,7 +90,7 @@ class _RecentlyAddedState extends State<RecentlyAdded> {
                                             style: TextStyle(
                                               fontSize: 12,
                                               fontWeight: FontWeight.w400,
-                                              color: Appcolors().pinkSub,
+                                              color: AppColors.pinkSub,
                                             ),
                                           ),
                                           SvgPicture.asset(
@@ -110,7 +110,7 @@ class _RecentlyAddedState extends State<RecentlyAdded> {
                                             style: TextStyle(
                                               fontSize: 12,
                                               fontWeight: FontWeight.w400,
-                                              color: Appcolors().pinkSub,
+                                              color: AppColors.pinkSub,
                                             ),
                                           ),
                                           Text(
@@ -118,7 +118,7 @@ class _RecentlyAddedState extends State<RecentlyAdded> {
                                             style: TextStyle(
                                               fontSize: 12,
                                               fontWeight: FontWeight.w400,
-                                              color: Appcolors().pinkSub,
+                                              color: AppColors.pinkSub,
                                             ),
                                           ),
                                         ],
@@ -154,8 +154,8 @@ class _RecentlyAddedState extends State<RecentlyAdded> {
                                       height: 28.h,
                                       decoration: BoxDecoration(
                                         color: likedStates[index]
-                                            ? Appcolors().redpinkmain
-                                            : Appcolors().pink,
+                                            ? AppColors.redPinkMain
+                                            : AppColors.pink,
                                         shape: BoxShape.circle,
                                       ),
                                       child: SvgPicture.asset(
@@ -164,8 +164,8 @@ class _RecentlyAddedState extends State<RecentlyAdded> {
                                         height: 15.h,
                                         fit: BoxFit.none,
                                         color: likedStates[index]
-                                            ? Appcolors().white
-                                            : Appcolors().pinkSub,
+                                            ? AppColors.white
+                                            : AppColors.pinkSub,
                                       ),
                                     ),
                                   ),

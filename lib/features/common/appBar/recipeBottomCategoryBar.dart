@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:recipefoodapp/core/utils/Appcolors.dart';
 import 'package:recipefoodapp/features/recipes/managers/CategoriesDetailViewModel.dart';
+
+import '../../../core/utils/Appcolors.dart';
 
 class RecipeAppBarBottom extends StatelessWidget
     implements PreferredSizeWidget {
@@ -21,7 +22,7 @@ class RecipeAppBarBottom extends StatelessWidget
           return const Center(child: CircularProgressIndicator());
         }
         if (vm.categories.isEmpty) {
-          return Text('''categoriya bo'sh''', style: TextStyle(color: Appcolors().white),);
+          return Text('''categoriya bo'sh''', style: TextStyle(color: AppColors.white),);
         }
         return Padding(
           padding: EdgeInsets.symmetric(vertical: 10.h),
@@ -45,7 +46,7 @@ class RecipeAppBarBottom extends StatelessWidget
                     EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
                     decoration: BoxDecoration(
                       color: vm.categoryId == item['id']
-                          ? Appcolors().redpinkmain
+                          ? AppColors.redPinkMain
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(18.r),
                     ),
@@ -54,7 +55,7 @@ class RecipeAppBarBottom extends StatelessWidget
                       style: TextStyle(
                         color: vm.categoryId == item['id']
                             ? Colors.white
-                            : Appcolors().redpinkmain,
+                            : AppColors.redPinkMain,
                         fontWeight: FontWeight.w500,
                         fontSize: 14.sp,
                       ),

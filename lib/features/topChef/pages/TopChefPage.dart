@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:recipefoodapp/core/routing/routes.dart';
 import 'package:recipefoodapp/features/common/bottomNavigationBar/bottom_nav_bar.dart';
-import 'package:recipefoodapp/core/network/cleint.dart';
+import 'package:recipefoodapp/core/cleint.dart';
 import 'package:recipefoodapp/data/repositories/chef/topChefRepostory.dart';
 import 'package:recipefoodapp/features/common/appBar/app_bar_home.dart';
 import 'package:recipefoodapp/features/topChef/managers/TopChefViewModel.dart';
@@ -23,31 +24,31 @@ class _TopChefPageState extends State<TopChefPage> {
   late List<bool> isFollowing;
   late List<bool> isFollowingNew;
 
-
   @override
   void initState() {
     super.initState();
     isFollowing = List.generate(8, (_) => false);
     isFollowingNew = List.generate(2, (_) => false);
-
   }
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) =>
-          TopChefViewModel(TopChefRepository(client: ApiClient())),
+      create: (context) => TopChefViewModel(TopChefRepository(client: ApiClient())),
       builder: (context, child) => Consumer<TopChefViewModel>(
         builder: (context, vm, child) => Scaffold(
           extendBody: true,
-          appBar: AppBarHome(title: 'Top Chef', bottom: null,),
+          appBar: AppBarHome(
+            title: 'Top Chef',
+            bottom: null,
+          ),
           bottomNavigationBar: BottomNavBar(),
           body: SingleChildScrollView(
             child: Column(
               children: [
                 ChefsWidgetsMost(),
                 Padding(
-                  padding: EdgeInsetsGeometry.only(right:  36, left: 36, bottom: 100),
+                  padding: EdgeInsetsGeometry.only(right: 36, left: 36, bottom: 100),
                   child: Column(
                     children: [
                       Column(
@@ -60,22 +61,22 @@ class _TopChefPageState extends State<TopChefPage> {
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
-                              color: Appcolors().redpinkmain,
+                              color: AppColors.redPinkMain,
                             ),
                           ),
                           Row(
                             spacing: 15,
                             children: [
                               ...List.generate(
-                                vm.topChefView.length > 2
-                                    ? 2
-                                    : vm.topChefView.length,
+                                vm.topChefView.length > 2 ? 2 : vm.topChefView.length,
                                 (index) {
                                   final chef = vm.topChefView[index];
                                   return GestureDetector(
-                                    onTap: (){
-                                      context.read<ChefDetailViewModel>().getChefDetails(vm.topChefView[index].id);
-                                      context.push('/chefDetail',);
+                                    onTap: () {
+                                      context.push(
+                                        Routes.chefDetail,
+                                        extra: vm.topChefView[index].id,
+                                      );
                                     },
                                     child: SizedBox(
                                       width: 170.w,
@@ -88,9 +89,8 @@ class _TopChefPageState extends State<TopChefPage> {
                                               width: 160.w,
                                               height: 80.h,
                                               decoration: BoxDecoration(
-                                                color: Appcolors().white,
-                                                borderRadius:
-                                                    BorderRadius.circular(14.r),
+                                                color: AppColors.white,
+                                                borderRadius: BorderRadius.circular(14.r),
                                               ),
                                               child: Padding(
                                                 padding: const EdgeInsets.only(
@@ -99,34 +99,27 @@ class _TopChefPageState extends State<TopChefPage> {
                                                   left: 10,
                                                 ),
                                                 child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
                                                       '${chef.firstName} ${chef.lastName}-Chef',
                                                       maxLines: 1,
                                                       style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w400,
+                                                        fontWeight: FontWeight.w400,
                                                         fontSize: 11,
-                                                        color: Appcolors()
-                                                            .backgroundBegie,
+                                                        color: AppColors.backgroundBeige,
                                                       ),
                                                     ),
                                                     Text(
                                                       '@${chef.username}',
                                                       style: TextStyle(
                                                         fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                        color: Appcolors()
-                                                            .redpinkmain,
+                                                        fontWeight: FontWeight.w300,
+                                                        color: AppColors.redPinkMain,
                                                       ),
                                                     ),
                                                     Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
+                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                       children: [
                                                         Row(
                                                           children: [
@@ -134,11 +127,8 @@ class _TopChefPageState extends State<TopChefPage> {
                                                               '30237',
                                                               style: TextStyle(
                                                                 fontSize: 12,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w400,
-                                                                color: Appcolors()
-                                                                    .pinkSub,
+                                                                fontWeight: FontWeight.w400,
+                                                                color: AppColors.pinkSub,
                                                               ),
                                                             ),
                                                             SizedBox(width: 3.w),
@@ -151,37 +141,26 @@ class _TopChefPageState extends State<TopChefPage> {
                                                         GestureDetector(
                                                           onTap: () {
                                                             setState(() {
-                                                              isFollowing[index] =
-                                                                  !isFollowing[index];
+                                                              isFollowing[index] = !isFollowing[index];
                                                             });
                                                           },
                                                           child: Container(
-                                                            alignment:
-                                                                Alignment.center,
+                                                            alignment: Alignment.center,
                                                             width: 55.w,
                                                             height: 18.h,
                                                             decoration: BoxDecoration(
-                                                              color:
-                                                                  isFollowing[index]
-                                                                  ? Appcolors()
-                                                                        .pink
-                                                                  : Appcolors()
-                                                                        .redpinkmain,
-                                                              borderRadius:
-                                                                  BorderRadius.circular(
-                                                                    30.r,
-                                                                  ),
+                                                              color: isFollowing[index]
+                                                                  ? AppColors.pink
+                                                                  : AppColors.redPinkMain,
+                                                              borderRadius: BorderRadius.circular(
+                                                                30.r,
+                                                              ),
                                                             ),
                                                             child: Text(
-                                                              isFollowing[index]
-                                                                  ? 'Following'
-                                                                  : 'Follow',
+                                                              isFollowing[index] ? 'Following' : 'Follow',
                                                               style: TextStyle(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                color: Appcolors()
-                                                                    .white,
+                                                                fontWeight: FontWeight.w500,
+                                                                color: AppColors.white,
                                                                 fontSize: 9,
                                                               ),
                                                             ),
@@ -247,16 +226,14 @@ class _TopChefPageState extends State<TopChefPage> {
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
-                              color: Appcolors().redpinkmain,
+                              color: AppColors.redPinkMain,
                             ),
                           ),
                           Row(
                             spacing: 15,
                             children: [
                               ...List.generate(
-                                vm.topChefData.length > 2
-                                    ? 2
-                                    : vm.topChefData.length,
+                                vm.topChefData.length > 2 ? 2 : vm.topChefData.length,
                                 (index) {
                                   final chef = vm.topChefData[index];
                                   return SizedBox(
@@ -270,9 +247,8 @@ class _TopChefPageState extends State<TopChefPage> {
                                             width: 160.w,
                                             height: 80.h,
                                             decoration: BoxDecoration(
-                                              color: Appcolors().white,
-                                              borderRadius:
-                                                  BorderRadius.circular(14.r),
+                                              color: AppColors.white,
+                                              borderRadius: BorderRadius.circular(14.r),
                                             ),
                                             child: Padding(
                                               padding: const EdgeInsets.only(
@@ -281,34 +257,27 @@ class _TopChefPageState extends State<TopChefPage> {
                                                 left: 10,
                                               ),
                                               child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
                                                     '${chef.firstName} ${chef.lastName} - Chef',
                                                     maxLines: 1,
                                                     style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w400,
+                                                      fontWeight: FontWeight.w400,
                                                       fontSize: 11,
-                                                      color: Appcolors()
-                                                          .backgroundBegie,
+                                                      color: AppColors.backgroundBeige,
                                                     ),
                                                   ),
                                                   Text(
                                                     '@${chef.username}',
                                                     style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight:
-                                                          FontWeight.w300,
-                                                      color: Appcolors()
-                                                          .redpinkmain,
+                                                      fontWeight: FontWeight.w300,
+                                                      color: AppColors.redPinkMain,
                                                     ),
                                                   ),
                                                   Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                     children: [
                                                       Row(
                                                         children: [
@@ -316,11 +285,8 @@ class _TopChefPageState extends State<TopChefPage> {
                                                             '30237',
                                                             style: TextStyle(
                                                               fontSize: 12,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400,
-                                                              color: Appcolors()
-                                                                  .pinkSub,
+                                                              fontWeight: FontWeight.w400,
+                                                              color: AppColors.pinkSub,
                                                             ),
                                                           ),
                                                           SizedBox(width: 3.w),
@@ -333,37 +299,26 @@ class _TopChefPageState extends State<TopChefPage> {
                                                       GestureDetector(
                                                         onTap: () {
                                                           setState(() {
-                                                            isFollowingNew[index] =
-                                                                !isFollowingNew[index];
+                                                            isFollowingNew[index] = !isFollowingNew[index];
                                                           });
                                                         },
                                                         child: Container(
-                                                          alignment:
-                                                              Alignment.center,
+                                                          alignment: Alignment.center,
                                                           width: 55.w,
                                                           height: 18.h,
                                                           decoration: BoxDecoration(
-                                                            color:
-                                                                isFollowingNew[index]
-                                                                ? Appcolors()
-                                                                      .pink
-                                                                : Appcolors()
-                                                                      .redpinkmain,
-                                                            borderRadius:
-                                                                BorderRadius.circular(
-                                                                  30.r,
-                                                                ),
+                                                            color: isFollowingNew[index]
+                                                                ? AppColors.pink
+                                                                : AppColors.redPinkMain,
+                                                            borderRadius: BorderRadius.circular(
+                                                              30.r,
+                                                            ),
                                                           ),
                                                           child: Text(
-                                                            isFollowingNew[index]
-                                                                ? 'Following'
-                                                                : 'Follow',
+                                                            isFollowingNew[index] ? 'Following' : 'Follow',
                                                             style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              color: Appcolors()
-                                                                  .white,
+                                                              fontWeight: FontWeight.w500,
+                                                              color: AppColors.white,
                                                               fontSize: 9,
                                                             ),
                                                           ),
